@@ -1,5 +1,6 @@
 # Sample Ruby code for user authorization
-
+require "pry-byebug"
+require 'ap'
 require 'rubygems'
 gem 'google-api-client', '>0.7'
 require 'google/apis'
@@ -12,7 +13,7 @@ require 'json'
 
 # REPLACE WITH VALID REDIRECT_URI FOR YOUR CLIENT
 REDIRECT_URI = 'http://localhost'
-APPLICATION_NAME = 'YouTube Data API Ruby Tests'
+APPLICATION_NAME = 'YouTube Data API'
 
 # REPLACE WITH NAME/LOCATION OF YOUR client_secrets.json FILE
 CLIENT_SECRETS_PATH = 'client_secret.json'
@@ -53,6 +54,7 @@ service.authorization = authorize
 # Sample ruby code for channels.list
 
 def channels_list_by_username(service, part, **params)
+  binding.pry
   response = service.list_channels(part, params).to_json
   item = JSON.parse(response).fetch("items")[0]
 
@@ -61,4 +63,4 @@ def channels_list_by_username(service, part, **params)
         "#{item.fetch("statistics").fetch("viewCount")} views.")
 end
 
-channels_list_by_username(service, 'snippet,contentDetails,statistics', for_username: 'GoogleDevelopers')
+channels_list_by_username(service, 'snippet,contentDetails,statistics', for_username: 'corycotton')
