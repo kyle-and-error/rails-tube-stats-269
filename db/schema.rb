@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_23_094005) do
+ActiveRecord::Schema.define(version: 2019_07_23_095450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "video_id"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "watcher_id"
+    t.index ["video_id"], name: "index_comments_on_video_id"
+    t.index ["watcher_id"], name: "index_comments_on_watcher_id"
+  end
 
   create_table "playlist_videos", force: :cascade do |t|
     t.bigint "playlist_id"
@@ -34,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_07_23_094005) do
   end
 
   create_table "suggestions", force: :cascade do |t|
-    t.string "message"
+    t.text "message"
     t.bigint "playlist_id"
     t.bigint "video_id"
     t.datetime "created_at", null: false
@@ -72,6 +82,17 @@ ActiveRecord::Schema.define(version: 2019_07_23_094005) do
     t.index ["creator_id"], name: "index_videos_on_creator_id"
   end
 
+  create_table "watched_videos", force: :cascade do |t|
+    t.integer "like_status", default: 0
+    t.bigint "video_id"
+    t.bigint "watch_id"
+    t.datetime "datetime_watched", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["video_id"], name: "index_watched_videos_on_video_id"
+    t.index ["watch_id"], name: "index_watched_videos_on_watch_id"
+  end
+
   create_table "watches", force: :cascade do |t|
     t.boolean "subscription"
     t.datetime "created_at", null: false
@@ -92,6 +113,8 @@ ActiveRecord::Schema.define(version: 2019_07_23_094005) do
     t.index ["user_id"], name: "index_youtube_accounts_on_user_id"
   end
 
+  add_foreign_key "comments", "videos"
+  add_foreign_key "comments", "youtube_accounts", column: "watcher_id"
   add_foreign_key "playlist_videos", "playlists"
   add_foreign_key "playlist_videos", "videos"
   add_foreign_key "playlists", "youtube_accounts", column: "creator_id"
@@ -100,6 +123,8 @@ ActiveRecord::Schema.define(version: 2019_07_23_094005) do
   add_foreign_key "suggestions", "youtube_accounts", column: "creator_id"
   add_foreign_key "suggestions", "youtube_accounts", column: "watcher_id"
   add_foreign_key "videos", "youtube_accounts", column: "creator_id"
+  add_foreign_key "watched_videos", "videos"
+  add_foreign_key "watched_videos", "watches"
   add_foreign_key "watches", "youtube_accounts", column: "creator_id"
   add_foreign_key "watches", "youtube_accounts", column: "watcher_id"
   add_foreign_key "youtube_accounts", "users"
