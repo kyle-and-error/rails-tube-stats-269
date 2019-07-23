@@ -10,4 +10,8 @@ class YoutubeAccount < ApplicationRecord
   has_many :creator_watches, foreign_key: :watcher_id, class_name: 'Watch'
 
   validates :email, uniqueness: true
+
+  def subscribe_url
+    url + '?sub_confirmation=1'
+  end
 end
