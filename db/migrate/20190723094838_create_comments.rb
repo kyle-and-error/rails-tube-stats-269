@@ -6,6 +6,6 @@ class CreateComments < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    add_reference :suggestions, :watcher, foreign_key: { to_table: :youtube_accounts }
+    add_reference :comments, :watcher, foreign_key: { to_table: :youtube_accounts }
   end
 end
