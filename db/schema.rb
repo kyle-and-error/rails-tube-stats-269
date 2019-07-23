@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_23_093258) do
+ActiveRecord::Schema.define(version: 2019_07_23_094005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "playlist_videos", force: :cascade do |t|
+    t.bigint "playlist_id"
+    t.bigint "video_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["playlist_id"], name: "index_playlist_videos_on_playlist_id"
+    t.index ["video_id"], name: "index_playlist_videos_on_video_id"
+  end
 
   create_table "playlists", force: :cascade do |t|
     t.string "title"
@@ -22,6 +31,20 @@ ActiveRecord::Schema.define(version: 2019_07_23_093258) do
     t.datetime "updated_at", null: false
     t.bigint "creator_id"
     t.index ["creator_id"], name: "index_playlists_on_creator_id"
+  end
+
+  create_table "suggestions", force: :cascade do |t|
+    t.string "message"
+    t.bigint "playlist_id"
+    t.bigint "video_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "watcher_id"
+    t.bigint "creator_id"
+    t.index ["creator_id"], name: "index_suggestions_on_creator_id"
+    t.index ["playlist_id"], name: "index_suggestions_on_playlist_id"
+    t.index ["video_id"], name: "index_suggestions_on_video_id"
+    t.index ["watcher_id"], name: "index_suggestions_on_watcher_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,7 +92,13 @@ ActiveRecord::Schema.define(version: 2019_07_23_093258) do
     t.index ["user_id"], name: "index_youtube_accounts_on_user_id"
   end
 
+  add_foreign_key "playlist_videos", "playlists"
+  add_foreign_key "playlist_videos", "videos"
   add_foreign_key "playlists", "youtube_accounts", column: "creator_id"
+  add_foreign_key "suggestions", "playlists"
+  add_foreign_key "suggestions", "videos"
+  add_foreign_key "suggestions", "youtube_accounts", column: "creator_id"
+  add_foreign_key "suggestions", "youtube_accounts", column: "watcher_id"
   add_foreign_key "videos", "youtube_accounts", column: "creator_id"
   add_foreign_key "watches", "youtube_accounts", column: "creator_id"
   add_foreign_key "watches", "youtube_accounts", column: "watcher_id"
