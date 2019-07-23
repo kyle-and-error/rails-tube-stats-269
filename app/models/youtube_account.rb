@@ -1,0 +1,2 @@
+class YoutubeAccount < ApplicationRecord
+end
