@@ -8,4 +8,6 @@ class YoutubeAccount < ApplicationRecord
   has_many :creators, through: :creator_watches, soruce: :creator
 
   has_many :creator_watches, foreign_key: :watcher_id, class_name: 'Watch'
+
+  validates :email, uniqueness: true
 end
