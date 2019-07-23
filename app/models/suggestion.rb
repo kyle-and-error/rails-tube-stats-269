@@ -1,4 +1,5 @@
 class Suggestion < ApplicationRecord
+  belongs_to :watcher, class_name: 'YoutubeAccount'
   belongs_to :playlist, optional: true
   belongs_to :creator, class_name: 'YoutubeAccount', optional: true
   belongs_to :video, optional: true
