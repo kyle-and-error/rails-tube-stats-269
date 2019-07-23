@@ -1,0 +1,2 @@
+class WatchedVideo < ApplicationRecord
+end
