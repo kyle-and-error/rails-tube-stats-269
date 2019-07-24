@@ -90,10 +90,17 @@ ActiveRecord::Schema.define(version: 2019_07_23_153947) do
     t.string "title"
     t.string "url"
     t.string "topic"
+<<<<<<< HEAD
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_videos_on_user_id"
+=======
     t.bigint "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["creator_id"], name: "index_videos_on_creator_id"
+>>>>>>> 19fa6096eb24939ed179957d90a773d0299622d9
   end
 
   create_table "watched_videos", force: :cascade do |t|
@@ -137,7 +144,11 @@ ActiveRecord::Schema.define(version: 2019_07_23_153947) do
   add_foreign_key "suggestions", "playlists"
   add_foreign_key "suggestions", "videos"
   add_foreign_key "suggestions", "youtube_accounts", column: "watcher_id"
+<<<<<<< HEAD
+  add_foreign_key "videos", "users"
+=======
   add_foreign_key "videos", "creators"
+>>>>>>> 19fa6096eb24939ed179957d90a773d0299622d9
   add_foreign_key "watched_videos", "videos"
   add_foreign_key "watched_videos", "watches"
   add_foreign_key "watches", "creators"
