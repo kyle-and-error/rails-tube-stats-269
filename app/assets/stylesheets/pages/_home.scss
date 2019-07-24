@@ -1,14 +1,15 @@
 // Specific CSS for your home-page
 .banner {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://images.unsplash.com/photo-1507325670434-aa8da9a9626c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=913&q=80');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80');
   background-size: cover;
   background-position: center center;
-  position: relative;
-  top: 0;
-  bottom: 0;
+  // position: relative;
+  // top: 0;
+  // bottom: 0;
   height: 100vh;
-  padding: 150 px 0;
+  padding: 150px 0;
   width: 100%;
+
 }
 
 .banner h1 {
@@ -17,6 +18,7 @@
   text-shadow: 1px 1px 3px;
   font-size: 32px;
   font-weight: bold;
+  // margin-top: 10px;
 }
 
 .banner p {
@@ -28,5 +30,20 @@
   font-weight: bold;
 }
 
+.home-infos {
+  padding: 15px;
 
+}
+
+.container {
+  margin: 5;
+}
+
+.card {
+background: white;
+padding: 30px;
+border-radius: 4px;
+box-shadow: 0 10px rgba(0,0,0,.1);
+margin: 10;
+}
 
