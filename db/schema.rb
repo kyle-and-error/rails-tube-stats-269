@@ -144,11 +144,7 @@ ActiveRecord::Schema.define(version: 2019_07_23_153947) do
   add_foreign_key "suggestions", "playlists"
   add_foreign_key "suggestions", "videos"
   add_foreign_key "suggestions", "youtube_accounts", column: "watcher_id"
-<<<<<<< HEAD
-  add_foreign_key "videos", "users"
-=======
   add_foreign_key "videos", "creators"
->>>>>>> 19fa6096eb24939ed179957d90a773d0299622d9
   add_foreign_key "watched_videos", "videos"
   add_foreign_key "watched_videos", "watches"
   add_foreign_key "watches", "creators"
