@@ -16,4 +16,10 @@ class YoutubeAccount < ApplicationRecord
   has_many :video_watched, through: :watchex
 
   validates :email, uniqueness: true
+
+  before_save :check_if_type_is_present
+
+  def initialize_data
+
+  end
 end

@@ -13,6 +13,5 @@ class Creator < ApplicationRecord
   private
 
   def set_id
-    playlist || creator || video
   end
 end

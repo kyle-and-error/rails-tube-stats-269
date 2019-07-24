@@ -8,6 +8,7 @@ class YoutubeAccountsController < ApplicationController
   end
 
   def create
+    account = Yt::Account.new authorization_code: '4/Ja60jJ7_Kw0', redirect_uri: redirect_uri
     @yt_account = YoutubeAccount.new(yt_account_params)
     @yt_account.host = current_user
 
@@ -29,6 +30,6 @@ class YoutubeAccountsController < ApplicationController
   private
 
   def yt_account_params
-    params.require(:yt_account).permit(:name, :code)
+    params.require(:yt_account).permit(:name)
   end
 end
