@@ -15,6 +15,7 @@ class PagesController < ApplicationController
   end
 
   private
+
   def set_authorization_url
     scopes = ['youtube', 'youtube.readonly', 'userinfo.email']
     redirect_uri = 'http://localhost:3000/youtube_accounts/create'

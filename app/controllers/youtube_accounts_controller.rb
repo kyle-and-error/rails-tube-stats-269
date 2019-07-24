@@ -8,21 +8,27 @@ class YoutubeAccountsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
-    @event.host = current_user
+    @yt_account = YoutubeAccount.new(yt_account_params)
+    @yt_account.host = current_user
 
     respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
+      if @yt_account.save
+        format.html { redirect_to @yt_account, notice: 'Youtube account was successfully registered.' }
+        format.json { render :show, status: :created, location: @yt_account }
       else
         format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.json { render json: @yt_account.errors, status: :unprocessable_entity }
       end
     end
-    authorize @event
+    authorize @yt_account
   end
 
   def show
+  end
+
+  private
+
+  def yt_account_params
+    params.require(:yt_account).permit(:name, :code)
   end
 end
