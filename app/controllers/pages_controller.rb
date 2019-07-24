@@ -10,6 +10,6 @@ class PagesController < ApplicationController
   def dashboard
   end
 
-  def google4165ccca5ea2416c.html
+  def google_verification
   end
 end
