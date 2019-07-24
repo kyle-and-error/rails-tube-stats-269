@@ -43,7 +43,7 @@ kyle_yt_account.save
 thomas_yt_account = YoutubeAccount.new({
   email: 'berhane097@gmail.com',
   url: 'https://www.youtube.com/channel/UCIgX5OjK65AaJDni5ToK89w',
-  user: thomas
+  user: thomas,
 })
 
 thomas_yt_account.save
