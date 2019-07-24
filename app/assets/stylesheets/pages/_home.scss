@@ -1,1 +1,46 @@
 // Specific CSS for your home-page
+.banner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80');
+  background-size: cover;
+  background-position: center center;
+  // position: relative;
+  // top: 0;
+  // bottom: 0;
+  height: 100vh;
+  padding: 150px 0;
+  width: 100%;
+
+}
+
+.banner h1 {
+  margin: 0;
+  color: #24305E;
+  text-shadow: 1px 1px 3px;
+  font-size: 32px;
+  font-weight: bold;
+  // margin-top: 10px;
+}
+
+.banner p {
+  font-size: 20px;
+  color: #FF0000;
+  opacity: .7;
+  text-shadow: 1px, 1px, 3px;
+  font-weight: bold;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  font-size: 1rem;
+  line-height: 1.6rem;
+}
+
+.container-banner {
+
+  padding: 30px;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  margin: 5;
+  width: 300px;
+
+}
+
