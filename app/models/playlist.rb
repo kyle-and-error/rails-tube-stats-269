@@ -8,8 +8,6 @@ class Playlist < ApplicationRecord
 
   has_many :suggestions
 
-  belongs_to :creator, class_name: 'YoutubeAccount'
-
   validates :title, presence: true
   validates :url, presence: true
 end
