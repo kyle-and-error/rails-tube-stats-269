@@ -53,9 +53,9 @@ ActiveRecord::Schema.define(version: 2019_07_23_153947) do
   create_table "playlists", force: :cascade do |t|
     t.string "title"
     t.string "url"
-    t.bigint "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "creator_id"
     t.index ["creator_id"], name: "index_playlists_on_creator_id"
   end
 
@@ -63,10 +63,10 @@ ActiveRecord::Schema.define(version: 2019_07_23_153947) do
     t.text "message"
     t.bigint "playlist_id"
     t.bigint "video_id"
-    t.bigint "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "watcher_id"
+    t.bigint "creator_id"
     t.index ["creator_id"], name: "index_suggestions_on_creator_id"
     t.index ["playlist_id"], name: "index_suggestions_on_playlist_id"
     t.index ["video_id"], name: "index_suggestions_on_video_id"
@@ -92,10 +92,10 @@ ActiveRecord::Schema.define(version: 2019_07_23_153947) do
     t.string "title"
     t.string "url"
     t.string "topic"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_videos_on_user_id"
+    t.bigint "creator_id"
+    t.index ["creator_id"], name: "index_videos_on_creator_id"
   end
 
   create_table "watched_videos", force: :cascade do |t|
@@ -111,10 +111,10 @@ ActiveRecord::Schema.define(version: 2019_07_23_153947) do
 
   create_table "watches", force: :cascade do |t|
     t.boolean "subscription"
-    t.bigint "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "watcher_id"
+    t.bigint "creator_id"
     t.index ["creator_id"], name: "index_watches_on_creator_id"
     t.index ["watcher_id"], name: "index_watches_on_watcher_id"
   end
@@ -122,7 +122,6 @@ ActiveRecord::Schema.define(version: 2019_07_23_153947) do
   create_table "youtube_accounts", force: :cascade do |t|
     t.string "email"
     t.string "url"
-    t.string "youtube_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -135,15 +134,15 @@ ActiveRecord::Schema.define(version: 2019_07_23_153947) do
   add_foreign_key "playlist_videos", "videos"
   add_foreign_key "playlist_watchers", "playlists"
   add_foreign_key "playlist_watchers", "youtube_accounts", column: "watcher_id"
-  add_foreign_key "playlists", "creators"
-  add_foreign_key "suggestions", "creators"
+  add_foreign_key "playlists", "youtube_accounts", column: "creator_id"
   add_foreign_key "suggestions", "playlists"
   add_foreign_key "suggestions", "videos"
+  add_foreign_key "suggestions", "youtube_accounts", column: "creator_id"
   add_foreign_key "suggestions", "youtube_accounts", column: "watcher_id"
-  add_foreign_key "videos", "users"
+  add_foreign_key "videos", "youtube_accounts", column: "creator_id"
   add_foreign_key "watched_videos", "videos"
   add_foreign_key "watched_videos", "watches"
-  add_foreign_key "watches", "creators"
+  add_foreign_key "watches", "youtube_accounts", column: "creator_id"
   add_foreign_key "watches", "youtube_accounts", column: "watcher_id"
   add_foreign_key "youtube_accounts", "users"
 end
