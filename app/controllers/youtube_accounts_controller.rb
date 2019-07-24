@@ -3,18 +3,18 @@ class YoutubeAccountsController < ApplicationController
   end
 
   def new
-    @account = YoutubeAccount.new
-    authorize @account
+    @yt_account = YoutubeAccount.new
+    @code = params[:code]
+    authorize @yt_account
   end
 
   def create
-    account = Yt::Account.new authorization_code: '4/Ja60jJ7_Kw0', redirect_uri: redirect_uri
-    @yt_account = YoutubeAccount.new(yt_account_params)
-    @yt_account.host = current_user
+    @yt_account = YoutubeAccount.new(name: params[:name], code: params[:code])
+    @yt_account.user = current_user
 
     respond_to do |format|
       if @yt_account.save
-        format.html { redirect_to @yt_account, notice: 'Youtube account was successfully registered.' }
+        format.html { redirect_to dashboard_path, notice: 'Youtube account was successfully registered.' }
         format.json { render :show, status: :created, location: @yt_account }
       else
         format.html { render :new }
@@ -30,6 +30,6 @@ class YoutubeAccountsController < ApplicationController
   private
 
   def yt_account_params
-    params.require(:yt_account).permit(:name)
+    params.require(:yt_account).permit(:name, :code)
   end
 end

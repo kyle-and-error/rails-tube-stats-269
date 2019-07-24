@@ -1,4 +1,5 @@
 class YoutubeAccount < ApplicationRecord
+  REDIRECT_URI = 'http://localhost:3000/dashboard'
   belongs_to :user
 
   has_many :playlist_watchers, dependent: :destroy
@@ -17,9 +18,17 @@ class YoutubeAccount < ApplicationRecord
 
   validates :email, uniqueness: true
 
-  before_save :check_if_type_is_present
+  before_save :initialize_data
+
+  private
 
   def initialize_data
-
+    account = Yt::Account.new authorization_code: code, redirect_uri: REDIRECT_URI
+    id = account.channel.id
+    email = account.email
+    username = account.name
+    avatar = account.avatar_url
+    location = account.locale
+    name = username if name.nil?
   end
 end
