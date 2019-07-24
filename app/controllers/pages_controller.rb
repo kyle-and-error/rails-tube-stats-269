@@ -9,4 +9,7 @@ class PagesController < ApplicationController
 
   def dashboard
   end
+
+  def google4165ccca5ea2416c.html
+  end
 end
