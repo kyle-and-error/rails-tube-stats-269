@@ -1,6 +1,5 @@
 class Comment < ApplicationRecord
-  belongs_to :watcher, class_name: 'YoutubeAccount'
-  belongs_to :videos, dependent: :destroy
+  belongs_to :watched_video
 
   validates :text, presence: true
 end
