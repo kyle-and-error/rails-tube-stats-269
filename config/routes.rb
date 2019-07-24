@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'youtube_accounts/index'
+  get 'youtube_accounts/new'
+  get 'youtube_accounts/show'
   devise_for :users
   root to: 'pages#home'
   get "data", to: "pages#data"

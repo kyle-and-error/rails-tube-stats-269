@@ -16,8 +16,4 @@ class YoutubeAccount < ApplicationRecord
   has_many :video_watched, through: :watchex
 
   validates :email, uniqueness: true
-
-  def subscribe_url
-    url + '?sub_confirmation=1'
-  end
 end

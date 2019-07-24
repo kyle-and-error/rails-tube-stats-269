@@ -1,1 +1,4 @@
 <h1>welcome to the dashboard</h1>
+<% if current_user.youtube_accounts.count == 0 %>
+  <a href=<%= @authentication_url %>>Add your account</a>
+<% end %>
