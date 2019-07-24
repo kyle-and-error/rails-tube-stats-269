@@ -4,7 +4,7 @@ class CreateVideos < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :url
       t.string :topic
-      t.references :user, foreign_key: true
+      t.references :creator, foreign_key: true
 
       t.timestamps
     end
