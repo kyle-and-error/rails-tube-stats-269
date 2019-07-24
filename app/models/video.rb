@@ -5,7 +5,7 @@ class Video < ApplicationRecord
   has_many :comments, through: :watched_videos
 
   has_many :playlist_videos
-  has_mamy :playlists, through: :playlist_videos
+  has_many :playlists, through: :playlist_videos
 
   has_many :suggestions
 
