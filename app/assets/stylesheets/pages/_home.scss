@@ -13,7 +13,7 @@
 }
 
 .banner h1 {
-  margin: 0;
+  margin: 20px;
   color: #24305E;
   text-shadow: 1px 1px 3px;
   font-size: 32px;
@@ -21,8 +21,16 @@
   // margin-top: 10px;
 }
 
-.banner p {
-  font-size: 20px;
+
+
+.container-banner {
+  padding: 30px;
+  border-radius: 4px;
+  width: 300px;
+}
+
+.container-home-info {
+  p {font-size: 20px;
   color: #FF0000;
   opacity: .7;
   text-shadow: 1px, 1px, 3px;
@@ -32,15 +40,9 @@
   border-radius: 15px;
   font-size: 1rem;
   line-height: 1.6rem;
+  margin: 45px;
+
+  }
 }
 
-.container-banner {
-
-  padding: 30px;
-  border-radius: 4px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.1);
-  margin: 5;
-  width: 300px;
-
-}
 
