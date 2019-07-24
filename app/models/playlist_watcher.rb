@@ -1,0 +1,2 @@
+class PlaylistWatcher < ApplicationRecord
+end

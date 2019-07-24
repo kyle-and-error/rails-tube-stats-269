@@ -1,6 +1,9 @@
 class YoutubeAccount < ApplicationRecord
   belongs_to :user
-  has_many :playlists, :videos
+  has_many :playlist_watchers
+  has_many :comments
+  has_many :watches
+
   has_many :watchers, through: :watcher_watches, source: :watcher
 
   has_many :watcher_watches, foreign_key: :creator_id, class_name: 'Watch'

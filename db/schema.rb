@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_23_123716) do
+ActiveRecord::Schema.define(version: 2019_07_23_153947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 2019_07_23_123716) do
     t.index ["watcher_id"], name: "index_comments_on_watcher_id"
   end
 
+  create_table "creators", force: :cascade do |t|
+    t.string "url"
+    t.string "youtube_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "playlist_videos", force: :cascade do |t|
     t.bigint "playlist_id"
     t.bigint "video_id"
@@ -34,12 +41,21 @@ ActiveRecord::Schema.define(version: 2019_07_23_123716) do
     t.index ["video_id"], name: "index_playlist_videos_on_video_id"
   end
 
+  create_table "playlist_watchers", force: :cascade do |t|
+    t.bigint "playlist_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "watcher_id"
+    t.index ["playlist_id"], name: "index_playlist_watchers_on_playlist_id"
+    t.index ["watcher_id"], name: "index_playlist_watchers_on_watcher_id"
+  end
+
   create_table "playlists", force: :cascade do |t|
     t.string "title"
     t.string "url"
+    t.bigint "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "creator_id"
     t.index ["creator_id"], name: "index_playlists_on_creator_id"
   end
 
@@ -47,10 +63,10 @@ ActiveRecord::Schema.define(version: 2019_07_23_123716) do
     t.text "message"
     t.bigint "playlist_id"
     t.bigint "video_id"
+    t.bigint "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "watcher_id"
-    t.bigint "creator_id"
     t.index ["creator_id"], name: "index_suggestions_on_creator_id"
     t.index ["playlist_id"], name: "index_suggestions_on_playlist_id"
     t.index ["video_id"], name: "index_suggestions_on_video_id"
@@ -76,10 +92,10 @@ ActiveRecord::Schema.define(version: 2019_07_23_123716) do
     t.string "title"
     t.string "url"
     t.string "topic"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "creator_id"
-    t.index ["creator_id"], name: "index_videos_on_creator_id"
+    t.index ["user_id"], name: "index_videos_on_user_id"
   end
 
   create_table "watched_videos", force: :cascade do |t|
@@ -95,10 +111,10 @@ ActiveRecord::Schema.define(version: 2019_07_23_123716) do
 
   create_table "watches", force: :cascade do |t|
     t.boolean "subscription"
+    t.bigint "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "watcher_id"
-    t.bigint "creator_id"
     t.index ["creator_id"], name: "index_watches_on_creator_id"
     t.index ["watcher_id"], name: "index_watches_on_watcher_id"
   end
@@ -106,6 +122,7 @@ ActiveRecord::Schema.define(version: 2019_07_23_123716) do
   create_table "youtube_accounts", force: :cascade do |t|
     t.string "email"
     t.string "url"
+    t.string "youtube_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -116,15 +133,17 @@ ActiveRecord::Schema.define(version: 2019_07_23_123716) do
   add_foreign_key "comments", "youtube_accounts", column: "watcher_id"
   add_foreign_key "playlist_videos", "playlists"
   add_foreign_key "playlist_videos", "videos"
-  add_foreign_key "playlists", "youtube_accounts", column: "creator_id"
+  add_foreign_key "playlist_watchers", "playlists"
+  add_foreign_key "playlist_watchers", "youtube_accounts", column: "watcher_id"
+  add_foreign_key "playlists", "creators"
+  add_foreign_key "suggestions", "creators"
   add_foreign_key "suggestions", "playlists"
   add_foreign_key "suggestions", "videos"
-  add_foreign_key "suggestions", "youtube_accounts", column: "creator_id"
   add_foreign_key "suggestions", "youtube_accounts", column: "watcher_id"
-  add_foreign_key "videos", "youtube_accounts", column: "creator_id"
+  add_foreign_key "videos", "users"
   add_foreign_key "watched_videos", "videos"
   add_foreign_key "watched_videos", "watches"
-  add_foreign_key "watches", "youtube_accounts", column: "creator_id"
+  add_foreign_key "watches", "creators"
   add_foreign_key "watches", "youtube_accounts", column: "watcher_id"
   add_foreign_key "youtube_accounts", "users"
 end
