@@ -6,6 +6,7 @@ gem 'devise'
 
 gem "chartkick"
 
+gem 'google-api-client', '~> 0.11'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
