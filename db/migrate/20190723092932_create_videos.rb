@@ -4,9 +4,9 @@ class CreateVideos < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :url
       t.string :topic
+      t.references :user, foreign_key: true
 
       t.timestamps
     end
-    add_reference :videos, :creator, foreign_key: { to_table: :youtube_accounts }
   end
 end
