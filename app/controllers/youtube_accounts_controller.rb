@@ -3,9 +3,12 @@ class YoutubeAccountsController < ApplicationController
   end
 
   def new
-    @yt_account = YoutubeAccount.new
-    @code = params[:code]
-    authorize @yt_account
+    @youtube_account = YoutubeAccount.new
+    redirect_uri = "http://4fa98408.ngrok.io/youtube_accounts/new"
+    code = params[:code]
+    auth = Yt::Auth.create(redirect_uri: redirect_uri, code: code)
+    @refresh_token = auth.refresh_token
+    authorize @youtube_account
   end
 
   def create
@@ -31,6 +34,6 @@ class YoutubeAccountsController < ApplicationController
   private
 
   def youtube_account_params
-    params.require(:youtube_account).permit(:name, :code)
+    params.require(:youtube_account).permit(:name, :refresh_token)
   end
 end
