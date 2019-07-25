@@ -1,6 +1,5 @@
  <%= render 'shared/navbar'%>
 
-
  <div class= "container-structure">
 
 
@@ -13,11 +12,13 @@
  </div>
 
 
+
 <div class= "container-structure">
 
   <div class= "topthree">
 
     <%= pie_chart Video.group(:title).count %>
+
   </div>
 
   <div class="flash flash-success alert alert-dismissible fade show" role="alert">
@@ -29,6 +30,4 @@
 
 
 </div>
-
-
 
