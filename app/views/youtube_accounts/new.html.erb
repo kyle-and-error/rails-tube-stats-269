@@ -1,7 +1,7 @@
 <h1>YoutubeAccounts#new</h1>
 <p>Find me in app/views/youtube_accounts/new.html.erb</p>
 
-<%= simple_form_for @yt_account do |f| %>
+<%= simple_form_for @youtube_account do |f| %>
   <%= f.input  :name, label:"Name your your account on our site!:" %>
   <%= f.hidden_field  :code, value: @code %>
   <%= f.button :submit, class: "btn btn-primary" %>

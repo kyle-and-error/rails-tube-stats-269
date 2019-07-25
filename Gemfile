@@ -6,14 +6,18 @@ gem 'devise'
 
 gem "chartkick"
 
-gem 'google-api-client', '~> 0.11'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'pundit'
 gem 'rails', '5.2.3'
 gem 'redis'
+
+gem 'google-api-client', '~> 0.11'
+gem 'googleauth'
+gem 'oauth2'
 gem 'yt', '~> 0.32.0'
+gem 'yt-auth'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
