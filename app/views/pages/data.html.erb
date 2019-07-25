@@ -1,10 +1,32 @@
  <%= render 'shared/navbar'%>
 
 
-<h1>welcome to the data page</h1>
-
-<%= pie_chart Video.group(:title).count %>
 
 
+<div class= "container-structure">
+  <h1>welcome to the data page</h1>
+    <div class= "container-time">
+    <h1>timer</h1>
+  </div>
+</div>
 
-<h1>welcome to the data page</h1>
+
+
+<div class= "container-structure">
+  <div class= "cards-chart">
+    <h1>Pie chart</h1>
+    <%= pie_chart Video.group(:title).count %>
+  </div>
+
+
+  <div class= "cards-chart">
+    <h1>sanky</h1>
+     <%= pie_chart Video.group(:title).count %>
+  </div>
+
+  <div class= "cards-chart">
+    <h1>line chart</h1>
+    <%= line_chart Video.group(:title).count %>
+  </div>
+
+</div>
