@@ -1,7 +1,16 @@
  <%= render 'shared/navbar'%>
 
+ <div class= "container-structure">
+   <h1>Hello #User welcome to your dashboard</h1>
+ </div>
 
-<h1>welcome to the dashboard</h1>
 <% if current_user.youtube_accounts.count == 0 %>
   <a href=<%= @authentication_url %>>Add your account</a>
 <% end %>
+
+ <div class= "container-structure">
+  <div class= "cards-chart">
+    <h1>Pie chart</h1>
+  </div>
+</div>
+
