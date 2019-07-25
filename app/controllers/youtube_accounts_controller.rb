@@ -9,19 +9,20 @@ class YoutubeAccountsController < ApplicationController
   end
 
   def create
-    @yt_account = YoutubeAccount.new(name: params[:name], code: params[:code])
-    @yt_account.user = current_user
+    @youtube_account = YoutubeAccount.new(youtube_account_params)
+    @youtube_account.user = current_user
+
 
     respond_to do |format|
-      if @yt_account.save
+      if @youtube_account.save
         format.html { redirect_to dashboard_path, notice: 'Youtube account was successfully registered.' }
-        format.json { render :show, status: :created, location: @yt_account }
+        format.json { render :show, status: :created, location: @youtube_account }
       else
         format.html { render :new }
-        format.json { render json: @yt_account.errors, status: :unprocessable_entity }
+        format.json { render json: @youtube_account.errors, status: :unprocessable_entity }
       end
     end
-    authorize @yt_account
+    authorize @youtube_account
   end
 
   def show
@@ -29,7 +30,7 @@ class YoutubeAccountsController < ApplicationController
 
   private
 
-  def yt_account_params
-    params.require(:yt_account).permit(:name, :code)
+  def youtube_account_params
+    params.require(:youtube_account).permit(:name, :code)
   end
 end
