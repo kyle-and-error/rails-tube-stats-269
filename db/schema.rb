@@ -126,7 +126,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_155821) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "username"
-    t.string "code"
+    t.string "refresh_token"
     t.string "avatar"
     t.string "location"
     t.index ["user_id"], name: "index_youtube_accounts_on_user_id"
