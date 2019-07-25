@@ -1,4 +1,5 @@
 class YoutubeAccount < ApplicationRecord
+  REDIRECT_URI = ENV["NGROK_URI"]+'/dashboard'
   belongs_to :user
 
   has_many :playlist_watchers, dependent: :destroy
@@ -17,7 +18,17 @@ class YoutubeAccount < ApplicationRecord
 
   validates :email, uniqueness: true
 
-  def subscribe_url
-    url + '?sub_confirmation=1'
+  before_save :initialize_data
+
+  private
+
+  def initialize_data
+    account = Yt::Account.new authorization_code: code, redirect_uri: REDIRECT_URI
+    id = account.channel.id
+    email = account.email
+    username = account.name
+    avatar = account.avatar_url
+    location = account.locale
+    name = username if name.nil?
   end
 end
