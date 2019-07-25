@@ -4,14 +4,35 @@
 }
 
 .container-structure h1{
-  margin-top: 20px;
+  margin-top: 10px;
   font-size: 30px;
+}
 
+.dates h1{
+color: grey;
+font-size: 20px;
+
+}
+
+.topthree{
+  margin-top: 40px;
+}
+
+.flash {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  margin: 8px;
+}
+
+.flash-success {
+  border: 2px solid #1EDD88;
 }
 
 
 
 
-.cards-chart {
-
-}

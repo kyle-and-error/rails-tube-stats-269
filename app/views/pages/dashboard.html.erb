@@ -1,16 +1,33 @@
  <%= render 'shared/navbar'%>
 
  <div class= "container-structure">
-   <h1>Hello #User welcome to your dashboard</h1>
+
+
+  <%= image_tag current_user.avatar, class: "avatar-large m-3" %>
+  <div class= "dates">
+    <h1><%= Date.today.strftime("%A, %b %d") %></h1>
+  </div>
+
+  <h1>Hello <%= current_user.first_name %> those are your statistics</h1>
  </div>
 
-<% if current_user.youtube_accounts.count == 0 %>
-  <a href=<%= @authentication_url %>>Add your account</a>
-<% end %>
 
- <div class= "container-structure">
-  <div class= "cards-chart">
-    <h1>Pie chart</h1>
+
+<div class= "container-structure">
+
+  <div class= "topthree">
+
+    <%= pie_chart Video.group(:title).count %>
+
   </div>
+
+  <div class="flash flash-success alert alert-dismissible fade show" role="alert">
+  <span><strong>Tadaa!</strong> 🎉 your most watched video is x.</span>
+  <a data-dismiss="alert" aria-label="Close">
+    <i class="fas fa-times"></i>
+  </a>
+</div>
+
+
 </div>
 

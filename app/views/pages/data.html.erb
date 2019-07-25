@@ -12,10 +12,11 @@
 
 
 
+
 <div class= "container-structure">
   <h1>welcome to the data page</h1>
     <div class= "container-time">
-    <h1>timer</h1>
+    <%= render 'shared/date_filter' %>
   </div>
 </div>
 <%= render 'shared/top3' %>
@@ -31,7 +32,7 @@
 
   <div class= "cards-chart">
     <h1>sanky</h1>
-     <%= pie_chart Video.group(:title).count %>
+     <%= render 'shared/sankey' %>
   </div>
 
   <div class= "cards-chart">
