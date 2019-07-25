@@ -18,7 +18,7 @@ class PagesController < ApplicationController
 
   def set_authorization_url
     scopes = ['youtube', 'youtube.readonly', 'userinfo.email']
-    redirect_uri = 'http://4fa98408.ngrok.io/youtube_accounts/new'
+    redirect_uri = 'http://localhost:3000/youtube_accounts/new'
     Yt::Account.new(scopes: scopes, redirect_uri: redirect_uri).authentication_url
   end
 end

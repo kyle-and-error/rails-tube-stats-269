@@ -12,7 +12,7 @@ require 'fileutils'
 require 'json'
 
 # REPLACE WITH VALID REDIRECT_URI FOR YOUR CLIENT
-REDIRECT_URI = 'http://localhost'
+REDIRECT_URI = ENV["NGROK_URI"]
 APPLICATION_NAME = 'YouTube Data API'
 
 # REPLACE WITH NAME/LOCATION OF YOUR client_secrets.json FILE

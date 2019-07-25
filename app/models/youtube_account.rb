@@ -1,5 +1,5 @@
 class YoutubeAccount < ApplicationRecord
-  REDIRECT_URI = 'http://localhost:3000/dashboard'
+  REDIRECT_URI = ENV["NGROK_URI"]+'/dashboard'
   belongs_to :user
 
   has_many :playlist_watchers, dependent: :destroy
