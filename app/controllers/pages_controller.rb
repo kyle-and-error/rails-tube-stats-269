@@ -43,7 +43,6 @@ class PagesController < ApplicationController
     token_store = Google::Auth::Stores::RedisTokenStore.new(redis: Redis.new)
     authorizer = Google::Auth::WebUserAuthorizer.new(
     client_id, scope, token_store, oauth2callback_path)
-    byebug
 
     # redirect_uri = 'http://localhost:3000/youtube_accounts/new'
     # scope = %i(youtube.readonly youtube)
