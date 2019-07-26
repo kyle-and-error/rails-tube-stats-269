@@ -3,6 +3,8 @@
 
 <%= simple_form_for @youtube_account do |f| %>
   <%= f.input  :name, label:"Name your your account on our site!:" %>
-  <%= f.hidden_field  :code, value: @code %>
+  <%= f.hidden_field  :access_token, value: @access_token %>
+  <%= f.hidden_field  :refresh_token, value: @refresh_token %>
   <%= f.button :submit, class: "btn btn-primary" %>
+
 <% end %>

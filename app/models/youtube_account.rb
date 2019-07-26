@@ -1,5 +1,4 @@
 class YoutubeAccount < ApplicationRecord
-  REDIRECT_URI = ENV["NGROK_URI"]+'/dashboard'
   belongs_to :user
 
   has_many :playlist_watchers, dependent: :destroy
@@ -23,10 +22,13 @@ class YoutubeAccount < ApplicationRecord
   private
 
   def initialize_data
-    account = Yt::Account.new authorization_code: code, redirect_uri: REDIRECT_URI
+    Yt.configuration.client_id = '546111180417-nu0vq86o5tilefhoiuvgo9fluvlgaof7.apps.googleusercontent.com'
+    Yt.configuration.client_secret = 'S8K_ZRtM711nSqsoMmCwo_3p'
+    account = Yt::Account.new refresh_token: refresh_token
     id = account.channel.id
     email = account.email
     username = account.name
+    username = email if username.nil?
     avatar = account.avatar_url
     location = account.locale
     name = username if name.nil?
