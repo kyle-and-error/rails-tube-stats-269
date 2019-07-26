@@ -8,6 +8,15 @@ class PagesController < ApplicationController
   end
 
   def data
+    @bar_function = ((4000.to_f / 5000.to_f) * 100).to_i
+    @color_function = ""
+      if @bar_function >= 75
+        @color_function = 'green'
+      elsif @bar_function <= 25
+        @color_function = 'red'
+      else
+        @color_function = 'yellow'
+      end
   end
 
   def dashboard
@@ -37,7 +46,7 @@ class PagesController < ApplicationController
   private
 
   def set_authorization_url
-    client_id = Google::Auth::ClientId.from_file('/Users/paulina/code/krenniank/rails-tube-stats-269/client_secret.json')
+    client_id = Google::Auth::ClientId.from_file('//home/thomyturner/code/krenniank/rails-tube-stats-269/client_secret.json')
     scope = ['https://www.googleapis.com/auth/youtube',
            'https://www.googleapis.com/auth/youtube.readonly']
     token_store = Google::Auth::Stores::RedisTokenStore.new(redis: Redis.new)
