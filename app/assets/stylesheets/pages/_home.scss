@@ -63,7 +63,10 @@ img {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #ededed;
+
+  min-width: 100vw;
+  position: absolute;
+  top:222px;
 }
 
 .loader {
