@@ -10,11 +10,11 @@ class PagesController < ApplicationController
     @bar_function = ((3000.to_f / 5000.to_f) * 100).to_i
     @color_function =
       if @bar_function >= 75
-        @color_function = 'green'
+        @color_function = '#374785'
       elsif @bar_function <= 25
-        @color_function = 'red'
+        @color_function = '#FF0000'
       else
-        @color_function = 'yellow'
+        @color_function = '#F8E9A1'
       end
   end
 
