@@ -1,6 +1,13 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to dashboard_path, class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+  <div class="dynamic-logo">
+    <svg class="loader-navbar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340">
+     <circle cx="170" cy="170" r="160" stroke="#374785"/>
+     <circle cx="170" cy="170" r="135" stroke="#5680E9"/>
+     <circle cx="170" cy="170" r="110" stroke="#374785"/>
+     <circle cx="170" cy="170" r="85" stroke="#5680E9"/>
+  </svg>
+  </div>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
