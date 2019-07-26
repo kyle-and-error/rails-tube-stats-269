@@ -37,7 +37,7 @@ class PagesController < ApplicationController
   private
 
   def set_authorization_url
-    client_id = Google::Auth::ClientId.from_file('/Users/kylecho/code/krenniank/rails-tube-stats-269/client_secret.json')
+    client_id = Google::Auth::ClientId.from_file('/Users/paulina/code/krenniank/rails-tube-stats-269/client_secret.json')
     scope = ['https://www.googleapis.com/auth/youtube',
            'https://www.googleapis.com/auth/youtube.readonly']
     token_store = Google::Auth::Stores::RedisTokenStore.new(redis: Redis.new)
