@@ -8,10 +8,12 @@
     <h1><%= Date.today.strftime("%A, %b %d") %></h1>
   </div>
 
-  <h1>Hello <%= current_user.first_name %> those are your statistics</h1>
+  <h1>Hello <%= current_user.full_name %>, this is your weekly report</h1>
  </div>
 
-
+<% if current_user.youtube_accounts.count == 0 %>
+  <a href=<%= @authorization_url %>>Add your account</a>
+<% end %>
 
 <div class= "container-structure">
 
