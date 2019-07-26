@@ -10,3 +10,13 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.dynamic-logo {
+  width: 100%;
+  .loader-navbar {
+    max-width: 3rem;
+    width: 100%;
+    height: auto;
+    stroke-linecap: round;
+  }
+}

@@ -17,7 +17,7 @@ class YoutubeAccount < ApplicationRecord
 
   validates :email, uniqueness: true
 
-  before_save :initialize_data
+  # before_save :initialize_data
 
   def url
     'https://www.youtube.com/channel/' + youtube_id

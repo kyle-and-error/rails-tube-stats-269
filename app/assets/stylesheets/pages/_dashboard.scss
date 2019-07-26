@@ -1,24 +1,30 @@
 .container-structure {
   width: 800px;
   margin: 0 auto;
+
 }
 
 .container-structure h1{
   margin-top: 10px;
   font-size: 30px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  padding:15px;
 }
 
 .dates h1{
 color: grey;
 font-size: 20px;
-display: inline
-
+display: inline;
+text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
-
 
 
 .topthree{
   margin-top: 40px;
+  background:white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+
 }
 
 .flash {
@@ -33,7 +39,7 @@ display: inline
 }
 
 .flash-success {
-  border: 2px solid #1EDD88;
+  border: 2px solid #5680E9;
 }
 
 .fa-youtube{
@@ -42,6 +48,7 @@ display: inline
   margin-right: 10px;
 }
 
+
 .try-out{
 
 background: #005C97;  /* fallback for old browsers */
@@ -49,7 +56,18 @@ background: -webkit-linear-gradient(to right, #363795, #005C97);  /* Chrome 10-2
 background: linear-gradient(to right, #363795, #005C97); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+.alert {
+  position: fixed;
+
+}
 
 
+.bar-item h4 {
+  font-size: 10px;
 
+}
+
+.bar-item img {
+  margin: 10px;
+}
 

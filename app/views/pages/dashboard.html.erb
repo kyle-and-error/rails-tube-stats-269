@@ -7,11 +7,13 @@
   <h1><%= Date.today.strftime("%A, %b %d") %></h1>
   </div>
 
-  <h1>Hello <%= current_user.full_name %>, this is your weekly report</h1>
+
+  <h1>Hello <strong><%= current_user.full_name %></strong> this is your weekly report</h1>
+
  </div>
 
 <% if current_user.youtube_accounts.count == 0 %>
-  <a href=<%= @authorization_url %>>Add your account</a>
+  <a href=<%= @authorization_url %>></a>
 <% end %>
 
 <div class= "container-structure">
@@ -30,10 +32,7 @@
 </div>
 
 
-<div class= "try-out">
-  <h1>TEST</h1>
-</div>
-<i class="fab fa-youtube"></i>
+
 
 
 </div>
