@@ -20,10 +20,16 @@
 
 .cards-chart {
 margin: 30px;
-border: 1px solid red;
+//border: 1px solid red;
 justify-content: center;
 box-shadow: 0 0 15px rgba(0,0,0,0.2);
-border-radius: 5px
+border-radius: 5px;
+background: white;
+}
+
+.card-chart h1 {
+margin:10%;
+margin-left: 10%;
 }
 
 .date-filter{
