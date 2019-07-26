@@ -17,13 +17,12 @@ class YoutubeAccountsController < ApplicationController
     )
     auth_client.code = params[:code]
     tokens = auth_client.fetch_access_token!
-    @access_token = tokens["access_token"]
     @refresh_token = tokens["refresh_token"]
   end
 
   def create
     @youtube_account = YoutubeAccount.new(youtube_account_params)
-    @youtube_account.refresh_token = params.dig(:youtube_account, :refresh_token)
+
     @youtube_account.user = current_user
 
     respond_to do |format|
@@ -44,6 +43,6 @@ class YoutubeAccountsController < ApplicationController
   private
 
   def youtube_account_params
-    params.require(:youtube_account).permit(:name)
+    params.require(:youtube_account).permit(:name, :refresh_token)
   end
 end
