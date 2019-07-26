@@ -5,6 +5,7 @@ class CreateVideos < ActiveRecord::Migration[5.2]
       t.string :youtube_id
       t.string :topic
       t.text :thumbnail
+      t.text :description
       t.references :creator, foreign_key: true
 
       t.timestamps

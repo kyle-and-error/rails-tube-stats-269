@@ -9,5 +9,5 @@ class Video < ApplicationRecord
 
   has_many :suggestions
 
-  validates :title, :url, presence: true
+  validates :title, :youtube_id, presence: true
 end

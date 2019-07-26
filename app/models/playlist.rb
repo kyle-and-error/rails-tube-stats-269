@@ -9,5 +9,5 @@ class Playlist < ApplicationRecord
   has_many :suggestions
 
   validates :title, presence: true
-  validates :url, presence: true
+  validates :youtube_id, presence: true
 end

@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 2019_07_26_104927) do
     t.string "youtube_id"
     t.string "topic"
     t.text "thumbnail"
+    t.text "description"
     t.bigint "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

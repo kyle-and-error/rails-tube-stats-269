@@ -39,7 +39,6 @@ class YoutubeAccount < ApplicationRecord
   end
 
   def init_video(video_id)
-    byebug
     video = Video.where(youtube_id: video_id).take
     if video.nil?
       yt_video = Yt::Video.new id: video_id
@@ -47,7 +46,7 @@ class YoutubeAccount < ApplicationRecord
       video.title = yt_video.title
       video.description = yt_video.description
       video.thumbnail = yt_video.thumbnail_url
-      video.creator = init_creator(video.channel_id)
+      video.creator = init_creator(yt_video.channel_id)
       video.save!
     end
     video
@@ -57,7 +56,7 @@ class YoutubeAccount < ApplicationRecord
     items.each do |item|
       playlist_video = PlaylistVideo.new
       playlist_video.playlist = list
-      playlist_video.video = find_or_create_video(item.video_id)
+      playlist_video.video = init_video(item.video_id)
       playlist_video.save!
     end
   end
@@ -69,12 +68,13 @@ class YoutubeAccount < ApplicationRecord
       list.creator = init_creator(yt_playlist.channel_id)
       list.thumbnail = yt_playlist.thumbnail_url
       list.description = yt_playlist.description
-      init_playlist_video(list, yt_playlist.items)
+      init_playlist_video(list, yt_playlist.playlist_items)
       list.save!
     end
   end
 
   def initialize_data
+    Yt.configuration.log_level = :debug
     Yt.configuration.client_id = '546111180417-nu0vq86o5tilefhoiuvgo9fluvlgaof7.apps.googleusercontent.com'
     Yt.configuration.client_secret = 'S8K_ZRtM711nSqsoMmCwo_3p'
     account = Yt::Account.new refresh_token: refresh_token
