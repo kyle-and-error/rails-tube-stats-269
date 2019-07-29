@@ -7,33 +7,27 @@
   <h1><%= Date.today.strftime("%A, %b %d") %></h1>
   </div>
 
-
-  <h1>Hello <strong><%= current_user.full_name %></strong> this is your weekly report</h1>
+  <% if current_user.youtube_accounts.count == 0 %>
+    <a href=<%= @authorization_url %>>Please add a Youtube Account</a>
+  <% else %>
+  <h1>Hello <strong><%= current_user.full_name %></strong> this is your weekly report.</h1>
 
  </div>
 
-<% if current_user.youtube_accounts.count == 0 %>
-  <a href=<%= @authorization_url %>></a>
-<% end %>
+  <div class= "container-structure">
 
-<div class= "container-structure">
+    <div class= "topthree">
 
-  <div class= "topthree">
+      <%= pie_chart Video.group(:title).count %>
 
-    <%= pie_chart Video.group(:title).count %>
+    </div>
 
+    <div class="flash flash-success alert alert-dismissible fade show" role="alert">
+    <span><strong>Tadaa!</strong> 🎉 your most watched video is x.</span>
+    <a data-dismiss="alert" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </a>
   </div>
-
-  <div class="flash flash-success alert alert-dismissible fade show" role="alert">
-  <span><strong>Tadaa!</strong> 🎉 your most watched video is x.</span>
-  <a data-dismiss="alert" aria-label="Close">
-    <i class="fas fa-times"></i>
-  </a>
-</div>
-
-
-
-
-
+  <% end %>
 </div>
 

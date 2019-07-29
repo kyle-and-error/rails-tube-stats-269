@@ -27,10 +27,10 @@ class YoutubeAccountsController < ApplicationController
 
     respond_to do |format|
       if @youtube_account.save
-        format.html { redirect_to dashboard_path, notice: 'Youtube account was successfully registered.' }
+        format.html { redirect_to user_dashboard_path(current_user), notice: 'Youtube account was successfully registered.' }
         format.json { render :show, status: :created, location: @youtube_account }
       else
-        format.html { render dashboard_path }
+        format.html { render user_dashboard_path(current_user) }
         format.json { render json: @youtube_account.errors, status: :unprocessable_entity }
       end
     end
