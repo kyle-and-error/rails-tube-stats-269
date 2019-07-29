@@ -22,6 +22,9 @@ class PagesController < ApplicationController
     @authorization_url = authorization_url
   end
 
+  def privacy_policy
+  end
+
   def authorization_url
     client_secrets = Google::APIClient::ClientSecrets.load
     auth_client = client_secrets.to_authorization
