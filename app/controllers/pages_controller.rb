@@ -1,6 +1,7 @@
 require 'google/apis/youtube_v3'
 require 'google/api_client/client_secrets'
 class PagesController < ApplicationController
+  DOMAIN = "tube-stats.xyz"
   skip_before_action :authenticate_user!, only: [:home, :privacy_policy]
 
   def home
@@ -31,7 +32,7 @@ class PagesController < ApplicationController
     auth_client = client_secrets.to_authorization
     auth_client.update!(
       scope: ['https://www.googleapis.com/auth/youtube', 'https://www.googleapis.com/auth/youtube.readonly', 'https://www.googleapis.com/auth/userinfo.email'],
-      redirect_uri: 'http://localhost:3000/youtube_accounts/new',
+      redirect_uri: "http://#{DOMAIN}/youtube_accounts/new",
       additional_parameters: {
         "access_type" => "offline",         # offline access
         "include_granted_scopes" => "true"  # incremental auth
