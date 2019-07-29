@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     get 'data', to: 'pages#data'
     get 'dashboard', to: 'pages#dashboard'
   end
+  resources :suggestions, only:[:index, :show]
   get 'privacy_policy', to: 'pages#privacy_policy'
   resources :youtube_accounts
   root to: 'pages#home'
