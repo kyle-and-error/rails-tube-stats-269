@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'suggestions/index'
+  get 'suggestions/show'
   devise_for :users
 
   resources :youtube_accounts
