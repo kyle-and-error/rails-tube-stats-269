@@ -1,25 +1,31 @@
 require 'google/apis/youtube_v3'
 require 'google/api_client/client_secrets'
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:home, :privacy_policy]
 
   def home
   end
 
   def data
-    @bar_function = ((3000.to_f / 5000.to_f) * 100).to_i
+    @bar_function = ((5000.to_f / 5000.to_f) * 100).to_i
     @color_function =
       if @bar_function >= 75
+sankey-graf
         @color_function = '#4cff00'
+
       elsif @bar_function <= 25
-        @color_function = '#FF0000'
+        @color_function = 'red'
       else
+sankey-graf
         @color_function = '#ffa500'
       end
   end
 
   def dashboard
     @authorization_url = authorization_url
+  end
+
+  def privacy_policy
   end
 
   def authorization_url
