@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'suggestions/index'
-  get 'suggestions/show'
   devise_for :users
-
+  resources :suggestions, only: [:index, :show]
   resources :youtube_accounts
   root to: 'pages#home'
   get 'data', to: 'pages#data'
