@@ -17,7 +17,7 @@ class YoutubeAccount < ApplicationRecord
 
   validates :email, uniqueness: true
 
-  # before_save :initialize_data
+  before_save :initialize_data
 
   def url
     'https://www.youtube.com/channel/' + youtube_id
@@ -42,12 +42,15 @@ class YoutubeAccount < ApplicationRecord
     video = Video.where(youtube_id: video_id).take
     if video.nil?
       yt_video = Yt::Video.new id: video_id
-      video = Video.new youtube_id: yt_video.id
-      video.title = yt_video.title
-      video.description = yt_video.description
-      video.thumbnail = yt_video.thumbnail_url
-      video.creator = init_creator(yt_video.channel_id)
-      video.save!
+      puts yt_video.deleted?
+      unless yt_video.deleted?
+        video = Video.new youtube_id: yt_video.id
+        video.title = yt_video.title
+        video.description = yt_video.description
+        video.thumbnail = yt_video.thumbnail_url
+        video.creator = init_creator(yt_video.channel_id)
+        video.save!
+      end
     end
     video
   end
