@@ -1,7 +1,7 @@
 require 'google/apis/youtube_v3'
 require 'google/api_client/client_secrets'
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:home, :privacy_policy]
 
   def home
   end
