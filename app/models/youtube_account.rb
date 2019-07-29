@@ -1,4 +1,12 @@
+require 'google/api_client/client_secrets'
+# require 'google/api_client/auth/file_storage'
+require 'google/api_client/auth/installed_app'
 class YoutubeAccount < ApplicationRecord
+  YOUTUBE_SCOPE = ['https://www.googleapis.com/auth/youtube.readonly', 'https://www.googleapis.com/auth/youtube.readonly', 'https://www.googleapis.com/auth/userinfo.email']
+  YOUTUBE_API_SERVICE_NAME = 'youtube'
+  YOUTUBE_API_VERSION = 'v3'
+  PROGRAM_NAME = 'Tube Stats'
+
   belongs_to :user
 
   has_many :playlist_watchers, dependent: :destroy
@@ -72,6 +80,7 @@ class YoutubeAccount < ApplicationRecord
   def initialize_more_data
     init_playlists(@account.playlists)
     init_playlists(@account.related_playlists)
+    init_history
   end
 
   def init_watched_videos(video, like_status)
@@ -120,6 +129,80 @@ class YoutubeAccount < ApplicationRecord
     watcher.playlist = list
     watcher.watcher = self
     watcher.save!
+  end
+
+  def get_authenticated_service
+    client = Google::APIClient.new(
+      application_name: PROGRAM_NAME,
+      application_version: '1.0.0'
+    )
+    youtube = client.discovered_api(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION)
+
+    file_storage = Google::APIClient::FileStorage.new("client_secrets.json")
+    if file_storage.authorization.nil?
+      client_secrets = Google::APIClient::ClientSecrets.load
+      flow = Google::APIClient::InstalledAppFlow.new(
+        client_id: client_secrets.client_id,
+        client_secret: client_secrets.client_secret,
+        scope: YOUTUBE_SCOPE
+      )
+      client.authorization = flow.authorize(file_storage)
+    else
+      client.authorization = file_storage.authorization
+    end
+
+    return client, youtube
+  end
+
+  def init_history
+    client, youtube = get_authenticated_service
+    begin
+      # Retrieve the "contentDetails" part of the channel resource for the
+      # authenticated user's channel.
+      channels_response = client.execute!(
+        api_method: youtube.channels.list,
+        parameters: {
+          mine: true,
+          part: 'contentDetails'
+        }
+      )
+
+      channels_response.data.items.each do |channel|
+        history = Playlist.new title: 'History'
+        history.youtube_id = yt_playlist.id
+        history.creator = init_creator(self.youtube_id)
+        # From the API response, extract the playlist ID that identifies the list
+        # of videos uploaded to the authenticated user's channel.
+        history_list_id = channel['contentDetails']['relatedPlaylists']['watchHistory']
+
+        # Retrieve the list of videos uploaded to the authenticated user's channel.
+        next_page_token = ''
+        until next_page_token.nil?
+          playlistitems_response = client.execute!(
+            api_method: youtube.playlist_items.list,
+            parameters: {
+              playlistId: history_list_id,
+              part: 'snippet',
+              maxResults: 50,
+              pageToken: next_page_token
+            }
+          )
+
+          # Print information about each video.
+          items = []
+          playlistitems_response.data.items.each do |playlist_item|
+            items << Yt::Video.new(id: playlist_item['snippet']['resourceId']['videoId'])
+          end
+          init_playlist_video(history, items)
+          init_playlist_watcher(history)
+
+          next_page_token = playlistitems_response.next_page_token
+        end
+      end
+      history.save!
+    rescue Google::APIClient::TransmissionError => e
+      puts e.result.body
+    end
   end
 
   def init_playlists(playlists)
