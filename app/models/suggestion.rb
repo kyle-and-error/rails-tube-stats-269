@@ -8,8 +8,9 @@ class Suggestion < ApplicationRecord
 
   before_save :check_if_type_is_present
 
-  def creator_suggestions
+  def creator_suggestions(watcher)
     # TODO
+    watches = Creator.where(watcher: watcher, )
   end
 
     # TODO
