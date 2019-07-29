@@ -1,12 +1,10 @@
-  html, body {
+    body {
       position: relative;
       height: 100%;
-    }
-    body {
-      background: #eee;
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      background: #F4F4F4;
+      body-font: "Noto Sans TC";
       font-size: 14px;
-      color:#000;
+      color:blue;
       margin: 0;
       padding: 0;
     }
@@ -19,10 +17,7 @@
       font-size: 18px;
       background: #fff;
       /* Center slide text vertically */
-      display: -ms-flexbox;
       display: flex;
-      -ms-flex-pack: center;
       justify-content: center;
-      -ms-flex-align: center;
       align-items: center;
     }
