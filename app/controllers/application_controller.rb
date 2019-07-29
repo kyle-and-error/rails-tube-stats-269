@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
 
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
+
   def after_sign_in_path_for(resource)
     user_dashboard_path(current_user) # your path
   end
