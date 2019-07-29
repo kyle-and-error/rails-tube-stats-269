@@ -2,6 +2,7 @@ require 'google/apis/youtube_v3'
 require 'google/api_client/client_secrets'
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
+  before_action :authorize_url
 
   def home
   end
@@ -16,6 +17,7 @@ class PagesController < ApplicationController
       else
         @color_function = 'yellow'
       end
+      @youtube_account = YoutubeAccount.new
   end
 
   def dashboard
@@ -49,5 +51,11 @@ class PagesController < ApplicationController
     # scopes = ['youtube', 'youtube.readonly', 'userinfo.email']
     # redirect_uri = 'http://localhost:3000/youtube_accounts/new'
     # Yt::Account.new(scopes: scopes, redirect_uri: redirect_uri).authentication_url
+  end
+
+  private
+
+  def authorize_url
+    @authorization_url = authorization_url
   end
 end

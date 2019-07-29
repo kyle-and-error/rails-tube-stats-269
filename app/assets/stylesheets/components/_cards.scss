@@ -1,0 +1,30 @@
+.card-wrapper{
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+}
+
+
+.card {
+  margin: 50px 20px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.form-control-label{
+  color: #333;
+}
+
+.container-add{
+  text-align: center;
+}
+
+.flex-wrapper{
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.container-add{
+  color: #24305E;
+}

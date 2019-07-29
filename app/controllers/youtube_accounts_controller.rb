@@ -5,20 +5,20 @@ class YoutubeAccountsController < ApplicationController
   def new
     @youtube_account = YoutubeAccount.new
     authorize @youtube_account
-    client_secrets = Google::APIClient::ClientSecrets.load
-    auth_client = client_secrets.to_authorization
-    auth_client.update!(
-      scope: ['https://www.googleapis.com/auth/youtube', 'https://www.googleapis.com/auth/youtube.readonly', 'https://www.googleapis.com/auth/userinfo.email'],
-      redirect_uri: 'http://localhost:3000/youtube_accounts/new',
-      additional_parameters: {
-        "access_type" => "offline",         # offline access
-        "include_granted_scopes" => "true"  # incremental auth
-      }
-    )
-    auth_client.code = params[:code]
-    tokens = auth_client.fetch_access_token!
-    @access_token = tokens["access_token"]
-    @refresh_token = tokens["refresh_token"]
+    # client_secrets = Google::APIClient::ClientSecrets.load
+    # auth_client = client_secrets.to_authorization
+    # auth_client.update!(
+    #   scope: ['https://www.googleapis.com/auth/youtube', 'https://www.googleapis.com/auth/youtube.readonly', 'https://www.googleapis.com/auth/userinfo.email'],
+    #   redirect_uri: 'http://localhost:3000/youtube_accounts/new',
+    #   additional_parameters: {
+    #     "access_type" => "offline",         # offline access
+    #     "include_granted_scopes" => "true"  # incremental auth
+    #   }
+    # )
+    # auth_client.code = params[:code]
+    # tokens = auth_client.fetch_access_token!
+    # @access_token = tokens["access_token"]
+    # @refresh_token = tokens["refresh_token"]
   end
 
   def create
