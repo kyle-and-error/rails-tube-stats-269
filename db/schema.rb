@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_24_155821) do
+ActiveRecord::Schema.define(version: 2019_07_29_101855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,10 +24,13 @@ ActiveRecord::Schema.define(version: 2019_07_24_155821) do
   end
 
   create_table "creators", force: :cascade do |t|
-    t.string "url"
     t.string "youtube_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
+    t.text "description"
+    t.text "thumbnail"
+    t.integer "subscribers"
   end
 
   create_table "playlist_videos", force: :cascade do |t|
@@ -54,6 +57,9 @@ ActiveRecord::Schema.define(version: 2019_07_24_155821) do
     t.bigint "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "youtube_id"
+    t.text "description"
+    t.text "thumbnail"
     t.index ["creator_id"], name: "index_playlists_on_creator_id"
   end
 
@@ -93,6 +99,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_155821) do
     t.bigint "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "length"
     t.index ["creator_id"], name: "index_videos_on_creator_id"
   end
 
@@ -119,7 +126,6 @@ ActiveRecord::Schema.define(version: 2019_07_24_155821) do
 
   create_table "youtube_accounts", force: :cascade do |t|
     t.string "email"
-    t.string "url"
     t.string "youtube_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false

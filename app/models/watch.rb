@@ -4,5 +4,17 @@ class Watch < ApplicationRecord
   has_many :watched_videos
   has_many :videos, through: :watched_videos
 
-  validates :subscription, presence: true
+  def initialize(account, creator)
+    self.creator = creator
+    self.watcher = account
+  end
+
+  def self.init_watches(creator, subscribed)
+    watcher = Watch.where(watcher: self, creator: creator).take
+    if watcher.nil?
+      watcher = Watch.new(self, creator)
+    end
+    watcher.subscription = subscribed
+    watcher.save!
+  end
 end

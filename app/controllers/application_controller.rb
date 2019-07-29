@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
 
+
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
@@ -22,14 +23,18 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+
+  end
 
   def after_sign_in_path_for(resource)
-    dashboard_path(current_user) # your path
+    user_dashboard_path(current_user) # your path
   end
 
   private
 
   def skip_pundit?
-    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)|(^suggestions$)/
   end
 end

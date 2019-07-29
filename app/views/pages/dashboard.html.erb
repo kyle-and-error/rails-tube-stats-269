@@ -1,8 +1,22 @@
-<%= render 'shared/navbar'%>
 <div class="banner-dashboard">
   <canvas class="background" style="position: absolute; top: 0; left: 0;"></canvas>
 
 </div>
+
+<div class= "container-structure">
+
+
+  <%= image_tag current_user.avatar, class: "avatar-large m-3" %>
+  <div class= "dates">
+  <i class="fab fa-youtube"></i>
+  <h1><%= Date.today.strftime("%A, %b %d") %></h1>
+  </div>
+
+  <% if current_user.youtube_accounts.count == 0 %>
+    <a href=<%= @authorization_url %>>Please add a Youtube Account</a>
+  <% else %>
+  <h1>Hello <strong><%= current_user.full_name %></strong> this is your weekly report.</h1>
+
 
 <div class="dashboard-frame row">
   <div class="col-md-4">
@@ -23,6 +37,7 @@
       </div>
     </div>
 
+
     <div class="card-topthree"></div>
     <div class="card-piechart"><%= pie_chart Video.group(:title).count %></div>
 
@@ -37,4 +52,6 @@
 
 
 
+
+  
 

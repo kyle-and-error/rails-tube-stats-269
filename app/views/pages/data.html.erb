@@ -1,6 +1,3 @@
- <%= render 'shared/navbar'%>
-
-
  <div class= "container-structure">
   <div class= "cards-chart">
   <h1>Your statistics</h1>
@@ -20,7 +17,9 @@
 <div class= "container-structure">
   <div class= "cards-chart">
     <h1>Pie chart</h1>
-    <%= pie_chart Video.group(:title).count %>
+    <% colors = ["#4CFF00", "#24305E","#ED1215","#EBFF00","#FF00EB", "#FEB801"] %>
+    <%= pie_chart Video.group(:title).count, colors: colors, messages: {empty: "No data"} %>
+
   </div>
 
 
@@ -31,7 +30,7 @@
 
   <div class= "cards-chart">
     <h1>line chart</h1>
-    <%= line_chart Video.group(:title).count %>
+    <%= line_chart Video.group(:title).count, colors: colors, messages: {empty: "No data"} %>
   </div>
 
 </div>
