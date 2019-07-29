@@ -1,4 +1,4 @@
 class PlaylistVideo < ApplicationRecord
-  belongs_to :videos
-  belongs_to :playlists
+  belongs_to :video
+  belongs_to :playlist
 end

@@ -4,14 +4,8 @@ class Creator < ApplicationRecord
   has_many :playlists
   has_many :videos
 
-  def subscribe_url
-    url + '?sub_confirmation=1'
+  def url
+    'https://www.youtube.com/channel/' + youtube_id
   end
 
-  before_save :set_id
-
-  private
-
-  def set_id
-  end
 end
