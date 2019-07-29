@@ -1,3 +1,8 @@
+<div class="banner-dashboard">
+  <canvas class="background" style="position: absolute; top: 0; left: 0;"></canvas>
+
+</div>
+
 <div class= "container-structure">
 
 
@@ -12,22 +17,41 @@
   <% else %>
   <h1>Hello <strong><%= current_user.full_name %></strong> this is your weekly report.</h1>
 
+
+<div class="dashboard-frame row">
+  <div class="col-md-4">
+    <div class="user-card">
+
+      <%= image_tag current_user.avatar, class: "avatar-large m-3" %>
+      <div class= "dates">
+       <i class="fab fa-youtube"></i>
+       <h1><%= Date.today.strftime("%A, %b %d") %></h1>
+     </div>
+     <p> TEXT -labore et </p>
+   </div>
  </div>
-
-  <div class= "container-structure">
-
-    <div class= "topthree">
-
-      <%= pie_chart Video.group(:title).count %>
-
+  <div class="col-md-8">
+    <div class="tease">
+      <div class= "tease-info">
+        <h1> Welcome, <%=current_user.full_name %></h1>
+      </div>
     </div>
 
-    <div class="flash flash-success alert alert-dismissible fade show" role="alert">
-    <span><strong>Tadaa!</strong> 🎉 your most watched video is x.</span>
-    <a data-dismiss="alert" aria-label="Close">
-      <i class="fas fa-times"></i>
-    </a>
+
+    <div class="card-topthree"></div>
+    <div class="card-piechart"><%= pie_chart Video.group(:title).count %></div>
+
   </div>
-  <% end %>
+
 </div>
+
+
+
+
+
+
+
+
+
+  
 
