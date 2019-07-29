@@ -10,18 +10,32 @@
         data.addColumn('string', 'To');
         data.addColumn('number', 'Weight');
         data.addRows([
-          [ '46h', 'Comedy', 15 ],
-          [ '46h', 'Entertainment', 7 ],
-          [ '46h', 'News & Politics', 6 ],
-          [ '46h', 'Education', 2 ],
-          [ '46h', 'Animation', 9 ],
-          [ '46h', 'People & Blogs', 4 ]
+          [ '43h', 'Comedy', 15 ],
+          [ '43h', 'Entertainment', 7 ],
+          [ '43h', 'News & Politics', 6 ],
+          [ '43h', 'Education', 2 ],
+          [ '43h', 'Animation', 9 ],
+          [ '43h', 'People & Blogs', 4 ]
         ]);
 
-        // Sets chart options.
-        var options = {
-          width: 600,
-        };
+      // Sets chart options.
+      // Sets chats collors.
+      var colors = ['#a6cee3', '#b2df8a', '#F4F4F4', '#FF0000',
+              '#F8E9A1', '#ffff99', '#374785', '#24305E'];
+    var options = {
+      width: 700,
+      height: 300,
+       sankey: {
+       node: {
+       colors: colors
+ },
+   link: {
+   colorMode: 'gradient',
+   colors: colors
+    }
+   }
+  };
+
 
         // Instantiates and draws our chart, passing in some options.
         var chart = new google.visualization.Sankey(document.getElementById('sankey_basic'));
