@@ -8,32 +8,32 @@
       <div class= "dates">
         <h1><%= Date.today.strftime("%A, %b %d") %></h1>
       </div>
-        <div class="dropdown show">
-          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown link
-          </a>
+      <div class="dropdown show">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown link
+        </a>
 
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href=<%= user_data_path(current_user) %>>Datapage</a>
+          <a class="dropdown-item" href= <%= suggestions_path%>>Suggestions</a>
+          <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </div>
     </div>
-    <div class="col-md-8">
-      <div class="tease">
-        <div class= "tease-info">
-          <h1> Welcome, <%=current_user.full_name %>to your Dashboard</h1>
-        </div>
+  </div>
+  <div class="col-md-8">
+    <div class="tease">
+      <div class= "tease-info">
+        <h1> Welcome, <%=current_user.full_name %>to your Dashboard</h1>
       </div>
+    </div>
+    <div>
+      <% if current_user.youtube_accounts.count == 0 %>
       <div>
-        <% if current_user.youtube_accounts.count == 0 %>
-          <div>
-            <a href=<%= @authorization_url %>>Please add a Youtube Account</a>
-          </div>
-        <% else %>
-        <h2>This is your weekly report.</h1>
+        <a href=<%= @authorization_url %>>Please add a Youtube Account</a>
+      </div>
+      <% else %>
+      <h2>This is your weekly report.</h1>
         <div class="card-topthree">
           <p>1st hello</p>
 

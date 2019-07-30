@@ -1,6 +1,22 @@
-body{
-  overflow-x: hidden;
+
+.data-frame {
+  background-size: cover;
+  top: 0;
+  // margin: 170px 0 0 0 !important;
+  background-color: white;
+
+  height: 100%;
+
 }
+#sankey_basic {
+  margin: 0 auto;
+}
+
+
+// body{
+//   overflow-x: hidden;
+// }
+
 .container-structure {
   margin: 20px;
  display:flex;
