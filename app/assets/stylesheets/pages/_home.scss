@@ -48,6 +48,12 @@
     margin-bottom: 30px;
   }
 
+.banner-content {
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 
 .bnt-home {
   padding: 15px 50px;
@@ -57,7 +63,9 @@
   font-weight: lighter;
   opacity: 0.6;
   margin: 20px;
-  background: rgba(0, 0, 0, 0.1)
+  background: rgba(0, 0, 0, 0.1);
+  background: white;
+  opacity: 0.5;
   }
 }
 
