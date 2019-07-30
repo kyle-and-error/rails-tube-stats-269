@@ -12,10 +12,21 @@
       <div class="user-card">
         <%= image_tag current_user.avatar, class: "avatar-large m-3" %>
         <div class= "dates">
-          <i class="fab fa-youtube"></i>
+
           <h1><%= Date.today.strftime("%A, %b %d") %></h1>
         </div>
         <p> TEXT -labore et </p>
+        <div class="dropdown show">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown link
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-md-8">
