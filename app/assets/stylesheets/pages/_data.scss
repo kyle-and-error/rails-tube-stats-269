@@ -1,5 +1,9 @@
+body{
+  overflow-x: hidden;
+}
 .container-structure {
   margin: 20px;
+ display:flex;
 }
 
 .container-time {
@@ -25,7 +29,6 @@ background: white;
 .card-chart h1 {
 margin:10%;
 margin-left: 10%;
-
 }
 
 .date-filter{
@@ -33,17 +36,12 @@ margin-left: 10%;
 }
 
 .btn-date {
-
   color: #24305E;
   border: 1px solid #24305E;
   border-radius: 50px;
   font-weight: lighter;
   opacity: 0.6;
 
-}
-
-.top3-bar{
-  margin: 20px;
 }
 
 .data-form {
