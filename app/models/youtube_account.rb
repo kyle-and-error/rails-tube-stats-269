@@ -40,7 +40,7 @@ class YoutubeAccount < ApplicationRecord
     Yt.configuration.client_secret = 'S8K_ZRtM711nSqsoMmCwo_3p'
     @account = Yt::Account.new refresh_token: refresh_token
     set_values
-    init_creator(youtube_id, @account)
+    Creator.init_creator(youtube_id, @account)
   end
 
   def set_values
@@ -55,8 +55,8 @@ class YoutubeAccount < ApplicationRecord
   end
 
   def initialize_more_data
-    Playlist.init_playlists(@account.playlists, account)
-    Playlist.init_playlists(@account.related_playlists, account)
+    Playlist.init_playlists(@account.playlists, @account)
+    Playlist.init_playlists(@account.related_playlists, @account)
     init_history
   end
 
