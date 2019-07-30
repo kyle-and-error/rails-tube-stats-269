@@ -28,6 +28,7 @@
         <li class="nav-item dropdown">
           <%= image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Add Youtube account", @authorization_url, class: "dropdown-item", target: "_blank" %>
             <%= link_to "Suggestions", suggestions_path, class: "dropdown-item" %>
             <%= link_to "Another action", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
@@ -41,4 +42,5 @@
       </ul>
     </div>
   </div>
+</div>
 <% end %>
