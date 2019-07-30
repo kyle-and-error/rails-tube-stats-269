@@ -32,6 +32,14 @@ class YoutubeAccount < ApplicationRecord
     'https://www.youtube.com/channel/' + youtube_id
   end
 
+  def self.find_by_youtube_account(yt)
+    YoutubeAccount.where(youtube_id: yt.channel.id).take
+  end
+
+  def update
+    init_history
+  end
+
   private
 
   def initialize_data
@@ -40,30 +48,29 @@ class YoutubeAccount < ApplicationRecord
     Yt.configuration.client_secret = 'S8K_ZRtM711nSqsoMmCwo_3p'
     @account = Yt::Account.new refresh_token: refresh_token
     set_values
-    Creator.init_creator(youtube_id, @account)
+    Creator.init_creator(@youtube_id, @account)
   end
 
   def set_values
-    youtube_id = @account.channel.id
+    self.youtube_id = @account.channel.id
     @youtube_id = youtube_id
-    email = @account.email
-    username = @account.name
-    username = email if username.nil?
-    name = username if name.nil?
-    avatar = @account.avatar_url
-    location = @account.locale
+    self.email = @account.email
+    self.username = @account.name
+    self.username = email if username.nil?
+    self.name = username if name.nil?
+    self.avatar = @account.avatar_url
+    self.location = @account.locale
   end
 
   def initialize_more_data
     Playlist.init_playlists(@account.playlists, @account)
     Playlist.init_playlists(@account.related_playlists, @account)
-    init_history
   end
 
   def get_authenticated_service
     client = Google::APIClient.new(
-      application_name: PROGRAM_NAME,
-      application_version: '1.0.0'
+      # application_name: PROGRAM_NAME,
+      # application_version: '1.0.0'
     )
     youtube = client.discovered_api(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION)
 

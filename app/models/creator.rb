@@ -4,12 +4,14 @@ class Creator < ApplicationRecord
   has_many :playlists
   has_many :videos
 
-  def self.init_creator(channel_id, account)
+  def self.init_creator(channel_id, yt_account)
     creator = Creator.where(youtube_id: channel_id).take
     if creator.nil?
-      yt_channel = Yt::Channel.new id: channel_id, auth: account
-      creator = Creator.create!(youtube_id: yt_channel.id, title: yt_channel.title, description: yt_channel.description, thumbnail: yt_channel.thumbnail_url)
-      Watch.init_watches(account, creator, yt_channel.subscribed?) unless creator.youtube_id == @youtube_id
+      yt_channel = Yt::Channel.new id: channel_id, auth: yt_account
+      watcher = YoutubeAccount.find_by_youtube_account(yt_account)
+      creator = Creator.new(youtube_id: yt_channel.id, title: yt_channel.title, description: yt_channel.description, thumbnail: yt_channel.thumbnail_url)
+      creator.save!
+      Watch.init_watches(watcher, creator, yt_channel.subscribed?) unless watcher.nil?
     end
     creator
   end
