@@ -30,6 +30,6 @@ class Creator < ApplicationRecord
     html_file = open(channel_url).read
     html_doc = Nokogiri::HTML(html_file)
 
-    avatar = html_doc.css('img').first.attributes["src"].value
+    self.avatar = html_doc.css('img').first.attributes["src"].value
   end
 end
