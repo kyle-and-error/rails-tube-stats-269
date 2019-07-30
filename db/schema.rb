@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2019_07_30_100332) do
 
   create_table "playlists", force: :cascade do |t|
     t.string "title"
+    t.string "url"
     t.bigint "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -87,10 +88,8 @@ ActiveRecord::Schema.define(version: 2019_07_30_100332) do
 
   create_table "videos", force: :cascade do |t|
     t.string "title"
-    t.string "youtube_id"
+    t.string "url"
     t.string "topic"
-    t.text "thumbnail"
-    t.text "description"
     t.bigint "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -129,7 +128,7 @@ ActiveRecord::Schema.define(version: 2019_07_30_100332) do
     t.string "name"
     t.string "username"
     t.string "refresh_token"
-    t.text "avatar"
+    t.string "avatar"
     t.string "location"
     t.index ["user_id"], name: "index_youtube_accounts_on_user_id"
   end
