@@ -17,7 +17,6 @@ class YoutubeAccount < ApplicationRecord
   has_many :creators, through: :watches
   has_many :watched_videos, through: :watches
   has_many :videos, through: :watched_videos
-  has_many :comments, through: :watched_videos
 
   has_many :suggestions, dependent: :destroy
 
