@@ -1,10 +1,8 @@
 <div class= "container-structure">
-
-
   <%= image_tag current_user.avatar, class: "avatar-large m-3" %>
   <div class= "dates">
-  <i class="fab fa-youtube"></i>
-  <h1><%= Date.today.strftime("%A, %b %d") %></h1>
+    <i class="fab fa-youtube"></i>
+    <h1><%= Date.today.strftime("%A, %b %d") %></h1>
   </div>
 
   <% if current_user.youtube_accounts.count == 0 %>

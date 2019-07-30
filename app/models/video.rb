@@ -9,7 +9,7 @@ class Video < ApplicationRecord
 
   has_many :suggestions
 
-  validates :title, :youtube_id, presence: true
+  validates :title, :youtube_id, :length, presence: true
 
   def initialize(yt_video)
     self.youtube_id = yt_video.id
