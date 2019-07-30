@@ -55,6 +55,6 @@ class YoutubeAccountsController < ApplicationController
   private
 
   def youtube_account_params
-    params.require(:youtube_account).permit(:name, :refresh_toke)
+    params.require(:youtube_account).permit(:name, :refresh_token)
   end
 end
