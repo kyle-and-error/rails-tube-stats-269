@@ -1,13 +1,13 @@
 <% if current_user %>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <%= link_to user_dashboard_path(current_user), class: "navbar-brand" do %>
-      <div class="dynamic-logo">
+      <!-- <div class="dynamic-logo">
         <svg class="loader-navbar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340">
           <circle cx="170" cy="170" r="160" stroke="#374785"/>
           <circle cx="170" cy="170" r="135" stroke="#5680E9"/>
           <circle cx="170" cy="170" r="110" stroke="#374785"/>
           <circle cx="170" cy="170" r="85" stroke="#5680E9"/>
-        </svg>
+        </svg> -->
       </div>
     <% end %>
 
@@ -34,7 +34,7 @@
           </div>
         </li>
         <% else %>
-        <li class="nav-item">
+        <li class="nav-item active">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
         <% end %>
