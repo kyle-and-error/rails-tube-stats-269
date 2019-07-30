@@ -38,6 +38,27 @@ class Watch < ApplicationRecord
     time
   end
 
+  def readable_watch_time_since(datetime)
+    seconds = watch_time_since(datetime)
+    readable_time = "#{seconds} seconds"
+    if seconds > 80
+      minutes = seconds / 60
+      seconds = seconds % 60
+      readable_time = "#{minutes} minutes and #{seconds} seconds"
+      if minutes > 70
+        hours = minutes / 60
+        minutes = minutes % 60
+        readable_time = "#{hours} hours and #{minutes} minutes"
+        if hours > 9
+          if minutes >= 30
+            readable_time = "#{hours + 1} hours"
+          else
+            readable_time = "#{hours} hours"
+      end
+    end
+    readable_time
+  end
+
   def self.least_watched_by(watcher)
     watches = Watch.where(watcher: watcher).to_a
     watches.sort do |a, b|
