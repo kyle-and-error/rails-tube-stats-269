@@ -41,9 +41,20 @@ class YoutubeAccountsController < ApplicationController
   def show
   end
 
+  def edit
+    @youtube_account = YoutubeAccount.find(params[:id])
+  end
+
+  def update
+    @youtube_account = YoutubeAccount.find(params[:id])
+    @youtube_account.update(youtube_account_params)
+
+    redirect_to youtube_account_path
+  end
+
   private
 
   def youtube_account_params
-    params.require(:youtube_account).permit(:name, :refresh_token)
+    params.require(:youtube_account).permit(:name, :refresh_toke)
   end
 end

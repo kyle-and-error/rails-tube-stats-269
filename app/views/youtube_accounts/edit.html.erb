@@ -1,0 +1,8 @@
+<h1>Change <%= @youtube_account.email%></h1>
+
+ <div>
+  <%= simple_form_for @youtube_account do |f| %>
+  <%= f.input  :email, label: "change This account", class: "card-inputs" %>
+  <%= f.button :submit, value: "Add Account", class: "btn btn-primary" %>
+  <% end %>
+ </div>
