@@ -35,8 +35,6 @@ class Watch < ApplicationRecord
     watches.sort do |a, b|
       a.total_watch_time <=> b.total_watch_time
     end
-    puts watches.first
-    puts watches.last
-    watches.last
+    watches.first
   end
 end
