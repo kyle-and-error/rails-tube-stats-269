@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_30_100332) do
+ActiveRecord::Schema.define(version: 2019_07_30_135945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_07_30_100332) do
     t.text "description"
     t.text "thumbnail"
     t.integer "subscribers"
+    t.text "avatar"
   end
 
   create_table "playlist_videos", force: :cascade do |t|
