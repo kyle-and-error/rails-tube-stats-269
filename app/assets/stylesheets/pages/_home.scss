@@ -42,7 +42,7 @@
   }
   p {
     color: #0C183A;
-    font-size: 25px;
+    font-size: 28px;
     opacity: 0.8;
     font-weight: lighter;
     margin-bottom: 30px;
@@ -88,6 +88,10 @@ text-align: center;
 
 .col-6 {
  margin: auto;
+}
+
+.col-6 p {
+  font-size: 18px;
 }
 
 .frame{
