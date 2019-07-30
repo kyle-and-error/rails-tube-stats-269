@@ -1,5 +1,8 @@
-<div class="banner-dashboard">
-  <canvas class="background" style="position: absolute; top: 0; left: 0;"></canvas>
+
+
+<div class="banner-dashboard" style="height: 100vh; position: absolute; width: 100vw;">
+  <canvas class="background background-2" style="position: absolute; top: 0; left: 0;"></canvas>
+
 </div>
 
 <div class= "container-structure">
@@ -11,21 +14,33 @@
 
   <h1>Hello <strong><%= current_user.full_name %></strong> this is your weekly report.</h1>
 
-  <div class="dashboard-frame row">
+
+  <div class="dashboard-frame dashboard-frame-margin row">
     <div class="col-md-4">
       <div class="user-card">
         <%= image_tag current_user.avatar, class: "avatar-large m-3" %>
         <div class= "dates">
-          <i class="fab fa-youtube"></i>
+
           <h1><%= Date.today.strftime("%A, %b %d") %></h1>
         </div>
         <p> TEXT -labore et </p>
+        <div class="dropdown show">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown link
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-md-8">
       <div class="tease">
         <div class= "tease-info">
-          <h1> Welcome, <%=current_user.full_name %></h1>
+          <h1> Welcome, <%=current_user.full_name %>to your Dashboard</h1>
         </div>
       </div>
       <% if current_user.youtube_accounts.count == 0 %>
@@ -38,3 +53,4 @@
     </div>
   </div>
 </div>
+
