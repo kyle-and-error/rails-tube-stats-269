@@ -5,13 +5,21 @@
 //  box-shadow: none;
 // }
 
+
+.navbar .navbar-expand-sm .navbar-light .navbar-lewagon {
+top: 25px;
+}
+
+
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
   z-index: 99999999;
 }
 
-.nav-item active {
-  color: #191923;
+.nav-item .active {
+  color: #D72638;
+
 }
 
 // .navbar-lewagon .navbar-brand img {
