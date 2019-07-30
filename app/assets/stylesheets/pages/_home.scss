@@ -35,13 +35,13 @@
   background-size: cover;
 
   h1 {
-    color: #101017;
+    color: #0C183A;
     font-weight: bold;
     font-size: 70px;
 
   }
   p {
-    color: #191923;
+    color: #0C183A;
     font-size: 25px;
     opacity: 0.8;
     font-weight: lighter;
@@ -57,25 +57,30 @@
   font-weight: lighter;
   opacity: 0.6;
   margin: 20px;
+  background: rgba(0, 0, 0, 0.1)
   }
 }
 
 .row {
   margin: 60px;
 p {
-  color:#191923;
+  color:#0C183A;
 text-align: center;
 }
   }
 
 
 .col-6 h1 {
-  color: #191923;
+  color: #0C183A;
   text-align: center;
   font-size: 30px;
   margin-bottom:10%;
+  // margin: auto;
 }
 
+.col-6 {
+ margin: auto;
+}
 
 .frame{
   display: flex;
@@ -164,7 +169,7 @@ text-align: center;
 
 // .banner h1 {
 //  margin: 20px;
-// color: #191923;
+// color: #0C183A;
 // text-shadow: 1px 1px 3px;
 //  font-size: 32px;
 //  font-weight: bold;
