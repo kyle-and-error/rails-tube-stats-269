@@ -1,9 +1,23 @@
-<h1>YoutubeAccounts#new</h1>
-<p>Find me in app/views/youtube_accounts/new.html.erb</p>
-
-<%= simple_form_for @youtube_account do |f| %>
-  <%= f.input  :name, label:"Name your your account on our site!:" %>
-  <%= f.hidden_field  :refresh_token, value: @refresh_token %>
-  <%= f.button :submit, class: "btn btn-primary" %>
-
-<% end %>
+<div class="flex-wrapper">
+  <div>
+    <div class="container-add">
+      <h1> Add as many Youtube Accounts as you please!</h1>
+      <p>We will do all the hard work for you by delivering fresh stats everyday!</p>
+    </div>
+    <div class="card-wrapper">
+      <div class="card" style="width: 20rem;">
+        <div class="card-body">
+          <h5 class="card-title">Add your additional accounts</h5>
+          <div class="main-container">
+          <div>
+            <%= simple_form_for @youtube_account do |f| %>
+            <%= f.input  :name, label: "Name This account", class: "card-inputs" %>
+            <%= f.hidden_field  :access_token, value: @access_token %>
+            <%= f.hidden_field  :refresh_token, value: @refresh_token %>
+            <%= f.button :submit, value: "Add Account", class: "btn btn-primary" %>
+          <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

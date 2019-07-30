@@ -1,6 +1,6 @@
 .background {
   position: absolute;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   top: 0;
   bottom: 0;
@@ -10,19 +10,19 @@
 }
 
 
-body {
-  margin: 0;
-  padding: 0;
-}
-.large-header {
-  position: relative;
-  width: 100%;
-  background: #333;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center center;
-  z-index: 1;
-}
+// body {
+//   margin: 0;
+//   padding: 0;
+// }
+// .large-header {
+//   position: relative;
+//   width: 100%;
+//   background: #333;
+//   overflow: hidden;
+//   background-size: cover;
+//   background-position: center center;
+//   z-index: 1;
+// }
 
 
 
@@ -35,10 +35,10 @@ body {
   background-size: cover;
 
   h1 {
-    color: #191923;
+    color: #101017;
     font-weight: bold;
-    font-size: 45px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    font-size: 70px;
+
   }
   p {
     color: #191923;
@@ -51,8 +51,8 @@ body {
 
 .bnt-home {
   padding: 15px 50px;
-  color: #24305E;
-  border: 1px solid #24305E;
+  color: #D72638;
+  border: 1px solid #D72638;
   border-radius: 50px;
   font-weight: lighter;
   opacity: 0.6;
@@ -63,17 +63,17 @@ body {
 .row {
   margin: 60px;
 p {
+  color:#191923;
 text-align: center;
-text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
   }
 
 
 .col-6 h1 {
+  color: #191923;
   text-align: center;
   font-size: 30px;
   margin-bottom:10%;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 
@@ -81,11 +81,8 @@ text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
   display: flex;
   justify-content: center;
 
-
   img {
     width: 61%;
-
-
   }
 }
 
@@ -165,37 +162,23 @@ text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 
 //}
 
-//.banner h1 {
- // margin: 20px;
-// color: #24305E;
+// .banner h1 {
+//  margin: 20px;
+// color: #191923;
 // text-shadow: 1px 1px 3px;
 //  font-size: 32px;
- // font-weight: bold;
-  // margin-top: 10px;
-//}
-
-
-
-//.container-banner {
- // padding: 30px;
- // border-radius: 4px;
- // width: 300px;
-//}
-
-//.container-home-info {
- // p {font-size: 20px;
-//  color: #FF0000;
-//  opacity: .7;
- // text-shadow: 1px, 1px, 3px;
 //  font-weight: bold;
-//  padding: 15px;
- // background: rgba(0, 0, 0, 0.2);
-//  border-radius: 15px;
-//  font-size: 1rem;
- // line-height: 1.6rem;
- // margin: 45px;
+//   margin-top: 10px;
+// }
 
- // }
-//}
+
+
+// .container-banner {
+//  padding: 30px;
+//  border-radius: 4px;
+//  width: 300px;
+// }
+
+
 
 
