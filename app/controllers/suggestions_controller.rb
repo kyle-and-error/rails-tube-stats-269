@@ -4,6 +4,5 @@ class SuggestionsController < ApplicationController
   end
 
   def show
-    @suggestion = Suggestion.find(params[:Suggestion_id])
   end
 end

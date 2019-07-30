@@ -1,39 +1,38 @@
- <%= render 'shared/navbar'%>
+ <% colors = ["#4CFF00", "#24305E","#ED1215","#EBFF00","#FF00EB", "#FEB801"] %>
 
-
- <div class= "container-structure">
-  <div class= "cards-chart">
-  <h1>Your statistics</h1>
-  <div class= "container-time">
-    <%= render 'shared/date_filter' %>
+   <div class= "container-structure">
+    <div class= "cards-chart">
+    <h1>Your statistics</h1>
+    <div class= "container-time">
+      <%= render 'shared/date_filter' %>
+    </div>
   </div>
-</div>
-</div>
-
-<div class= "container-structure">
-  <div class= "cards-chart">
-    <%= render 'shared/top3' %>
-  </div>
-</div>
-
-
-<div class= "container-structure">
-  <div class= "cards-chart">
-    <h1>Pie chart</h1>
-    <%= pie_chart Video.group(:title).count %>
   </div>
 
+  <div class= "container-structure" style="display: flex;">
+    <div style="width: 100%;">
+      <%= render 'shared/top3' %>
+    </div>
+    <div class= "cards-chart">
+      <h1>Pie Chart</h1>
+      <%= pie_chart Video.group(:title).count, colors: colors, messages: {empty: "No data"} %>
+    </div>
+  </div>
+
+  <div class= "container-structure">
+    <div class= "cards-chart">
+       <h1>Line Chart</h1>
+      <%= line_chart Video.group(:title).count, colors: colors, messages: {empty: "No data"} %>
+    </div>
+
+  </div>
+
+
+
 
   <div class= "cards-chart">
-    <h1>sanky</h1>
+    <h1>Sanky</h1>
     <%= render 'shared/sankey' %>
   </div>
-
-  <div class= "cards-chart">
-    <h1>line chart</h1>
-    <%= line_chart Video.group(:title).count %>
-  </div>
-
-</div>
 
 
