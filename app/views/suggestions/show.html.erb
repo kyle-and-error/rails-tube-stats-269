@@ -32,51 +32,35 @@
       </div>
     </div>
     <div class="col-md-8">
-      <div class="suggestion-show-videos row">
-        <%# .each do || %>
-          <div class="col-md-4 col-sm-6 card"></div>
-            <div class="card-group">
-              <div class="card">
-                <img class="card-img-top" src="https://yt3.ggpht.com/EQ7k1HJbFvVmg4YkaFh5VZv2QOoW-PwvHQi4vSSXVDFHM8JnECINlKf6HNRs5Smn-3mvHgq3DmiJRiWDD2s=s176-c-k-c0xffffffff-no-nd-rj" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-              </div>
-              <div class="card">
-                <img class="card-img-top" src="https://yt3.ggpht.com/u9fRui7nwTUxMGKWp0J9CfptrepR8kENzHe5cw4rbk3QQJwS8WOM0O_cWeLorklrps9yLBCSa1AvjX_79Q=s176-c-k-c0xffffffff-no-nd-rj" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-              </div>
-              <div class="card">
-                <img class="card-img-top" src="https://yt3.ggpht.com/b4cwp6eZFP8cEkntZ0Qz2sBPQuOP-hGB76necvIj1hnnpmtfazAmnfJ0jTadMTzZfTRbWa7hHF9NIzeB0A=s176-c-k-c0xffffffff-no-nd-rj" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-              </div>
-            </div>
-          <div class="card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg);">
-
-            <!-- Content -->
-            <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
-              <div>
-                <h5 class="pink-text"><i class="fas fa-chart-pie"></i> Marketing</h5>
-                <h3 class="card-title pt-2"><strong>This is the card title</strong></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam, voluptatem,
-                  optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum dignissimos.
-                  Odit sed qui, dolorum!.</p>
-                <a class="btn btn-pink"><i class="fas fa-clone left"></i> View project</a>
-              </div>
-            </div>
-
+      <div class="suggestion-show-videos card-group row">
+        <!-- CHANGE @videos WITH THE NEW INSTANCE FROM THE CONTROLLER  -->
+      <% @videos.each do |video| %>
+        <!-- CARD -->
+        <div class="col-md-4 col-sm-6 card">
+          <img class="card-img-top" src="https://yt3.ggpht.com/EQ7k1HJbFvVmg4YkaFh5VZv2QOoW-PwvHQi4vSSXVDFHM8JnECINlKf6HNRs5Smn-3mvHgq3DmiJRiWDD2s=s176-c-k-c0xffffffff-no-nd-rj" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%= video.title %></h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
           </div>
-        <%# end %>
+        </div>
+
+        <% end %>
+
+      </div>
+
+      <div class="card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg);">
+        <!-- Content -->
+        <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+          <div>
+            <h5 class="pink-text"><i class="fas fa-chart-pie"></i> Marketing</h5>
+            <h3 class="card-title pt-2"><strong>This is the card title</strong></h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam, voluptatem,
+              optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum dignissimos.
+              Odit sed qui, dolorum!.</p>
+            <a class="btn btn-pink"><i class="fas fa-clone left"></i> View project</a>
+          </div>
+        </div>
       </div>
 
     </div>
