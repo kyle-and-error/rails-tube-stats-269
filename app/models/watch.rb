@@ -30,6 +30,14 @@ class Watch < ApplicationRecord
     time
   end
 
+  def watch_time_since(datetime)
+    time = 0
+    videos.each do |video|
+      time += video.length if watched_video.datetime_watched <= datetime
+    end
+    time
+  end
+
   def self.least_watched_by(watcher)
     watches = Watch.where(watcher: watcher).to_a
     watches.sort do |a, b|

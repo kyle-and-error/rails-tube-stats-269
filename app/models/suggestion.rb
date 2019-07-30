@@ -7,23 +7,33 @@ class Suggestion < ApplicationRecord
 
   before_save :check_if_type_is_present
 
-  def self.create_subscribe_suggestions(watcher)
+  def type
+  end
+
+  def self.create_subscribe_suggestions(watcher, datetime)
     # TODO
     watches = Watch.where(watcher: watcher).where(subscription: false).to_a
 
     watches.sort do |a, b|
-      b.total_watch_time <=> a.total_watch_time
+      b.watch_time_since(3.days.before(datetime)) <=> a.watch_timewatch_time_since(2.days.before(datetime))
     end
   end
 
-  def self.create_unsubscribe_suggestions(watcher)
+  def self.create_unsubscribe_suggestions(watcher, datetime)
     # TODO
     watches = Watch.where(watcher: watcher).where(subscription: true).to_a
-    watches.select! { |watch|
-      one_month = 1.months.ago >= watch.latest_watched_video.datetime_watched
-    }
+    watches.select! do |watch|
+      datetime >= watch.latest_watched_video.datetime_watched
+    end
+    sub_time = 0
+    watches.each do |watch|
+      sub_time += watches.watch_time_since(datetime)
+    end
+    quota = total_sub_time / (3 * watches.count)
+    watches.select! do |watch|
     watches << Watch.least_watched_by(watcher)
   end
+
   def self.create_playlist_suggestions
     # TODO
   end
