@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 2019_07_30_100332) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "length"
+    t.string "category"
     t.index ["creator_id"], name: "index_videos_on_creator_id"
   end
 

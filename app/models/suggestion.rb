@@ -20,7 +20,7 @@ class Suggestion < ApplicationRecord
   end
 
   def self.create_unsubscribe_suggestions(watcher, datetime)
-    # TODO
+    # Could use some refinement, but it works
     watches = Watch.where(watcher: watcher).where(subscription: true).to_a
     watches.select! do |watch|
       datetime >= watch.latest_watched_video.datetime_watched
@@ -40,10 +40,11 @@ class Suggestion < ApplicationRecord
       message = "We reccomend that you unsubscribe from #{watch.creator}. "
       Suggestion.create!(watcher: watcher, type: "Channel", action: "Unsubscribe", creator: watch.creator, message: message)
     end
-    watches << Watch.least_watched_by(watcher)
+    Suggestion.create! << Watch.least_watched_by(watcher)
   end
 
   def self.create_playlist_suggestions
+
     # TODO
   end
 

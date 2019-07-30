@@ -1,14 +1,15 @@
 require 'google/apis/youtube_v3'
 require 'google/api_client/client_secrets'
 class PagesController < ApplicationController
-  DOMAIN = "tube-stats.xyz"
+  DOMAIN = "localhost:3000"
   skip_before_action :authenticate_user!, only: [:home, :privacy_policy]
+  before_action :authorize_url
 
   def home
   end
 
   def data
-    @bar_function = ((5000.to_f / 5000.to_f) * 100).to_i
+    @bar_function = ((4000.to_f / 5000.to_f) * 100).to_i
     @color_function =
       if @bar_function >= 75
         @color_function = '#4cff00'
@@ -18,6 +19,7 @@ class PagesController < ApplicationController
       else
         @color_function = '#ffa500'
       end
+      @youtube_account = YoutubeAccount.new
   end
 
   def dashboard
@@ -54,5 +56,11 @@ class PagesController < ApplicationController
     # scopes = ['youtube', 'youtube.readonly', 'userinfo.email']
     # redirect_uri = 'http://localhost:3000/youtube_accounts/new'
     # Yt::Account.new(scopes: scopes, redirect_uri: redirect_uri).authentication_url
+  end
+
+  private
+
+  def authorize_url
+    @authorization_url = authorization_url
   end
 end
