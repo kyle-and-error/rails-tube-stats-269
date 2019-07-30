@@ -1,4 +1,11 @@
- <% colors = ["#4CFF00", "#24305E","#ED1215","#EBFF00","#FF00EB", "#FEB801"] %>
+
+<div class="banner-dashboard" style="height: 700px; position: absolute; width: 100vw;">
+  <canvas class="background background-2" style="position: absolute; top: -400px; left: 0; z-index: -1;"></canvas>
+
+</div>
+ <% colors = ["#3AB795", "#191923","#D72638","#E89E2C","#EFECED", "#FEB801"] %>
+
+ <div class="data-frame">
 
    <div class= "container-structure">
     <div class= "cards-chart">
@@ -26,17 +33,19 @@
     </div>
 
 <!--------------------------------------------------------------------->
+  <div class= "container-structure">
 
-  <div class= "cards-chart">
-    <h1>Sanky</h1>
-    <%= render 'shared/sankey' %>
+    <div class= "cards-chart">
+      <h1>Sankey</h1>
+      <%= render 'shared/sankey' %>
+    </div>
   </div>
 <!--------------------------------------------------------------------->
 
   <div class= "container-structure">
 
   </div>
-
+</div>
 
 
 
