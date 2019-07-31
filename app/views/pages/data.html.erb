@@ -1,64 +1,39 @@
+
 <div class="banner-dashboard" style="height: 100vh; position: absolute; width: 100vw;">
-  <canvas class="background background-2" style="position: absolute; top: -800px; left: 0;"></canvas>
+ <canvas class="background background-2" style="position: absolute; top: -800px; left: 0;"></canvas>
 </div>
- <% colors = ["#3AB795", "#191923","#D72638","#E89E2C","#EFECED", "#FEB801"] %>
+<% colors = ["#3AB795", "#191923","#D72638","#E89E2C","#EFECED", "#FEB801"] %>
 
- <div class="data-frame row">
+<div class="data-frame row">
 
-  <div class="col-md-4">
-    <div class="h3-datapage-header">
-      <h3>Your<i class="fas fa-chart-line"></i>Statistics</h3>
-    </div>
-    <div>
-      <%= render 'shared/date_filter' %>
-    </div>
-  </div>
+ <div class="col-md-4">
+   <div class="h3-datapage-header">
+     <h3>Your<i class="fas fa-chart-line"></i>Statistics</h3>
+   </div>
+   <div>
+     <%= render 'shared/date_filter' %>
+   </div>
+ </div>
 
-  <div class="cards-chart col-md-8">
-    <%= render 'shared/top3' %>
-  </div>
+ <div class="cards-chart col-md-8">
+   <%= render 'shared/top3' %>
+ </div>
 
-  <div class="cards-chart col-md-6 middle-charts">
-    <h1>Pie Chart</h1>
-    <%= pie_chart Video.group(:title).count, colors: colors, messages: {empty: "No data"} %>
-  </div>
+ <div class="cards-chart col-md-6 middle-charts">
+   <h1>Pie Chart</h1>
+   <%= pie_chart Video.group(:title).count, colors: colors, messages: {empty: "No data"} %>
+ </div>
 
-  <div class="cards-chart col-md-6 middle-charts">
-    <h1>Line Chart</h1>
-    <%= line_chart Video.group(:title).count, colors: colors, messages: {empty: "No data"} %>
-  </div>
+ <div class="cards-chart col-md-6 middle-charts">
+   <h1>Line Chart</h1>
+   <%= line_chart Video.group(:title).count, colors: colors, messages: {empty: "No data"} %>
+ </div>
 
-  <div class= "cards-chart col-md-12">
-    <h1>Sankey</h1>
-    <%= render 'shared/sankey' %>
-  </div>
+ <div class= "cards-chart col-md-12">
+   <h1>Sankey</h1>
+   <%= render 'shared/sankey' %>
+ </div>
 
 </div>
-
-<!--------------------------------------------------------------------->
-<!------- <div class="container-time ">
-      <div class="top-left-container">
-
-
-
-      </div>
-
-    </div>
-
-
-  <div class= "container-structure">
-
-    </div>
-  -------------------------------------------------------------->
-
-
-<!--------------------------------------------------------------------->
-
-
-
-
-<!--------------------------------------------------------------------->
-
-
 
 
