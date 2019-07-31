@@ -1,5 +1,5 @@
 require "open-uri"
-require "Nokogiri"
+require "nokogiri"
 class Creator < ApplicationRecord
   has_many :watches
   has_many :watchers, through: :watches, class_name: "YoutubeAccount"
