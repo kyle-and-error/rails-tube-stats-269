@@ -27,8 +27,8 @@ class Watch < ApplicationRecord
 
   def watch_time_since(datetime)
     time = 0
-    videos.each do |video|
-      time += video.length if watched_video.datetime_watched <= datetime
+    watched_videos.each do |watched|
+      time += watched.video.length if watched.datetime_watched <= datetime
     end
     time
   end
