@@ -21,21 +21,21 @@
 
 <div class="col-md-6 middle-charts">
   <div class="cards-chart">
- <h1>Pie Chart</h1>
+ <div class="chart-label">Pie Chart</div>
  <%= pie_chart Video.group(:title).count, colors: colors, messages: {empty: "No data"} %>
  </div>
 </div>
 
 <div class="col-md-6 middle-charts">
   <div class="cards-chart">
-   <h1>Line Chart</h1>
+   <div class="chart-label">Line Chart</div>
    <%= line_chart Video.group(:title).count, colors: colors, messages: {empty: "No data"} %>
   </div>
 </div>
 
 <div class="col-md-12">
   <div class="cards-chart">
-   <h1>Sankey</h1>
+   <div class="chart-label">Sankey</div>
    <%= render 'shared/sankey' %>
   </div>
 </div>

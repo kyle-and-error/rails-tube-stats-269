@@ -66,13 +66,18 @@ font-weight: bold;
   margin: 30px;
   margin-bottom: 30px;
 //border: 1px solid red;
-justify-content: center;
-box-shadow: 0 0 5px rgba(0,0,0,0.2);
-border-radius: 5px;
-background: white;
-&.middle-charts {
- max-width: 49%;
-}
+  justify-content: center;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  background: white;
+  .chart-label {
+    font-size: 20px;
+    text-align: center;
+    color: #0C183A;
+  }
+  &.middle-charts {
+    max-width: 49%;
+  }
 }
 
 .card-chart h1 {
