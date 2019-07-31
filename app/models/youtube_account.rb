@@ -75,7 +75,7 @@ class YoutubeAccount < ApplicationRecord
     Playlist.init_playlists(@account.playlists, @account)
     Playlist.init_playlists(@account.related_playlists, @account)
 
-    Suggestion.create_suggestions
+    # Suggestion.create_suggestions
   end
 
   # def get_authenticated_service
