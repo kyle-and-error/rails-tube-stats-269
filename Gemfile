@@ -10,8 +10,9 @@ gem 'pundit'
 gem 'rails', '5.2.3'
 gem 'redis'
 gem 'chartkick'
+gem 'nokogiri'
 
-gem 'google-api-client', '~> 0.11'
+gem 'google-api-client'
 gem 'yt', '~> 0.32.0'
 
 gem 'autoprefixer-rails'

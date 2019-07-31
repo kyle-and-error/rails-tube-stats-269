@@ -1,6 +1,7 @@
 class SuggestionsController < ApplicationController
   def index
-    @suggestions = Suggestion.all
+    @channel_suggestions = Suggestion.where(type: "Channel")
+    @video_suggestions = Suggestion.where(type: "Video")
   end
 
   def show
