@@ -10,16 +10,7 @@ class PagesController < ApplicationController
 
   def data
     @bar_function = ((3000.to_f / 5000.to_f) * 100).to_i
-    @color_function =
-      if @bar_function >= 75
-        @color_function = '#4cff00'
-
-      elsif @bar_function <= 25
-        @color_function = 'red'
-      else
-        @color_function = '#ffa500'
-      end
-      @youtube_account = YoutubeAccount.new
+    @color_function = "12,24,58"
   end
 
   def dashboard
