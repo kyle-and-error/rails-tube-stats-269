@@ -1,5 +1,5 @@
 class YoutubeAccountsController < ApplicationController
-  DOMAIN = "localhost:3000"
+  DOMAIN = "tube-stats.xyz"
   def index
   end
 
