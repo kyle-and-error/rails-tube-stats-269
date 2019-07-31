@@ -1,5 +1,4 @@
 
-
 .banner-dashboard {
   background-size: cover;
   height: 200px;
@@ -7,16 +6,16 @@
   top: 0;
 }
 
-.banner .bnt-home {
-background: rgba(0,0,0,.1);
-}
+// .banner .bnt-home {
+// background: rgba(0,0,0,.1);
+// }
 
 .dashboard-frame-margin {
   margin: 170px 0 0 0 !important;
 }
 
 .dashboard-frame{
-  background-color: white;
+  background-color: #F3F1F1;
   position: relative;
   height: 600px;
   display: flex;
@@ -24,14 +23,14 @@ background: rgba(0,0,0,.1);
 
 }
 
-.col-md-4 {
+.side-left {
    -webkit-box-flex: 0;
   flex: 0 0 33.33333%;
   max-width: 33.33333%;
 }
 
 
-.col-md-8 {
+.side-right {
   -webkit-box-flex: 0;
   flex: 0 0 66.66667%;
   max-width: 66.66667%;
@@ -46,7 +45,7 @@ padding: 70px;
 top: 160px;
 margin: 20px;
 border-radius: 4px;
-box-shadow: 0 10px 30px rgba(0,0,0,.1);
+box-shadow: 0 5px 5px rgba(0,0,0,.1);
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -54,7 +53,20 @@ justify-content: space-around;
 
 }
 
+.fas.fa-chart-pie {
+color: #E89E2C;
+font-size: 50px;
+margin-right: 30px;
+// display: block to make it underneath each other
+}
 
+
+
+.fas.fa-plus-circle {
+color: #E89E2C;
+font-size: 50px;
+margin-right: 0px;
+}
 // box-shadow: 0 10px 30px rgba(0,0,0,.1);
 // height: 460px;
 // position: fixed;
@@ -87,10 +99,10 @@ height: 400px;
 background: white;                         /* White background */
 padding: 30px;                             /* Internal space */
 border-radius: 4px;                        /* Small radius */
-box-shadow: 0 10px 30px rgba(0,0,0,.1);
+box-shadow: 0 5px 5px rgba(0,0,0,.1);
 
 h2 {
-  color: #0C183A;
+  color: #E89E2C;
 }
 }
 
@@ -100,7 +112,7 @@ height: 400px;
 background: white;                         /* White background */
 padding: 30px;                             /* Internal space */
 border-radius: 4px;                        /* Small radius */
-box-shadow: 0 10px 30px rgba(0,0,0,.1);
+box-shadow: 0 5px 5px rgba(0,0,0,.1);
 justify-items: center;
 }
 
@@ -118,7 +130,7 @@ justify-items: center;
   // }
 
 .dates h1 {
-color: #EFECED;
+color: #E89E2C;
 font-size: 20px;
 display: inline;
 }

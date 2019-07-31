@@ -2,48 +2,51 @@
   <canvas class="background background-2" style="position: absolute; top: 0; left: 0;"></canvas>
 </div>
 <div class="dashboard-frame dashboard-frame-margin row">
-  <div class="col-md-4">
-    <div class="user-card">
+  <div class="side-left">
+    <div class="user-card side-left">
       <%= image_tag current_user.avatar, class: "avatar-large m-3" %>
       <div class= "dates">
         <h1><%= Date.today.strftime("%A, %b %d") %></h1>
       </div>
-      <div class="dropdown show">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
-        </a>
-
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href=<%= user_data_path(current_user) %>>Datapage</a>
-          <a class="dropdown-item" href= <%= suggestions_path%>>Suggestions</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-8">
-    <div class="tease">
-      <div class= "tease-info">
-        <h1> Welcome, <%=current_user.full_name %></h1>
-      </div>
-    </div>
-    <div>
-      <% if current_user.youtube_accounts.count == 0 %>
-      <div>
-        <a href=<%= @authorization_url %>>Please add a Youtube Account</a>
-      </div>
-      <% else %>
-      <div class="card-topthree">
-      <h2>weekly report</h1>
-
-          <p>First second and byee</p>
 
 
-        </div>
-          <% colors = ["#3AB795", "#191923","#D72638","#E89E2C","#EFECED", "#FEB801"] %>
-        <div class="card-piechart"><%= pie_chart Video.group(:title).count %></div>
+
+      <div class= "pages-icons">
+        <%= link_to user_data_path(current_user) do %>
+        <i class="fas fa-chart-pie"></i>
         <% end %>
+        <!-- <a href="user_data_path(current_user)"> -->
+          <%= link_to suggestions_path do %>
+          <i class="fas fa-plus-circle"></i>
+          <% end %>
+        </div>
 
       </div>
     </div>
-  </div>
+    <div class="col-md-8 side-right">
+      <div class="tease">
+        <div class= "tease-info">
+          <h1> Welcome, <%=current_user.full_name %></h1>
+        </div>
+      </div>
+      <div>
+        <% if current_user.youtube_accounts.count == 0 %>
+        <div>
+          <a href=<%= @authorization_url %>>Please add a Youtube Account</a>
+        </div>
+        <% else %>
+        <div class="card-topthree">
+          <h2>weekly report</h1>
+
+            <p>First second and byee</p>
+
+
+          </div>
+          <% colors = ["#3AB795", "#191923","#D72638","#E89E2C","#EFECED", "#FEB801"] %>
+          <div class="card-piechart"><%= pie_chart Video.group(:title).count %></div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
 
