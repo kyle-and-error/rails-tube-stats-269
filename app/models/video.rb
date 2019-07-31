@@ -2,14 +2,13 @@ class Video < ApplicationRecord
   belongs_to :creator
 
   has_many :watched_videos
-  has_many :comments, through: :watched_videos
 
   has_many :playlist_videos
   has_many :playlists, through: :playlist_videos
 
   has_many :suggestions
 
-  validates :title, :youtube_id, presence: true
+  validates :title, :youtube_id, :length, presence: true
 
   def self.init_video(account, video_id)
     video = Video.where(youtube_id: video_id).take

@@ -1,25 +1,38 @@
- <% colors = ["#4CFF00", "#24305E","#ED1215","#EBFF00","#FF00EB", "#FEB801"] %>
 
-   <div class= "container-structure">
-    <div class= "cards-chart">
-    <h1>Your statistics</h1>
-    <div class= "container-time">
-      <%= render 'shared/date_filter' %>
-    </div>
-  </div>
-  </div>
-<!--------------------------------------------------------------------->
-    <div class="top3">
+<div class="banner-dashboard" style="height: 700px; position: absolute; width: 100vw;">
+  <canvas class="background background-2" style="position: absolute; top: -400px; left: 0; z-index: -1;"></canvas>
+
+</div>
+ <% colors = ["#3AB795", "#191923","#D72638","#E89E2C","#EFECED", "#FEB801"] %>
+
+ <div class="data-frame">
+
+    <div class= "col-md-4">
+
+    <div class= "container-time ">
+      <div class="top-left-container">
+
+      <div class="h3-datapage-header">
+        <h3>Your<i class="fas fa-chart-line"></i>Statistics</h3>
+      </div>
+      <div>
+        <%= render 'shared/date_filter' %>
+      </div>
+      </div>
+     <div class="top3 col-md-8">
       <%= render 'shared/top3' %>
     </div>
+    </div>
+  </div>
+<!--------------------------------------------------------------------->
 <!--------------------------------------------------------------------->
 
   <div class= "container-structure">
-    <div class= "cards-chart">
+    <div class= "cards-chart col-md-6">
       <h1>Pie Chart</h1>
       <%= pie_chart Video.group(:title).count, colors: colors, messages: {empty: "No data"} %>
     </div>
-    <div class= "cards-chart">
+   <div class= "cards-chart col-md-6">
        <h1>Line Chart</h1>
       <%= line_chart Video.group(:title).count, colors: colors, messages: {empty: "No data"} %>
     </div>
@@ -27,16 +40,16 @@
 
 <!--------------------------------------------------------------------->
 
-  <div class= "cards-chart">
-    <h1>Sanky</h1>
-    <%= render 'shared/sankey' %>
-  </div>
+    <div class= "cards-chart col-md-12">
+      <h1>Sankey</h1>
+      <%= render 'shared/sankey' %>
+    </div>
 <!--------------------------------------------------------------------->
 
   <div class= "container-structure">
 
   </div>
-
+</div>
 
 
 

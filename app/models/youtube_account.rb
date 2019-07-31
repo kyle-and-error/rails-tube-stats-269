@@ -17,7 +17,6 @@ class YoutubeAccount < ApplicationRecord
   has_many :creators, through: :watches
   has_many :watched_videos, through: :watches
   has_many :videos, through: :watched_videos
-  has_many :comments, through: :watched_videos
 
   has_many :suggestions, dependent: :destroy
 
@@ -25,8 +24,8 @@ class YoutubeAccount < ApplicationRecord
 
   validates :email, uniqueness: true
 
-  before_save :initialize_data
-  after_save :initialize_more_data
+  before_create :initialize_data
+  after_create :initialize_more_data
 
   def url
     'https://www.youtube.com/channel/' + youtube_id
@@ -36,9 +35,9 @@ class YoutubeAccount < ApplicationRecord
     YoutubeAccount.where(youtube_id: yt.channel.id).take
   end
 
-  def update
-    init_history
-  end
+#def update
+ #   init_history
+ # end
 
   private
 

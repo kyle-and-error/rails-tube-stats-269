@@ -1,15 +1,44 @@
-body{
-  overflow-x: hidden;
+
+.data-frame {
+  background-size: cover;
+  top: 0;
+  // margin: 170px 0 0 0 !important;
+  background-color: white;
+padding: 0 165px;
+  height: 100%;
+
 }
+
+#sankey_basic {
+  margin: 0 auto;
+}
+
+
+// body{
+//   overflow-x: hidden;
+// }
+
 .container-structure {
   margin: 20px;
  display:flex;
 }
 
 .container-time {
-  color: #374785;
-  text-align: center;
-}
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding: 50px 0;
+  }
+  .h3-datapage-header{
+    color: #374785;
+    width: 100%;
+  }
+  .top-left-container{
+    display:flex;
+    align-content: center;
+    flex-direction: column;
+    justify-content: center;
+  }
 
 .container-date-filter{
   display: inline;
@@ -65,5 +94,4 @@ margin-left: 10%;
   width: 30px;
   background-size: cover;
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp87-LdVflLtAorQ9-Wf1yF624YAJiupUkLL0WM7r0wDyZQgyZ");
-
 }

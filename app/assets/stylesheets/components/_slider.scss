@@ -1,7 +1,7 @@
     body {
       position: relative;
       height: 100%;
-      background: #F4F4F4;
+      background: white;
       body-font: "Noto Sans TC";
       font-size: 14px;
       color:blue;
@@ -15,7 +15,8 @@
     .swiper-slide {
       text-align: center;
       font-size: 18px;
-      background: #fff;
+      background: black;
+      box-shadow: 4px 4px 2px #aaaaaa;
       /* Center slide text vertically */
       display: flex;
       justify-content: center;
