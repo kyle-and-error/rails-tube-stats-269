@@ -15,14 +15,6 @@ ActiveRecord::Schema.define(version: 2019_07_30_135945) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "comments", force: :cascade do |t|
-    t.bigint "watched_videos_id"
-    t.text "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["watched_videos_id"], name: "index_comments_on_watched_videos_id"
-  end
-
   create_table "creators", force: :cascade do |t|
     t.string "youtube_id"
     t.datetime "created_at", null: false
@@ -142,7 +134,6 @@ ActiveRecord::Schema.define(version: 2019_07_30_135945) do
     t.index ["user_id"], name: "index_youtube_accounts_on_user_id"
   end
 
-  add_foreign_key "comments", "watched_videos", column: "watched_videos_id"
   add_foreign_key "playlist_videos", "playlists"
   add_foreign_key "playlist_videos", "videos"
   add_foreign_key "playlist_watchers", "playlists"

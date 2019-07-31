@@ -10,7 +10,7 @@ class User < ApplicationRecord
     if first_name && last_name
       "#{first_name.capitalize} #{last_name.capitalize}"
     elsif first_name
-      first_name
+      first_name.capitalize
     else
       email
     end

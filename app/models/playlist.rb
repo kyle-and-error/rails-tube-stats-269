@@ -10,21 +10,30 @@ class Playlist < ApplicationRecord
 
   validates :title, presence: true
 
-  def self.initialize_with_yt(yt_playlist, account)
-    list = Playlist.new
-    list.title = yt_playlist.title
-    list.youtube_id = yt_playlist.id
-    list.creator = Creator.init_creator(yt_playlist.channel_id, account)
-    list.thumbnail = yt_playlist.thumbnail_url
-    list.description = yt_playlist.description
-    list.init_playlist_video(yt_playlist.playlist_items, account)
-    list.init_playlist_watcher(account)
-    list.save!
+  def self.find_history(watcher)
+    watcher_lists = PlaylistWatcher.where(watcher: watcher).to_a
+    watcher_history = Playlist.new
+    watcher_history = watcher_lists.select { |list| list.title == "History" }.first
+    watcher_history
+  end
+
+  def self.init_playlist(yt_playlist, watcher)
+    list = Playlist.where(youtube_id: yt_playlist.id)
+    if list.nil?
+      list = Playlist.new(creator: Creator.init_creator(yt_playlist.channel_id, account), title: yt_playlist.title)
+      list.youtube_id = yt_playlist.id
+      list.thumbnail = yt_playlist.thumbnail_url
+      list.description = yt_playlist.description
+      list.init_playlist_video(yt_playlist.playlist_items, watcher)
+      list.init_playlist_watcher(watcher)
+      list.save!
+    end
+    list
   end
 
   def self.init_playlists(playlists, account)
     playlists.each do |yt_playlist|
-      Playlist.initialize_with_yt(yt_playlist, account)
+      Playlist.init_playlist(yt_playlist, account)
     end
   end
 
