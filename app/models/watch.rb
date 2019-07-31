@@ -13,12 +13,21 @@ class Watch < ApplicationRecord
     watch.save!
   end
 
-  def self.top_three_watched_by(watcher)
-    3.times do Watch.where(watcher: youtube_account)
-    watches.each do |watch|
-      watch.sort_by { |number| number.reverse}
+  def self.top_watched_by(watcher)
+    watches_all = Watch.where(watcher: watcher).to_a
+    watches_all.sort do |a, b|
+      b.total_watch_time <=> a.total_watch_time
     end
+    watches_all
+  end
+
+  def self.absolute_total_time(watcher)
+    watches_all = Watch.where(watcher: watcher).to_a
+    absolute_total = 0
+    watches_all.each do |watch|
+      absolute_total = watch.total_watch_time
     end
+    absolute_total
   end
 
   def latest_video_watched
