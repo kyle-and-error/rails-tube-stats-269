@@ -43,8 +43,8 @@ class YoutubeAccount < ApplicationRecord
 
   def initialize_data
     Yt.configuration.log_level = :debug
-    Yt.configuration.client_id = '546111180417-nu0vq86o5tilefhoiuvgo9fluvlgaof7.apps.googleusercontent.com'
-    Yt.configuration.client_secret = 'S8K_ZRtM711nSqsoMmCwo_3p'
+    Yt.configuration.client_id = '576416227603-5cino3n93t2m94t2vqrpv3t9ssp7gkp3.apps.googleusercontent.com'
+    Yt.configuration.client_secret = 'HNenpbFhVkKmEc6VLD9jRSwD'
     @account = Yt::Account.new refresh_token: refresh_token
     set_values
     Creator.init_creator(@youtube_id, @account)

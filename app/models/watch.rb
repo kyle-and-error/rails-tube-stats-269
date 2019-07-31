@@ -49,6 +49,8 @@ class Watch < ApplicationRecord
             readable_time = "#{hours + 1} hours"
           else
             readable_time = "#{hours} hours"
+          end
+        end
       end
     end
     readable_time
