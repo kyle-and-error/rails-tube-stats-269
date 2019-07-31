@@ -1,5 +1,5 @@
 class YoutubeAccountsController < ApplicationController
-  DOMAIN = "tube-stats.xyz"
+  DOMAIN = ENV["DOMAIN"]
   def index
   end
 
