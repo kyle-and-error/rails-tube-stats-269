@@ -1,7 +1,7 @@
 require 'google/apis/youtube_v3'
 require 'google/api_client/client_secrets'
 class PagesController < ApplicationController
-  DOMAIN = "localhost:3000"
+  DOMAIN = ENV["DOMAIN"]
   skip_before_action :authenticate_user!, only: [:home, :privacy_policy]
   before_action :authorize_url
 
