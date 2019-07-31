@@ -81,7 +81,6 @@ class YoutubeAccount < ApplicationRecord
   # def get_authenticated_service
   #   client = Google::APIClient.new(
   #   )
-  #   byebug
   #   youtube = client.discovered_api(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION)
 
   #   file_storage = Google::APIClient::FileStorage.new("client_secrets.json")
