@@ -34,6 +34,7 @@
   -webkit-box-flex: 0;
   flex: 0 0 66.66667%;
   max-width: 66.66667%;
+  margin-left: 370px;
 }
 
 
@@ -76,7 +77,22 @@ margin-right: 0px;
 // max-width: 26%;
 // border-radius: 4px;
 
+.title-weekly{
+margin: 0;
+margin-bottom: 20px;
+color: #0C183A;
+font-size: 27px;
+font-weight: lighter;
+text-transform: uppercase;
+}
+.text-center{
+  text-align: center;
+}
 
+.title-weekly span {
+  background-color: #E89E2C;
+  padding: 5px 10px;
+}
 .tease{
 top: -70px;
 position: relative;
