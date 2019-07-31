@@ -16,6 +16,7 @@ class YoutubeAccountsController < ApplicationController
         "include_granted_scopes" => "true"  # incremental auth
       }
     )
+    byebug
     auth_client.code = params[:code]
     tokens = auth_client.fetch_access_token!
     @refresh_token = tokens["refresh_token"]

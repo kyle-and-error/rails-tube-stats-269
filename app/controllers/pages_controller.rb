@@ -41,21 +41,6 @@ class PagesController < ApplicationController
       }
     )
     auth_client.authorization_uri.to_s
-
-    # client_id = Google::Auth::ClientId.from_file('/Users/kylecho/code/krenniank/rails-tube-stats-269/client_secret.json')
-    # scope = ['https://www.googleapis.com/auth/youtube',
-    #        'https://www.googleapis.com/auth/youtube.readonly']
-    # token_store = Google::Auth::Stores::RedisTokenStore.new(redis: Redis.new)
-    # authorizer = Google::Auth::WebUserAuthorizer.new(
-    # client_id, scope, token_store, oauth2callback_path)
-
-    # redirect_uri = 'http://localhost:3000/youtube_accounts/new'
-    # scope = %i(youtube.readonly youtube)
-    # Yt::Auth.url_for(redirect_uri: redirect_uri, scope: scope, force: true)
-
-    # scopes = ['youtube', 'youtube.readonly', 'userinfo.email']
-    # redirect_uri = 'http://localhost:3000/youtube_accounts/new'
-    # Yt::Account.new(scopes: scopes, redirect_uri: redirect_uri).authentication_url
   end
 
   private
