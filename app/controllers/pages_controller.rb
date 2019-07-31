@@ -9,7 +9,11 @@ class PagesController < ApplicationController
   end
 
   def data
-    @bar_function = ((3000.to_f / 5000.to_f) * 100).to_i
+    watches = Watch.where(watcher: current_user.youtube_accounts[0])
+    watches.each do |watch|
+      watch.total_watch_time
+    end
+    @bar_function = ((10 / watches) * 100).to_i
     @color_function = "12,24,58"
   end
 
