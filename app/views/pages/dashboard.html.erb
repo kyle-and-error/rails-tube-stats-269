@@ -1,8 +1,8 @@
-<div class="banner-dashboard" style="height: 100vh; position: absolute; width: 100vw;">
+<div class="banner-particles" style="height: 100vh; position: absolute; width: 100vw;">
   <canvas class="background background-2" style="position: absolute; top: 0; left: 0;"></canvas>
 </div>
-<div class="dashboard-frame dashboard-frame-margin row">
-  <div class="side-left">
+<div class="wrapper dashboard-frame dashboard-frame-margin row">
+  <div class="col-md-3 side-left">
     <div class="user-card side-left">
       <%= image_tag current_user.avatar, class: "avatar-large m-3" %>
       <div class= "dates">
@@ -23,7 +23,7 @@
 
       </div>
     </div>
-    <div class="col-md-8 side-right">
+    <div class="col-md-9 side-right">
       <div class="tease">
         <div class= "tease-info">
           <h1> Welcome, <%=current_user.full_name %></h1>

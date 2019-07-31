@@ -1,14 +1,14 @@
 
-.banner-dashboard {
+.banner-particles {
   background-size: cover;
   height: 200px;
   overflow: hidden;
   top: 0;
 }
 
-// .banner .bnt-home {
-// background: rgba(0,0,0,.1);
-// }
+.wrapper {
+  padding: 0 60px;
+}
 
 .dashboard-frame-margin {
   margin: 170px 0 0 0 !important;
@@ -17,26 +17,9 @@
 .dashboard-frame{
   background-color: #F3F1F1;
   position: relative;
-  height: 600px;
-  display: flex;
-  position: relative;
+  height: 100%;
 
 }
-
-.side-left {
-   -webkit-box-flex: 0;
-  flex: 0 0 33.33333%;
-  max-width: 33.33333%;
-}
-
-
-.side-right {
-  -webkit-box-flex: 0;
-  flex: 0 0 66.66667%;
-  max-width: 66.66667%;
-  margin-left: 370px;
-}
-
 
 .user-card {
 height: 460px;
@@ -44,7 +27,7 @@ position: fixed;
 background: #0C183A; opacity: 0.9;
 padding: 70px;
 top: 160px;
-margin: 20px;
+margin: 20px 0;
 border-radius: 4px;
 box-shadow: 0 5px 5px rgba(0,0,0,.1);
 display: flex;

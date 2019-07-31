@@ -1,42 +1,61 @@
+.fas .fa-chart-line {
+  margin: 20px;
+}
+
+.banner-datapage {
+  z-index: 23456723456789;
+}
 
 .data-frame {
  background-size: cover;
  top: 0;
  // margin: 170px 0 0 0 !important;
  background-color: white;
- padding: 0 165px;
+ // padding: 0 165px;
  height: 100%;
  justify-content: space-between;
+
 }
 
 #sankey_basic {
  margin: 0 auto;
 }
 
+.datapage-header span {
+background-color: #E89E2C;
+padding: 5px 10px;
+}
 
-// body{
-//   overflow-x: hidden;
-// }
+.datapage-header i {
+ color: #374785;
+ width: 100%;
+ font-size: 60px;
+}
+
+.data-page-header {
+font-size: 60px;
+text-align: left !important;
+font-weight: bold;
+}
 
 .container-structure {
  margin: 20px;
-display:flex;
+ display:flex;
 }
 
 .container-time {
  display: flex;
  padding: 50px 0;
- }
- .h3-datapage-header{
-   color: #374785;
-   width: 100%;
- }
- .top-left-container{
-   display:flex;
-   align-content: center;
-   flex-direction: column;
-   justify-content: center;
- }
+}
+
+
+
+.top-left-container{
+ display:flex;
+ align-content: center;
+ flex-direction: column;
+ justify-content: center;
+}
 
 .container-date-filter{
  display: inline;
@@ -44,20 +63,20 @@ display:flex;
 
 
 .cards-chart {
-margin-bottom: 30px;
+  margin-bottom: 30px;
 //border: 1px solid red;
 justify-content: center;
 box-shadow: 0 0 15px rgba(0,0,0,0.2);
 border-radius: 5px;
 background: white;
- &.middle-charts {
-   max-width: 49%;
- }
+&.middle-charts {
+ max-width: 49%;
+}
 }
 
 .card-chart h1 {
-margin:10%;
-margin-left: 10%;
+  margin:10%;
+  margin-left: 10%;
 }
 
 .date-filter{
