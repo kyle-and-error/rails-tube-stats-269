@@ -56,25 +56,37 @@
     margin-bottom: 30px;
   }
 
-.banner-content {
-  height: 280px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  .banner-content {
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: -200px;
+  }
+
+  .home-buttons {
+    a {
+      color: white;
+    }
+  }
+
+  .bnt-home {
+    padding: 15px 50px;
+    color: #white;
+    //border: 1px solid white;
+    border-radius: 50px;
+    font-weight: lighter;
+    // opacity: 0.6;
+    margin: 20px;
+    background: #e36370;
+    // background: white;
+    // opacity: 0.5;
+
+  }
 }
 
-.bnt-home {
-  padding: 15px 50px;
-  color: #D72638;
-  border: 1px solid #D72638;
-  border-radius: 50px;
-  font-weight: lighter;
-  opacity: 0.6;
-  margin: 20px;
-  background: rgba(0, 0, 0, 0.1);
-  // background: white;
-  // opacity: 0.5;
-  }
+ .home-buttons .bnt bnt-home .bnt-one {
+  border-color: white;
 }
 
 .row {
