@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   end
 
   def data
-    @bar_function = ((4000.to_f / 5000.to_f) * 100).to_i
+    @bar_function = ((3000.to_f / 5000.to_f) * 100).to_i
     @color_function =
       if @bar_function >= 75
         @color_function = '#4cff00'
