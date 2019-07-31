@@ -12,11 +12,11 @@
 
 
       <div class= "pages-icons">
-        <%= link_to user_data_path(current_user) do %>
+        <%= link_to user_youtube_account_data_path(current_user, 1) do %>
         <i class="fas fa-chart-pie"></i>
         <% end %>
         <!-- <a href="user_data_path(current_user)"> -->
-          <%= link_to suggestions_path do %>
+          <%= link_to user_youtube_account_data_path(current_user, 1) do %>
           <i class="fas fa-plus-circle"></i>
           <% end %>
         </div>
