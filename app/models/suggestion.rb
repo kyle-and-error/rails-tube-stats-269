@@ -7,14 +7,14 @@ class Suggestion < ApplicationRecord
 
   before_save :check_if_type_is_present
 
-  def self.create_suggestions
-    Playlist.create_channel_suggestions
-    Playlist.create_video_suggestions
+  def self.create_suggestions(watcher, datetime)
+    Suggestion.create_channel_suggestions(watcher, datetime)
+    Suggestion.create_video_suggestions(watcher)
   end
 
-  def self.create_channel_suggestions
-    Playlist.create_subscribe_suggestions
-    Playlist.create_unsubscribe_suggestions
+  def self.create_channel_suggestions(watcher, datetime)
+    Suggestion.create_subscribe_suggestions(watcher, datetime)
+    Suggestion.create_unsubscribe_suggestions(watcher, datetime)
   end
 
   def self.create_subscribe_suggestions(watcher, datetime)
