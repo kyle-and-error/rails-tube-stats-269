@@ -9,8 +9,14 @@ class PagesController < ApplicationController
   end
 
   def data
-    @bar_function = ((3000.to_f / 5000.to_f) * 100).to_i
-    @color_function = "12,24,58"
+    # youtube_account = YoutubeAccount.find(params["youtube_account_id"])
+    # watches = Watch.top_watched_by(youtube_account)
+    # absolute_total = Watch.absolute_total_time(youtube_account)
+    @bar_functions = []
+   # watches.each do |watch|
+   #   @bar_functions << ((watch.total_watch_time / absolute_total) * 100).to_i
+    #  @color_function = "12,24,58"
+   # end
   end
 
   def dashboard
