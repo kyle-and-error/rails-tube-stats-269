@@ -6,8 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+thomas = User.new({
+    email: 'berhane097@gmail.com',
+    password: '111111',
+    first_name: 'Thomas',
+    last_name: 'Berhane',
+    avatar:'https://static1.squarespace.com/static/54f76245e4b08e5a08a87ec8/t/5b1e906b575d1f0e16e80939/1528729713813/Frida+2.jpg?format=750w'
+  })
+
+thomas.save!
+
+
 puts "Cleaning up database..."
-User.destroy_all
+# => User.destroy_all
 YoutubeAccount.destroy_all
 Creator.destroy_all
 Playlist.destroy_all
