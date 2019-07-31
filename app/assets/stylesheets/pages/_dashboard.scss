@@ -7,6 +7,10 @@
   top: 0;
 }
 
+.banner .bnt-home {
+background: rgba(0,0,0,.1);
+}
+
 .dashboard-frame-margin {
   margin: 170px 0 0 0 !important;
 }
@@ -31,18 +35,23 @@
   -webkit-box-flex: 0;
   flex: 0 0 66.66667%;
   max-width: 66.66667%;
+  margin-left: 370px;
 }
 
 
 .user-card {
 height: 460px;
 position: fixed;
-background: white;
+background: #0C183A; opacity: 0.9;
 padding: 70px;
 top: 160px;
 margin: 20px;
 border-radius: 4px;
 box-shadow: 0 10px 30px rgba(0,0,0,.1);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-around;
 
 }
 
@@ -63,7 +72,7 @@ position: relative;
 
 h1 {
   font-size: 40px;
-  color: #101017;
+  color: #0C183A;
 }
 }
 
@@ -81,6 +90,9 @@ padding: 30px;                             /* Internal space */
 border-radius: 4px;                        /* Small radius */
 box-shadow: 0 10px 30px rgba(0,0,0,.1);
 
+h2 {
+  color: #0C183A;
+}
 }
 
 .card-piechart{
@@ -107,7 +119,7 @@ justify-items: center;
   // }
 
 .dates h1 {
-color: #191923;
+color: #EFECED;
 font-size: 20px;
 display: inline;
 }
