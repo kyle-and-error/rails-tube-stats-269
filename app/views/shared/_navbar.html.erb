@@ -25,6 +25,9 @@
         <li class="nav-item">
           <%= link_to "Your Data", user_data_path(current_user), class: "nav-link" %>
         </li>
+         <li class="nav-item">
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
 
         <% else %>
         <li class="nav-item">
