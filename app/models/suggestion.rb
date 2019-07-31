@@ -7,6 +7,16 @@ class Suggestion < ApplicationRecord
 
   before_save :check_if_type_is_present
 
+  def self.create_suggestions
+    Playlist.create_channel_suggestions
+    Playlist.create_video_suggestions
+  end
+
+  def self.create_channel_suggestions
+    Playlist.create_subscribe_suggestions
+    Playlist.create_unsubscribe_suggestions
+  end
+
   def self.create_subscribe_suggestions(watcher, datetime)
     watches = Watch.where(watcher: watcher).where(subscription: false).to_a
 
@@ -14,8 +24,14 @@ class Suggestion < ApplicationRecord
       b.watch_time_since(3.days.before(datetime)) <=> a.watch_time_since(3.days.before(datetime))
     end
     watches.each do |watch|
+      sugg = Suggestion.where(watcher: watcher, creator: watch.creator).take
       message = "We reccomend that you subscribe to #{watch.creator}. You have watched them for a total of #{a.readable_watch_time_since(3.days.before(datetime))} since #{3.days.before(datetime)}."
-      Suggestion.create!(watcher: watcher, type: "Channel", action: "Subscribe", creator: watch.creator, message: message)
+      if sugg.nil?
+        Suggestion.create!(watcher: watcher, type: "Channel", action: "Subscribe", creator: watch.creator, message: message)
+      else
+        sugg.message = message
+        sugg.save!
+      end
     end
   end
 
@@ -37,8 +53,14 @@ class Suggestion < ApplicationRecord
       a.watch_time_since(datetime) <=> b.watch_time_since(datetime)
     end
     watches.each do |watch|
+      sugg = Suggestion.where(watcher: watcher, creator: watch.creator).take
       message = "We reccomend that you unsubscribe from #{watch.creator}. "
-      Suggestion.create!(watcher: watcher, type: "Channel", action: "Unsubscribe", creator: watch.creator, message: message)
+      if sugg.nil?
+        Suggestion.create!(watcher: watcher, type: "Channel", action: "Unsubscribe", creator: watch.creator, message: message)
+      else
+        sugg.message = message
+        sugg.save!
+      end
     end
     # Suggestion.create! << Watch.least_watched_by(watcher)
   end
@@ -63,11 +85,22 @@ class Suggestion < ApplicationRecord
     end
     videos_count.each do |video, count|
       if count > 4
-        message = ""
-        Suggestion.create!(watcher: watcher, type: "Video", action: "Add to playlist", video: video, message: message)
+        message = "You should add this to a playlist, for easy access. You have watched it #{count} times."
+        sugg = Suggestion.where(watcher: watcher, video: video, action: "Add to playlist").take
+        if sugg.nil?
+          Suggestion.create!(watcher: watcher, type: "Video", action: "Add to playlist", video: video, message: message)
+        else
+          sugg.message = message
+        end
       elsif count > 2
-        messagee = ""
-        Suggestion.create!(watcher: watcher, type: "Video", action: "Like", video: video, message: message)
+        message = "You should like this video!"
+        sugg = Suggestion.where(watcher: watcher, video: video, action: "Like").take
+        if sugg.nil?
+          Suggestion.create!(watcher: watcher, type: "Video", action: "Like", video: video, message: message)
+        else
+          sugg.message = message
+          sugg.save!
+        end
       end
     end
   end
