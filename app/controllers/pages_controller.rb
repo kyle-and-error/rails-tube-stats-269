@@ -3,7 +3,7 @@ require 'google/api_client/client_secrets'
 class PagesController < ApplicationController
   DOMAIN = ENV["DOMAIN"]
   HTTP = "http"
-  HTTP = "https" if DOMAIN.include?('tube')
+  HTTP = "https" if DOMAIN.include?('tube-stats')
   skip_before_action :authenticate_user!, only: [:home, :privacy_policy]
   before_action :authorize_url
 
