@@ -24,7 +24,7 @@
   <div class="col-md-12 data-card">
     <div class="cards-chart">
       <p class="title-stats-span text-center"><span>Line Chart</span></p>
-
+      <%= line_chart WatchedVideo.group_by_day(:datetime_watched).count %>
     </div>
   </div>
 
