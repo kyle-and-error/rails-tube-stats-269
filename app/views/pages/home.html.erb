@@ -14,8 +14,12 @@
       <%= link_to "Sign up", new_user_registration_path, class: "bnt bnt-home bnt-one" %>
       <%= link_to "Login", new_user_session_path, class: "bnt bnt-home bnt-two" %>
     </div>
-  <!--   <% #else  %>
-    <div>..buttton. </div> -->
+   <%else%>
+    <div class="home-buttons">
+      <%= link_to "show more", user_dashboard_path(current_user), class: "bnt bnt-home bnt-three" %>
+
+
+    </div>
     <% end %>
 
  </div>
