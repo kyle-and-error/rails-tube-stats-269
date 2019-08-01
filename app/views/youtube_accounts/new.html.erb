@@ -12,8 +12,7 @@
           <div>
             <%= simple_form_for [@youtube_account] do |f| %>
             <%= f.input  :name, label: "Name This account", class: "card-inputs" %>
-            <%= f.hidden_field  :access_token, value: @access_token %>
-            <%= f.input  :refresh_token, value: @refresh_token %>
+            <%= f.hidden_field  :refresh_token, input_html: {value: @refresh_token} %>
             <%= f.button :submit, value: "Add Account", class: "btn btn-primary" %>
           <% end %>
           </div>
