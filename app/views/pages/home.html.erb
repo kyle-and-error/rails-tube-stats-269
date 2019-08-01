@@ -8,8 +8,10 @@
     <h1>Tube Stats</h1>
     <p>Measure and track your Youtube content with more transparancy</p>
     <div class="home-buttons">
-      <%= link_to "Sign up", new_user_registration_path, class: "bnt bnt-home bnt-one" %>
-      <%= link_to "Login", new_user_session_path, class: "bnt bnt-home bnt-two" %>
+      <% unless current_user %>
+        <%= link_to "Sign up", new_user_registration_path, class: "bnt bnt-home bnt-one" %>
+        <%= link_to "Login", new_user_session_path, class: "bnt bnt-home bnt-two" %>
+      <% end %>
 
     </div>
  </div>
