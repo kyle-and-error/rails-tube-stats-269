@@ -22,10 +22,14 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    yt = current_user.youtube_accounts.first
+    youtube_account = current_user.youtube_accounts.first
     @authorization_url = authorization_url
-    @watches = Watch.top_watched_by(yt)
-    @absolute_total = Watch.absolute_total_time(yt)
+    @all = Watch.top_watched_by(youtube_account)
+    @first_five = @all.first(5)
+    @first_five_sum = Watch.total_time(@first_five)
+    @last = @all.drop(5)
+    @last_sum = Watch.total_time(@last)
+    @absolute_total = Watch.absolute_total_time(youtube_account)
     @color_function = "12,24,58"
   end
 
