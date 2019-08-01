@@ -25,7 +25,7 @@
 <div class="col-md-6 middle-charts">
   <div class="cards-chart">
  <div class="chart-label">Pie Chart</div>
- <%= pie_chart WatchedVideo.group(:watch).count, colors: colors, messages: {empty: "No data"} %>
+ <%= pie_chart WatchedVideo.group(:watch).count.first(5), colors: colors, messages: {empty: "No data"} %>
  </div>
 </div>
 

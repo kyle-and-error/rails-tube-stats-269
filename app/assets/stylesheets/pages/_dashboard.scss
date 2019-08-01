@@ -1,18 +1,14 @@
 
-
-
-
 .data-page-header {
   margin-top: 90px;
   margin-left: 20px;
 }
 
 
-
 .name h1 {
-color: #E89E2C;
-    font-size: 20px;
-    display: inline;
+color: #BDBDBD;
+font-size: 14px;
+display: inline;
 }
 
 
@@ -35,47 +31,39 @@ color: #E89E2C;
   background-color: #F3F1F1;
   position: relative;
   height: 100%;
-
 }
 
 .user-card {
 height: 460px;
-position: fixed;
-background: #3d3d3d;
-padding: 70px;
-top: 160px;
-margin: 20px 0;
-border-radius: 4px;
-box-shadow: 0 5px 5px rgba(0,0,0,.1);
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: space-around;
-
+    position: fixed;
+    background: white;
+    padding: 70px;
+    top: 160px;
+    /* margin: 20px 0; */
+    border-radius: 4px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    display: -webkit-box;
+    /* display: flex; */
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    /* flex-direction: column; */
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .fas.fa-chart-pie {
 color: #E89E2C;
 font-size: 50px;
-margin-right: 30px;
+margin-right: 40px;
 // display: block to make it underneath each other
 }
-
-
 
 .fas.fa-plus-circle {
 color: #E89E2C;
 font-size: 50px;
-margin-right: 0px;
+margin-right: 40px;
 }
-// box-shadow: 0 10px 30px rgba(0,0,0,.1);
-// height: 460px;
-// position: fixed;
-// background: white;
-// padding: 70px;
-// top: 160px;
-// max-width: 26%;
-// border-radius: 4px;
 
 .title-weekly{
 margin: 0;
@@ -93,29 +81,19 @@ text-transform: uppercase;
   background-color: #E89E2C;
   padding: 5px 10px;
 }
-.tease{
+.tease h1 {
 top: -70px;
 position: relative;
-
-h1 {
-  font-size: 40px;
-  color: white;
+font-size: 40px;
+color: white;
 }
-}
-
-
-
-// .tease-info{
-//   position: absolute;
-// }
 
 .card-topthree {
-
 height: 400px;
-background: white;                         /* White background */
-padding: 30px;                             /* Internal space */
-border-radius: 4px;                        /* Small radius */
-box-shadow: 0 5px 5px rgba(0,0,0,.1);
+    background: white;
+    padding: 30px;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1)
 
 h2 {
   color: #E89E2C;
@@ -137,75 +115,21 @@ color: #0C183A;
 margin-bottom: 30px;
 }
 
-// .fa-youtube{
-// color:#D72638;
-//  font-size: 40px;
-// margin-right: 10px;
-// }
-
-  // .container-structure h1{
-  //   margin-top: 10px;
-  //   font-size: 30px;
-  //   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-  //   padding:15px;
-  // }
-
 .dates h1 {
 color: #E89E2C;
-font-size: 20px;
+font-size: 18px;
 display: inline;
 }
 
+.pages-icons { margin-top: 40px; }
 
-  // .topthree{
-  //   margin-top: 40px;
-  //   background:white;
-  //   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  //   border-radius: 10px;
+.fas.fa-chart-pie {
+      color: #E89E2C;
+    font-size: 50px;
+    margin-right: 30px
+}
 
-  // }
-
-// .flash {
-//   padding: 16px 24px;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-
-//   box-shadow: 0 0 8px rgba(0,0,0,0.2);
-//   border-radius: 4px;
-//   margin: 8px;
-// }
-
-// .flash-success {
-//   border: 2px solid #5680E9;
-// }
-
-// .fa-youtube{
-//   color: red;
-//   font-size: 40px;
-//   margin-right: 10px;
-// }
-
-
-// .try-out{
-
-// background: #005C97;  /* fallback for old browsers */
-// background: -webkit-linear-gradient(to right, #363795, #005C97);  /* Chrome 10-25, Safari 5.1-6 */
-// background: linear-gradient(to right, #363795, #005C97); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-// }
-
-// .alert {
-//   position: fixed;
-
-// }
-
-
-// .bar-item h4 {
-//   font-size: 10px;
-
-// }
-
-// .bar-item img {
-//   margin: 10px;
-// }
+.fas.fa-plus-circle { color: #E89E2C;
+    font-size: 50px;
+    margin-right: 0px;}
 
