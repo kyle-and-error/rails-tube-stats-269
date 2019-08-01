@@ -30,6 +30,14 @@ class Watch < ApplicationRecord
     absolute_total
   end
 
+  def self.total_time(watches)
+    absolute_total = 0
+    watches.each do |watch|
+      absolute_total += watch.total_watch_time
+    end
+    absolute_total
+  end
+
   def latest_video_watched
     watched_videos.to_a.max_by {|o| o[:datetime_watched]}
   end
@@ -50,8 +58,8 @@ class Watch < ApplicationRecord
     time
   end
 
-  def readable_watch_time_since(datetime)
-    seconds = watch_time_since(datetime)
+  def self.readable_watch_time(time)
+    seconds = time
     readable_time = "#{seconds} seconds"
     if seconds > 80
       minutes = seconds / 60

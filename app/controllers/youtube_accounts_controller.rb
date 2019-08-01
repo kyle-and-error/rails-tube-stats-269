@@ -1,5 +1,7 @@
 class YoutubeAccountsController < ApplicationController
   DOMAIN = ENV["DOMAIN"]
+  HTTP = "http"
+  HTTP = "https" if DOMAIN.include?('tube')
   def index
   end
 
