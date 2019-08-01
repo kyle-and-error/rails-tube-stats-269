@@ -1,5 +1,5 @@
 
-<div class="banner-particles" style="height: 100vh; position: absolute; width: 100vw;">
+<div class="banner-particles" style="height: 100%; position: absolute; width: 100vw;">
   <canvas class="background background-2" style="position: absolute; top: 0; left: 0;"></canvas>
 
 </div>
@@ -7,7 +7,7 @@
 <% colors = ["#6FCAB1","#E1616E","#F0C178", "#3C4661", "#EFECED", "#84ba5c", "#3C4661",]%>
 
 
-<div class="wrapper dashboard-frame dashboard-frame-margin row pt-5">
+<div class="wrapper dashboard-frame row pt-5 data-frame">
 
 
     <!-- <p class="data-page-header">
@@ -16,36 +16,36 @@
   </div> -->
 
 <!-- <p class="title-stats text-center"> -->
-    <h1 class="title-stats">Your Statistics</h1>
+    <h1 class="col-md-12 title-stats">Your Statistics</h1>
 <!-- </p> -->
 
 
 
-  <div class="col-md-12">
+  <div class="col-md-12 data-card">
     <div class="cards-chart">
       <p class="title-stats-span text-center"><span>Line Chart</span></p>
-   <%= line_chart WatchedVideo.group(:watch).count, colors: colors, messages: {empty: "No data"} %>
+   <%= line_chart Video.group(:length).count, colors: colors, messages: {empty: "No data"}, width: "100%" %>
 
     </div>
   </div>
 
 
-<div class="col-md-6 middle-charts">
+<div class="col-md-6 middle-charts data-card">
   <div class="cards-chart">
  <p class="title-stats-span text-center"><span>Pie Chart</span></p>
- <%= pie_chart WatchedVideo.group(:watch).count.first(5), colors: colors, messages: {empty: "No data"} %>
+ <%= pie_chart Video.group(:title).count.first(5), colors: colors, messages: {empty: "No data"} %>
  </div>
 </div>
 
-<div class="col-md-6 middle-charts">
+<div class="col-md-6 middle-charts data-card">
   <div class="cards-chart">
    <p class="title-stats-span text-center"><span>Your Top 3</span></p>
-   <%= line_chart WatchedVideo.group(:watch).count, colors: colors, messages: {empty: "No data"} %>
+   <%= render 'shared/top3'%>
 
   </div>
 </div>
 
-<div class="col-md-12">
+<div class="col-md-12 data-card">
   <div class="cards-chart">
    <div class="chart-label">Sankey</div>
    <%= render 'shared/sankey' %>
