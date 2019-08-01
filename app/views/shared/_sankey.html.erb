@@ -10,12 +10,9 @@
         data.addColumn('string', 'To');
         data.addColumn('number', 'Weight');
         data.addRows([
-          [ '43h', 'Comedy', 15 ],
-          [ '43h', 'Entertainment', 7 ],
-          [ '43h', 'News & Politics', 6 ],
-          [ '43h', 'Education', 2 ],
-          [ '43h', 'Animation', 9 ],
-          [ '43h', 'People & Blogs', 4 ]
+          <% Video.categories.each do |category| %>
+          [ '<%= Watch.readable_watch_time(Watch.absolute_total_time(@youtube_account)) %>', '<%= category %>', <%= Watch.watch_time_of_category(@youtube_account, category) %>],
+          <% end %>
         ]);
 
       // Sets chart options.

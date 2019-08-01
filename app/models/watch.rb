@@ -69,7 +69,7 @@ class Watch < ApplicationRecord
         hours = minutes / 60
         minutes = minutes % 60
         readable_time = "#{hours} hours and #{minutes} minutes"
-        if hours > 9
+        if hours > 15
           if minutes >= 30
             readable_time = "#{hours + 1} hours"
           else
@@ -87,5 +87,14 @@ class Watch < ApplicationRecord
       a.total_watch_time <=> b.total_watch_time
     end
     watches.first
+  end
+
+  def self.watch_time_of_category(watcher, category)
+    time = 0
+    watched_videos = WatchedVideo.where(watch: Watch.where(watcher: watcher))
+    watched_videos.each do |watched|
+      time += watched.video.length if watched.video.category == category
+    end
+    time
   end
 end
