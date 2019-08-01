@@ -27,7 +27,7 @@ class YoutubeAccount < ApplicationRecord
 
   has_many :suggestions, dependent: :destroy
 
-  has_many :video_watched, through: :watchex
+  has_many :video_watched, through: :watches
 
   validates :email, uniqueness: true
 
@@ -53,8 +53,8 @@ class YoutubeAccount < ApplicationRecord
 
   def initialize_data
     Yt.configuration.log_level = :debug
-    Yt.configuration.client_id = '576416227603-493bbagrdov99e836dfsqcmkcuftlm72.apps.googleusercontent.com'
-    Yt.configuration.client_secret = 'HNpJT6cp7r9S3PHN8hZMJ8aO'
+    Yt.configuration.client_id = "576416227603-h6i3m97qconq60bpgqdsb0b57r1hpd7i.apps.googleusercontent.com"
+    Yt.configuration.client_secret = "2jthhNUTpjyLOkGUzYeQ_gaB"
     @account = Yt::Account.new refresh_token: refresh_token
     set_values
     Creator.init_creator(@youtube_id, @account)

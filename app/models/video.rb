@@ -17,6 +17,7 @@ class Video < ApplicationRecord
       begin
         watcher = YoutubeAccount.find_by_youtube_account(account)
         creator = Creator.init_creator(yt_video.channel_id, account)
+        watch_a = Watch.create!(watcher: watcher, creator: creator)
         yt_params = { category: yt_video.category_title, creator: creator, youtube_id: yt_video.id, title: yt_video.title, description: yt_video.description, thumbnail: yt_video.thumbnail_url, length: yt_video.duration }
         video = Video.new(yt_params)
         WatchedVideo.init_watched_videos(watcher, video, yt_video.liked?)
