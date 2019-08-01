@@ -9,49 +9,34 @@
 
 <div class="wrapper dashboard-frame row pt-5 data-frame">
 
-
-    <!-- <p class="data-page-header">
-      <span>Your <br> Statistics</span>
-    </p>
-  </div> -->
-
-<!-- <p class="title-stats text-center"> -->
     <h1 class="col-md-12 title-stats">Your Statistics</h1>
-<!-- </p> -->
 
-
-
-  <div class="col-md-12 data-card">
-    <div class="cards-chart">
-      <p class="title-stats-span text-center"><span>Line Chart</span></p>
-   <%= line_chart Video.group(:length).count, colors: colors, messages: {empty: "No data"}, width: "100%" %>
-
+    <div class="col-md-5 data-card">
+      <div class="charts-set">
+        <div class="cards-chart">
+          <p class="title-stats-span text-center"><span>Line Chart</span></p>
+          <%= line_chart Video.group(:length).count, colors: colors, messages: {empty: "No data"}, width: "100%" %>
+        </div>
+        <div class="cards-chart">
+          <p class="title-stats-span text-center"><span>Pie Chart</span></p>
+          <%= pie_chart Video.group(:length).count.first(5), colors: colors, messages: {empty: "No data"} %>
+        </div>
+      </div>
     </div>
-  </div>
 
+    <div class="col-md-7 middle-charts data-card">
+      <div class="cards-chart data-top3">
+       <p class="title-stats-span text-center"><span>Your Top 3</span></p>
+       <%= render 'shared/top3'%>
+     </div>
+   </div>
 
-<div class="col-md-6 middle-charts data-card">
-  <div class="cards-chart">
- <p class="title-stats-span text-center"><span>Pie Chart</span></p>
-
- <%= pie_chart Video.group(:length).count.first(5), colors: colors, messages: {empty: "No data"} %>
+   <div class="col-md-12 data-card">
+    <div class="cards-chart">
+     <div class="chart-label">Sankey</div>
+     <%= render 'shared/sankey' %>
+   </div>
  </div>
-</div>
-
-<div class="col-md-6 middle-charts data-card">
-  <div class="cards-chart">
-   <p class="title-stats-span text-center"><span>Your Top 3</span></p>
-   <%= render 'shared/top3'%>
-
-  </div>
-</div>
-
-<div class="col-md-12 data-card">
-  <div class="cards-chart">
-   <div class="chart-label">Sankey</div>
-   <%= render 'shared/sankey' %>
-  </div>
-</div>
 
 </div>
 

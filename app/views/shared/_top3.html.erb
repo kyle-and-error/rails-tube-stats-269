@@ -1,50 +1,38 @@
-<ul>
-  <h3>Top 5 Watched (All Time)</h3>
   <% @first_five.each do |watch| %>
-  <div>
-    <% bar_function = ((watch.total_watch_time.to_f / @first_five_sum) * 100).to_i %>
-    <li class="top3-bar">
-      <div class="bar-item">
-        <div style="display: flex;">
-          <img src='<%= watch.creator.avatar %>' class='img-bar'>
-          <h4><%= watch.creator.title %></h4>
-        </div>
-        <div class="bar-container" style="background-color: rgba(<%= @color_function %>,0.3); " >
-          <div class="hiddenbar-container">
-            <div style="background-color: rgb(<%=@color_function%>); width:     <%= bar_function %>%; height: 20px; border-radius:10px; ">
-              <h6>
-                <%= Watch.readable_watch_time(watch.total_watch_time) %>
-              </h6>
-            </div>
-          </div>
+  <% bar_function = ((watch.total_watch_time.to_f / @first_five_sum) * 100).to_i %>
+  <div class="bar-item top3-bar">
+    <img src='<%= watch.creator.avatar %>' class='img-bar'>
+    <div class="top3-info">
+      <div class="top3-title">
+        <h4><%= watch.creator.title %></h4>
+        <p>
+          <%= Watch.readable_watch_time(watch.total_watch_time) %>
+        </p>
+      </div>
+      <div class="bar-container" style="background-color: rgba(<%= @color_function %>,0.3); " >
+        <div class="hiddenbar-container">
+          <div style="background-color: rgb(<%=@color_function%>); width:<%= bar_function %>%; height: 12px; border-radius:10px; "></div>
         </div>
       </div>
-    </li>
+    </div>
   </div>
-  <hr>
   <% end%>
-  <h3>Sum of all the other channels</h3>
-  <div>
-    <% bar_function = ((@last_sum.to_f / @absolute_total)*100.to_i) %>
-    <li class="top3-bar">
-      <div class="bar-item">
-        <div style="display: flex;">
-          <h4>Other Channels</h4>
-        </div>
-        <div class="bar-container" style="background-color: rgba(<%= @color_function %>,0.3); " >
-          <div class="hiddenbar-container">
-            <div style="background-color: rgb(<%=@color_function%>); width:     <%= bar_function %>%; height: 20px; border-radius:10px; ">
-              <h6>
 
-                <%= bar_function %>%
-              </h6>
-            </div>
-          </div>
+  <% bar_function = ((@last_sum.to_f / @absolute_total)*100.to_i) %>
+  <div class="bar-item other-top3">
+    <div class="top3-title">
+      <h4>Other channels</h4>
+      <p>
+        <%= bar_function %>%
+      </p>
+    </div>
+    <div class="bar-container" style="background-color: rgba(<%= @color_function %>,0.3); " >
+      <div class="hiddenbar-container">
+        <div style="background-color: rgb(<%=@color_function%>); width: <%= bar_function %>%; height: 12px; border-radius:10px; ">
         </div>
       </div>
-    </li>
+    </div>
   </div>
-</ul>
 
 
 
