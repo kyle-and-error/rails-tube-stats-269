@@ -80,6 +80,8 @@ class YoutubeAccount < ApplicationRecord
     # Suggestion.create_suggestions
   end
 
+  # KEEP THIS! I want to try to make this work after demo day - Kyle
+
   # def get_authenticated_service
   #   client = Google::APIClient.new(
   #   )
