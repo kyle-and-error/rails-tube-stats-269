@@ -7,9 +7,10 @@ class User < ApplicationRecord
   has_many :youtube_accounts, dependent: :destroy
 
   def full_name
-    if first_name && last_name
+    t = !first_name.empty? && !last_name.empty?
+    if t
       "#{first_name.capitalize} #{last_name.capitalize}"
-    elsif first_name
+    elsif !first_name.empty?
       first_name.capitalize
     else
       email
