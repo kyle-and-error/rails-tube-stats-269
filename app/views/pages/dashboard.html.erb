@@ -1,5 +1,5 @@
 
-<div class="banner-particles" style="height: 100vh; position: absolute; width: 100vw;">
+<div class="banner-particles" style="height: 100%; position: absolute; width: 100vw;">
   <canvas class="background background-2" style="position: absolute; top: 0; left: 0;"></canvas>
 </div>
 <% colors = ["#6FCAB1","#E1616E","#F0C178", "#3C4661", "#EFECED", "#84ba5c", "#3C4661",]%>
@@ -8,9 +8,9 @@
 
     <div class="user-card side-left">
       <%= image_tag current_user.avatar, class: "avatar-large m-3" %>
-        <div class="name">
+      <div class="name">
         <h2><%=current_user.full_name %></h2>
-        </div>
+      </div>
       <div class="dates">
         <h2><%= Date.today.strftime("%A, %b %d") %></h2>
       </div>
@@ -28,7 +28,7 @@
           <i class="fas fa-plus-circle"></i>
           <% end %>
           <% end %>
-      </div>
+        </div>
 
 
       </div>
@@ -47,21 +47,21 @@
         <% else %>
         <div class="card-topthree">
 
-            <p class="title-weekly text-center">
-              <span>weekly report</span>
-            </p>
-            <%= render 'shared/top3' %>
+          <p class="title-weekly text-center">
+            <span>weekly report</span>
+          </p>
+          <%= render 'shared/top3' %>
 
 
 
 
-
-          </div>
-         <% colors = ["#6FCAB1","#E1616E","#F0C178", "#3C4661", "#EFECED", "#84ba5c", "#3C4661",]%>
-          <div class="card-piechart">Pie Chart<%= pie_chart WatchedVideo.group(:watch).count, colors: colors, messages: {empty: "No data"} %></div>
-          <% end %>
 
         </div>
+        <% colors = ["#6FCAB1","#E1616E","#F0C178", "#3C4661", "#EFECED", "#84ba5c", "#3C4661",]%>
+        <div class="card-piechart">Pie Chart<%= pie_chart WatchedVideo.group(:watch).count, colors: colors, messages: {empty: "No data"} %></div>
+        <% end %>
+
       </div>
     </div>
+  </div>
 
