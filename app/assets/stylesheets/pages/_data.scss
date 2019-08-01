@@ -16,13 +16,20 @@ font-size: 30px;
 
 }
 
-.title-stats span {
+// .title-stats span {
+// color: white;
+// font-size: 40px;
+// font-weight: lighter;
+// top: -70px;
+// position: relative;
+// left: 15px;
+// }
+
+.title-stats {
+position: absolute;
+top: -80px;
 color: white;
-font-size: 40px;
-font-weight: lighter;
-top: -70px;
-position: relative;
-left: 353px;
+left: 40%;
 }
 
 
