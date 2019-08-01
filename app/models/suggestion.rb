@@ -74,7 +74,7 @@ class Suggestion < ApplicationRecord
 
   def self.create_video_suggestions(watcher)
     # TODO
-    watched_videos = WatchedVideo.where(watch: Watch.where(watcher: watcher)).to_a
+    watched_videos = WatchedVideo.where(watch: Watch.where(watcher: watcher).take).to_a
     array_video = array.map {|wv| wv.video}
     array_video.unique!
     videos_count = Hash.new(0)

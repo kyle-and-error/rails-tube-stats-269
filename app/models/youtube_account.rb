@@ -31,8 +31,8 @@ class YoutubeAccount < ApplicationRecord
 
   validates :email, uniqueness: true
 
-  before_create :initialize_data
-  after_create :initialize_more_data
+  before_save :initialize_data
+  after_save :initialize_more_data
 
   def update(params)
     # init_history

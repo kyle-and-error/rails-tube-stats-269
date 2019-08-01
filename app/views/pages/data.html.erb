@@ -20,12 +20,12 @@
 
   <div class="cards-chart col-md-6 middle-charts">
     <h1>Pie Chart</h1>
-    <%= pie_chart Video.group(:title).count, colors: colors, messages: {empty: "No data"} %>
+    <%= pie_chart WatchedVideo.group(:watch).count, colors: colors, messages: {empty: "No data"} %>
   </div>
 
   <div class="cards-chart col-md-6 middle-charts">
     <h1>Line Chart</h1>
-    <%= line_chart Video.group(:title).count, colors: colors, messages: {empty: "No data"} %>
+    <%= line_chart WatchedVideo.group(:watch).count, colors: colors, messages: {empty: "No data"} %>
   </div>
 
   <div class= "cards-chart col-md-12">
