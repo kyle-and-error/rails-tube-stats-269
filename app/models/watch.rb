@@ -44,8 +44,8 @@ class Watch < ApplicationRecord
 
   def total_watch_time
     time = 0
-    videos.each do |video|
-      time += video.length
+    watched_videos.each do |watched_video|
+      time += watched_video.video.length
     end
     time
   end

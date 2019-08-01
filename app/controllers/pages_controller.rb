@@ -13,7 +13,11 @@ class PagesController < ApplicationController
   def data
     @youtube_account = YoutubeAccount.find(params["youtube_account_id"])
     @all = Watch.top_watched_by(@youtube_account)
-    @first_five = @all.first(5)
+    @first_five = []
+    @all.each do |watch|
+      @first_five << watch unless @first_five.map {|w| w.creator}.include?(watch.creator)
+    end
+    @first_five = @first_five.first(5)
     @first_five_sum = Watch.total_time(@first_five)
     @last = @all.drop(5)
     @last_sum = Watch.total_time(@last)
@@ -25,7 +29,11 @@ class PagesController < ApplicationController
     @youtube_account = current_user.youtube_accounts.first
     @authorization_url = authorization_url
     @all = Watch.top_watched_by(@youtube_account)
-    @first_five = @all.first(5)
+    @first_five = []
+    @all.each do |watch|
+      @first_five << watch unless @first_five.map {|w| w.creator}.include?(watch.creator)
+    end
+    @first_five = @first_five.first(5)
     @first_five_sum = Watch.total_time(@first_five)
     @last = @all.drop(5)
     @last_sum = Watch.total_time(@last)
