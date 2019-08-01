@@ -5,7 +5,33 @@
     <img src='<%= watch.creator.avatar %>' class='img-bar'>
     <div class="top3-info">
       <div class="top3-title">
-        <h4><%= watch.creator.title %></h4>
+        <h4 class="modal-opener" data-toggle="modal" data-target="#modal_<%= watch.creator.id %>"><%= watch.creator.title %></h4>
+        <div class="modal fade" id="modal_<%= watch.creator.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle"><%= watch.creator.title %> videos!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <% watch.creator.videos.each do |video| %>
+                    <div class="row">
+                      <div class="col-12">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= video.youtube_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <p>
           <%= Watch.readable_watch_time(watch.total_watch_time) %>
         </p>
@@ -18,7 +44,6 @@
     </div>
   </div>
   <% end%>
-
   <% bar_function = ((@last_sum.to_f / @absolute_total)*100.to_i) %>
   <div class="bar-item other-top3">
     <div class="top3-title">
@@ -34,7 +59,3 @@
       </div>
     </div>
   </div>
-
-
-
-
