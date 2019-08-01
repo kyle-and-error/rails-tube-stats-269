@@ -22,7 +22,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    youtube_account = current_user.youtube_accounts.first
+    @youtube_account = current_user.youtube_accounts.first
     @authorization_url = authorization_url
     @all = Watch.top_watched_by(@youtube_account)
     @first_five = @all.first(5)

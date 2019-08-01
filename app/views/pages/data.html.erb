@@ -24,7 +24,6 @@
   <div class="col-md-12 data-card">
     <div class="cards-chart">
       <p class="title-stats-span text-center"><span>Line Chart</span></p>
-   <%= line_chart Video.group(:length).count, colors: colors, messages: {empty: "No data"}, width: "100%" %>
 
     </div>
   </div>
@@ -34,7 +33,7 @@
   <div class="cards-chart">
  <p class="title-stats-span text-center"><span>Pie Chart</span></p>
 
- <%= pie_chart Video.group(:length).count.first(5), colors: colors, messages: {empty: "No data"} %>
+ <%= pie_chart WatchedVideo.group(:watch).count.first(5), colors: colors, messages: {empty: "No data"} %>
  </div>
 </div>
 
