@@ -1,5 +1,7 @@
+
 <div class="banner-particles" style="height: 100vh; position: absolute; width: 100vw;">
   <canvas class="background background-2" style="position: absolute; top: 0; left: 0;"></canvas>
+
 </div>
 
 <% colors = ["#D72638","#E89E2C","#EFECED", "#7394cb", "#e1974d", "#84ba5c", "#d35d60", "#8f66a7", "#ad6a58","#cbc374"] %>
@@ -19,17 +21,19 @@
     </div>
   </div>
 
+
 <div class="col-md-6 middle-charts">
   <div class="cards-chart">
  <div class="chart-label">Pie Chart</div>
- <%= pie_chart Video.group(:title).count, colors: colors, messages: {empty: "No data"} %>
+ <%= pie_chart WatchedVideo.group(:watch).count, colors: colors, messages: {empty: "No data"} %>
  </div>
 </div>
 
 <div class="col-md-6 middle-charts">
   <div class="cards-chart">
    <div class="chart-label">Line Chart</div>
-   <%= line_chart Video.group(:title).count, colors: colors, messages: {empty: "No data"} %>
+   <%= line_chart WatchedVideo.group(:watch).count, colors: colors, messages: {empty: "No data"} %>
+
   </div>
 </div>
 

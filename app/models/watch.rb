@@ -13,6 +13,23 @@ class Watch < ApplicationRecord
     watch.save!
   end
 
+  def self.top_watched_by(watcher)
+    watches_all = Watch.where(watcher: watcher).to_a
+    watches_all.sort do |a, b|
+      b.total_watch_time <=> a.total_watch_time
+    end
+    watches_all
+  end
+
+  def self.absolute_total_time(watcher)
+    watches_all = Watch.where(watcher: watcher).to_a
+    absolute_total = 0
+    watches_all.each do |watch|
+      absolute_total = watch.total_watch_time
+    end
+    absolute_total
+  end
+
   def latest_video_watched
     watched_videos.to_a.max_by {|o| o[:datetime_watched]}
   end
@@ -27,8 +44,8 @@ class Watch < ApplicationRecord
 
   def watch_time_since(datetime)
     time = 0
-    videos.each do |video|
-      time += video.length if watched_video.datetime_watched <= datetime
+    watched_videos.each do |watched|
+      time += watched.video.length if watched.datetime_watched <= datetime
     end
     time
   end

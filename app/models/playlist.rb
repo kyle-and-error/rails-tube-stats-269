@@ -18,9 +18,9 @@ class Playlist < ApplicationRecord
   end
 
   def self.init_playlist(yt_playlist, watcher)
-    list = Playlist.where(youtube_id: yt_playlist.id)
+    list = Playlist.where(youtube_id: yt_playlist.id).take
     if list.nil?
-      list = Playlist.new(creator: Creator.init_creator(yt_playlist.channel_id, account), title: yt_playlist.title)
+      list = Playlist.new(creator: Creator.init_creator(yt_playlist.channel_id, watcher), title: yt_playlist.title)
       list.youtube_id = yt_playlist.id
       list.thumbnail = yt_playlist.thumbnail_url
       list.description = yt_playlist.description

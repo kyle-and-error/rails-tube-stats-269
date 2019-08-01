@@ -31,8 +31,8 @@ class YoutubeAccount < ApplicationRecord
 
   validates :email, uniqueness: true
 
-  before_create :initialize_data
-  after_create :initialize_more_data
+  before_save :initialize_data
+  after_save :initialize_more_data
 
   def update(params)
     # init_history
@@ -75,13 +75,12 @@ class YoutubeAccount < ApplicationRecord
     Playlist.init_playlists(@account.playlists, @account)
     Playlist.init_playlists(@account.related_playlists, @account)
 
-    Suggestion.create_suggestions
+    # Suggestion.create_suggestions
   end
 
   # def get_authenticated_service
   #   client = Google::APIClient.new(
   #   )
-  #   byebug
   #   youtube = client.discovered_api(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION)
 
   #   file_storage = Google::APIClient::FileStorage.new("client_secrets.json")

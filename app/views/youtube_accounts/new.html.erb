@@ -10,7 +10,7 @@
           <h5 class="card-title">Add your additional accounts</h5>
           <div class="main-container">
           <div>
-            <%= simple_form_for @youtube_account do |f| %>
+            <%= simple_form_for [@youtube_account] do |f| %>
             <%= f.input  :name, label: "Name This account", class: "card-inputs" %>
             <%= f.hidden_field  :access_token, value: @access_token %>
             <%= f.hidden_field  :refresh_token, value: @refresh_token %>
