@@ -69,7 +69,7 @@ class Watch < ApplicationRecord
         hours = minutes / 60
         minutes = minutes % 60
         readable_time = "#{hours} hours and #{minutes} minutes"
-        if hours > 9
+        if hours > 15
           if minutes >= 30
             readable_time = "#{hours + 1} hours"
           else

@@ -11,7 +11,7 @@
         data.addColumn('number', 'Weight');
         data.addRows([
           <% Video.categories.each do |category| %>
-          [ '<%= Watch.absolute_total_time(@youtube_account)/60 %> Minutes', '<%= category %>', <%= Watch.watch_time_of_category(@youtube_account, category)/60 %>],
+          [ '<%= Watch.readable_watch_time(Watch.absolute_total_time(@youtube_account)) %>', '<%= category %>', <%= Watch.watch_time_of_category(@youtube_account, category) %>],
           <% end %>
         ]);
 
