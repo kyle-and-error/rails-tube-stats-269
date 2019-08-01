@@ -15,10 +15,14 @@ class Watch < ApplicationRecord
 
   def self.top_watched_by(watcher)
     watches_all = Watch.where(watcher: watcher).to_a
-    watches_all.sort do |a, b|
+    all = []
+    watches_all.each do |watch|
+      all << watch unless all.map {|w| w.creator}.include?(watch.creator)
+    end
+    all.sort! do |a, b|
       b.total_watch_time <=> a.total_watch_time
     end
-    watches_all
+    all
   end
 
   def self.absolute_total_time(watcher)
