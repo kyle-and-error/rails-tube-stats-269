@@ -1,4 +1,21 @@
 
+.title-stats-span span {
+
+background-color: #E89E2C;
+padding: 5px 10px;
+font-size: 27px;
+
+
+
+}
+
+
+.title-stats-span-text-center p {
+color: #0C183A;
+font-size: 30px;
+
+}
+
 .title-stats span {
 color: white;
 font-size: 40px;
@@ -9,23 +26,20 @@ left: 353px;
 }
 
 
-
-
-
 // .title-stats span {
 //  background-color: #E89E2C;
 //   padding: 5px 10px;
 // }
 
 .col-md-12 {
-  margin-top: 32px;
+  margin-top: 8px;
   position: relative;
 }
 
 
-.chart-label {
-margin-bottom: 30px;
-}
+// .chart-label {
+// margin-bottom: 30px;
+// }
 
 
 .fas .fa-chart-line {

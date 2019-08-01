@@ -9,8 +9,8 @@
 
 <div class="wrapper dashboard-frame dashboard-frame-margin row">
 
-  <!-- <div class="col-md-4">
-    <p class="data-page-header">
+
+    <!-- <p class="data-page-header">
       <span>Your <br> Statistics</span>
     </p>
   </div> -->
@@ -23,7 +23,7 @@
 
   <div class="col-md-12">
     <div class="cards-chart">
-      <div class="chart-label">Line Chart</div>
+      <p class="title-stats-span text-center"><span>Line Chart</span></p>
    <%= line_chart WatchedVideo.group(:watch).count, colors: colors, messages: {empty: "No data"} %>
 
     </div>
@@ -32,14 +32,14 @@
 
 <div class="col-md-6 middle-charts">
   <div class="cards-chart">
- <div class="chart-label">Pie Chart</div>
+ <p class="title-stats-span text-center"><span>Pie Chart</span></p>
  <%= pie_chart WatchedVideo.group(:watch).count.first(5), colors: colors, messages: {empty: "No data"} %>
  </div>
 </div>
 
 <div class="col-md-6 middle-charts">
   <div class="cards-chart">
-   <div class="chart-label">Line Chart</div>
+   <p class="title-stats-span text-center"><span>Your Top 3</span></p>
    <%= line_chart WatchedVideo.group(:watch).count, colors: colors, messages: {empty: "No data"} %>
 
   </div>
