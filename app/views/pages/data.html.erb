@@ -15,25 +15,27 @@
       <div class="charts-set">
         <div class="cards-chart">
           <p class="title-stats-span text-center"><span>Line Chart</span></p>
-          <%= line_chart Video.group(:length).count, colors: colors, messages: {empty: "No data"}, width: "100%" %>
+          <%= line_chart WatchedVideo.group_by_day(:datetime_watched).count %>
         </div>
         <div class="cards-chart">
-          <p class="title-stats-span text-center"><span>Pie Chart</span></p>
-          <%= pie_chart Video.group(:length).count.first(5), colors: colors, messages: {empty: "No data"} %>
+          <p class="title-stats-span text-center"><span>Most watched <strong>in minutes</strong></span></p>
+          <% test = [] %>
+  <% @first_five.each {|watch| test << [watch.creator.title, Watch.readable_watch_time(watch.total_watch_time)]} %>
+ <%= pie_chart test, colors: colors, messages: {empty: "No data"} %>
         </div>
       </div>
     </div>
 
     <div class="col-md-7 middle-charts data-card">
       <div class="cards-chart data-top3">
-       <p class="title-stats-span text-center"><span>Your Top 3</span></p>
+       <p class="title-stats-span text-center"><span>Your Top 5</span></p>
        <%= render 'shared/top3'%>
      </div>
    </div>
 
    <div class="col-md-12 data-card">
     <div class="cards-chart">
-     <div class="chart-label">Sankey</div>
+     <div class="chart-label"><span>Time spent divided <strong>by category</strong></span></div>
      <%= render 'shared/sankey' %>
    </div>
  </div>
