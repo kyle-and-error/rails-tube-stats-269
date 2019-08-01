@@ -12,6 +12,7 @@ class PagesController < ApplicationController
     youtube_account = YoutubeAccount.find(params["youtube_account_id"])
     @watches = Watch.top_watched_by(youtube_account)
     @absolute_total = Watch.absolute_total_time(youtube_account)
+    @color_function = "12,24,58"
   end
 
   def dashboard

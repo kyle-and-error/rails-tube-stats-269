@@ -25,7 +25,7 @@ class Watch < ApplicationRecord
     watches_all = Watch.where(watcher: watcher).to_a
     absolute_total = 0
     watches_all.each do |watch|
-      absolute_total = watch.total_watch_time
+      absolute_total += watch.total_watch_time
     end
     absolute_total
   end
