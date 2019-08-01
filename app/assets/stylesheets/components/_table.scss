@@ -12,6 +12,16 @@
 .modal-opener {
   cursor: pointer;
 }
+
+.modal-display {
+  background-color: #070C1D;
+  color: white;
+}
+.close {
+  color: white;
+  opacity: 1;
+}
+
 .top3-bar{
   display: flex;
   img {
