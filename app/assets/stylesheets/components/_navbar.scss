@@ -5,8 +5,8 @@
 //  box-shadow: none;
 // }
 
-.nav-link {
-  color: #D72638;
+.nav-link  {
+  color: white !important;
   font-size: 20px;
   letter-spacing: 0.05em;
   font-weight: 500;
@@ -18,8 +18,8 @@ top: 25px;
 }
 
 .fas.fa-home {
- color: rgba(0, 0, 0, 0.5);
- font-size: 20px;
+ color: white;
+ font-size: 32px;
  font-size: 36px;
  margin-right: 10px;
 }
@@ -30,9 +30,9 @@ top: 25px;
 }
 
 .nav-item .active {
-  color: #D72638;
-
+  color: white;
 }
+
 
 // .navbar-lewagon .navbar-brand img {
 //   width: 40px;

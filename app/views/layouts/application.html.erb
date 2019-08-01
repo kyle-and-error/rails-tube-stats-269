@@ -50,20 +50,23 @@
 
   <script type="text/javascript">
     window.onload = function() {
-      Particles.init({
-                selector: '.background',
-                color: ['#D72638', '#3AB795', '#E89E2C', '#0C183A'],
-                sizeVariations: 6,
-                speed: 0.5,
-                connectParticles: true
-            });
-    };
-  </script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+    Particles.init({
+        selector: '.background',
+        color: ['#D72638', '#3AB795', '#E89E2C', '#3c4661'],
+        sizeVariations: 8,
+        maxParticles: 150,
+        speed: 0.5,
+         connectParticles: true
+      });
+};
+</script>
 
-  <!--SLIDESHOW-->
-  <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+
+<!--SLIDESHOW-->
+ <script>
+
     var swiper = new Swiper('.swiper-container', {
       slidesPerView: 3,
       spaceBetween: 30,

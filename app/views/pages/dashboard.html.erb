@@ -1,10 +1,16 @@
-<!-- <div class="banner-dashboard" style="height: 100vh; position: absolute; width: 100vw;">
+
+<div class="banner-particles" style="height: 100vh; position: absolute; width: 100vw;">
   <canvas class="background background-2" style="position: absolute; top: 0; left: 0;"></canvas>
-</div> -->
-<div class="dashboard-frame dashboard-frame-margin row">
-  <div class="side-left">
+</div>
+<% colors = ["#D72638","#E89E2C","#EFECED", "#7394cb", "#e1974d", "#84ba5c", "#d35d60", "#8f66a7", "#ad6a58","#cbc374"] %>
+<div class="wrapper dashboard-frame dashboard-frame-margin row">
+  <div class="col-md-3 side-left">
+
     <div class="user-card side-left">
       <%= image_tag current_user.avatar, class: "avatar-large m-3" %>
+        <div class="name">
+        <h1><%=current_user.full_name %></h1>
+        </div>
       <div class= "dates">
         <h1><%= Date.today.strftime("%A, %b %d") %></h1>
       </div>
@@ -23,7 +29,7 @@
 
       </div>
     </div>
-    <div class="col-md-8 side-right">
+    <div class="col-md-9 side-right">
       <div class="tease">
         <div class= "tease-info">
           <h1> Welcome, <%=current_user.full_name %></h1>
@@ -36,9 +42,13 @@
         </div>
         <% else %>
         <div class="card-topthree">
-          <h2>weekly report</h1>
 
-            <p>First second and byee</p>
+            <p class="title-weekly text-center">
+              <span>weekly report</span>
+            </p>
+
+
+
 
 
           </div>
