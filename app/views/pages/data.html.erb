@@ -32,9 +32,10 @@
 
 <div class="col-md-6 middle-charts data-card">
   <div class="cards-chart">
- <p class="title-stats-span text-center"><span>Pie Chart</span></p>
-
- <%= pie_chart Video.group(:length).count.first(5), colors: colors, messages: {empty: "No data"} %>
+ <p class="title-stats-span text-center"><span>Most watched <strong>in minutes</strong></span></p>
+  <% test = [] %>
+  <% @first_five.each {|watch| test << [watch.creator.title, Watch.readable_watch_time(watch.total_watch_time)]} %>
+ <%= pie_chart test, colors: colors, messages: {empty: "No data"} %>
  </div>
 </div>
 
@@ -48,7 +49,7 @@
 
 <div class="col-md-12 data-card">
   <div class="cards-chart">
-   <div class="chart-label">Time spent divided by category</div>
+    <p class="title-stats-span text-center"><span>Time spent divided <strong>by category</strong></span></p>
    <%= render 'shared/sankey' %>
   </div>
 </div>
