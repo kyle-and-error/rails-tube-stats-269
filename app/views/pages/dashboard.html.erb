@@ -25,8 +25,8 @@
         <% end %>
         <!-- <a href="user_data_path(current_user)"> -->
           <%= link_to user_youtube_account_data_path(current_user, current_user.youtube_accounts.first) do %>
-          <i class="fas fa-plus-circle"></i>
-          <% end %>
+            <i class="fas fa-plus-circle"></i>
+            <% end %>
           <% end %>
       </div>
 
@@ -58,7 +58,10 @@
 
           </div>
          <% colors = ["#6FCAB1","#E1616E","#F0C178", "#3C4661", "#EFECED", "#84ba5c", "#3C4661",]%>
-          <div class="card-piechart">Pie Chart<%= pie_chart WatchedVideo.group(:watch).count, colors: colors, messages: {empty: "No data"} %></div>
+          <div class="card-piechart">Pie Chart
+            <% test = [] %>
+            <% @first_five.each {|watch| test << [watch.creator.title, Watch.readable_watch_time(watch.total_watch_time)]} %>
+            <%= pie_chart test, colors: colors, messages: {empty: "No data"} %>
           <% end %>
 
         </div>

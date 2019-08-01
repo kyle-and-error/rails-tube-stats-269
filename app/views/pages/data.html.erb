@@ -15,13 +15,15 @@
       <div class="charts-set">
         <div class="cards-chart">
           <p class="title-stats-span text-center"><span>Line Chart</span></p>
-          <%= line_chart WatchedVideo.group_by_day(:datetime_watched).count %>
+          <%= line_chart Watch.where(watcher: @youtube_account).to_a.map {|watch|
+            {name: watch.creator.title, data: watch.watched_videos.group_by_day(:datetime_watched).count}
+          }%>
         </div>
         <div class="cards-chart">
           <p class="title-stats-span text-center"><span>Most watched <strong>in minutes</strong></span></p>
           <% test = [] %>
-  <% @first_five.each {|watch| test << [watch.creator.title, Watch.readable_watch_time(watch.total_watch_time)]} %>
- <%= pie_chart test, colors: colors, messages: {empty: "No data"} %>
+          <% @first_five.each {|watch| test << [watch.creator.title, Watch.readable_watch_time(watch.total_watch_time)]} %>
+          <%= pie_chart test, colors: colors, messages: {empty: "No data"} %>
         </div>
       </div>
     </div>
