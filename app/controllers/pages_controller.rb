@@ -16,7 +16,11 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    yt = current_user.youtube_accounts.first
     @authorization_url = authorization_url
+    @watches = Watch.top_watched_by(yt)
+    @absolute_total = Watch.absolute_total_time(yt)
+    @color_function = "12,24,58"
   end
 
   def privacy_policy

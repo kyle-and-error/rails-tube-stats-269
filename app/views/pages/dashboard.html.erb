@@ -18,14 +18,18 @@
 
 
       <div class= "pages-icons">
-        <%= link_to user_youtube_account_data_path(current_user, 1) do %>
+        <% unless current_user.youtube_accounts.empty? %>
+
+        <%= link_to user_youtube_account_data_path(current_user, current_user.youtube_accounts.first) do %>
         <i class="fas fa-chart-pie"></i>
         <% end %>
         <!-- <a href="user_data_path(current_user)"> -->
-          <%= link_to user_youtube_account_data_path(current_user, 1) do %>
+          <%= link_to user_youtube_account_data_path(current_user, current_user.youtube_accounts.first) do %>
           <i class="fas fa-plus-circle"></i>
           <% end %>
-        </div>
+          <% end %>
+      </div>
+
 
       </div>
     </div>
@@ -46,6 +50,7 @@
             <p class="title-weekly text-center">
               <span>weekly report</span>
             </p>
+            <%= render 'shared/top3' %>
 
 
 
