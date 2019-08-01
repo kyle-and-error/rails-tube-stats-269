@@ -2,7 +2,7 @@
 <div class="banner-particles" style="height: 100vh; position: absolute; width: 100vw;">
   <canvas class="background background-2" style="position: absolute; top: 0; left: 0;"></canvas>
 </div>
-<% colors = ["#D72638","#E89E2C","#EFECED", "#7394cb", "#e1974d", "#84ba5c", "#d35d60", "#8f66a7", "#ad6a58","#cbc374"] %>
+<% colors = ["#6FCAB1","#E1616E","#F0C178", "#3C4661", "#EFECED", "#84ba5c", "#3C4661",]%>
 <div class="wrapper dashboard-frame dashboard-frame-margin row">
   <div class="col-md-3 side-left">
 
@@ -57,8 +57,8 @@
 
 
           </div>
-          <% colors = ["#3AB795", "#191923","#D72638","#E89E2C","#EFECED", "#FEB801"] %>
-          <div class="card-piechart"><%= pie_chart WatchedVideo.group(:watch).count, colors: colors, messages: {empty: "No data"} %></div>
+         <% colors = ["#6FCAB1","#E1616E","#F0C178", "#3C4661", "#EFECED", "#84ba5c", "#3C4661",]%>
+          <div class="card-piechart">Pie Chart<%= pie_chart WatchedVideo.group(:watch).count, colors: colors, messages: {empty: "No data"} %></div>
           <% end %>
 
         </div>

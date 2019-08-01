@@ -1,3 +1,54 @@
+
+.title-stats-span span {
+
+background-color: #E89E2C;
+padding: 5px 10px;
+font-size: 27px;
+
+
+
+}
+
+
+.title-stats-span-text-center p {
+color: #0C183A;
+font-size: 30px;
+
+}
+
+// .title-stats span {
+// color: white;
+// font-size: 40px;
+// font-weight: lighter;
+// top: -70px;
+// position: relative;
+// left: 15px;
+// }
+
+.title-stats {
+position: absolute;
+top: -80px;
+color: white;
+left: 40%;
+}
+
+
+// .title-stats span {
+//  background-color: #E89E2C;
+//   padding: 5px 10px;
+// }
+
+.col-md-12 {
+  margin-top: 8px;
+  position: relative;
+}
+
+
+// .chart-label {
+// margin-bottom: 30px;
+// }
+
+
 .fas .fa-chart-line {
   margin: 20px;
 }
@@ -24,6 +75,8 @@
 .datapage-header span {
 background-color: #E89E2C;
 padding: 5px 10px;
+margin-top: 90px;
+margin-left: 90px;
 }
 
 .datapage-header i {
@@ -63,13 +116,25 @@ font-weight: bold;
 
 
 .cards-chart {
-  margin: 30px;
-  margin-bottom: 30px;
-//border: 1px solid red;
-  justify-content: center;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  background: white;
+//   padding: 38px 0;
+//   -webkit-box-pack: center;
+//   // margin: 30px;
+//   margin-bottom: 30px;
+// //border: 1px solid red;
+//   justify-content: center;
+//   box-shadow: 0 0 3px rgba(0,0,0,0.2);
+//   border-radius: 5px;
+//   background: white;
+
+ padding: 38px 0;
+    /* margin: 0px; */
+    margin-bottom: 30px;
+    -webkit-box-pack: center;
+    justify-content: center;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    background: white;
+
   .chart-label {
     font-size: 30px;
     text-align: center;
