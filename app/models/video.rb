@@ -28,4 +28,13 @@ class Video < ApplicationRecord
     end
     video
   end
+
+  def self.categories
+    videos = Video.all.to_a
+    categories = []
+    videos.each do |video|
+      categories << video.category unless categories.include?(video.category)
+    end
+    categories
+  end
 end

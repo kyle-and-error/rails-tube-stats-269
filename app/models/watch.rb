@@ -88,4 +88,13 @@ class Watch < ApplicationRecord
     end
     watches.first
   end
+
+  def self.watch_time_of_category(watcher, category)
+    time = 0
+    watched_videos = WatchedVideo.where(watch: Watch.where(watcher: watcher))
+    watched_videos.each do |watched|
+      time += watched.video.length if watched.video.category == category
+    end
+    time
+  end
 end
