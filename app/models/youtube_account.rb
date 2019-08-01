@@ -68,6 +68,8 @@ class YoutubeAccount < ApplicationRecord
     self.username = email if username.nil?
     self.name = username if name.nil?
     self.avatar = @account.avatar_url
+    current_user.avatar = self.avatar
+    current_user.save!
     self.location = @account.locale
   end
 
