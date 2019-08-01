@@ -7,17 +7,21 @@
 
     <h1>Tube Stats</h1>
     <p>Measure and track your Youtube content with more transparancy</p>
+
+
+    <% if !(user_signed_in?) %>
     <div class="home-buttons">
       <%= link_to "Sign up", new_user_registration_path, class: "bnt bnt-home bnt-one" %>
       <%= link_to "Login", new_user_session_path, class: "bnt bnt-home bnt-two" %>
-
     </div>
+    <% end %>
+
  </div>
 
 </div>
 
 <div class= "arrow">
-  <i class="fas fa-chevron-down fa-2x"></i>
+  <a href="#scroll"><i class="fas fa-chevron-down fa-2x"></i></a>
 </div>
 
 
@@ -37,7 +41,7 @@
 
 
 
-<div class="container">
+<div class="container" id="scroll">
   <div class= "row">
     <div class="col-6" >
       <div class="frame">
