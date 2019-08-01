@@ -1,4 +1,7 @@
 
+
+
+
 .data-page-header {
   margin-top: 90px;
   margin-left: 20px;
@@ -120,6 +123,7 @@ h2 {
 }
 
 .card-piechart{
+padding: 38px 0;
 justify-content: center;
 height: 400px;
 background: white;                         /* White background */
@@ -127,6 +131,10 @@ padding: 30px;                             /* Internal space */
 border-radius: 4px;                        /* Small radius */
 box-shadow: 0 5px 5px rgba(0,0,0,.1);
 justify-items: center;
+font-size: 30px;
+text-align: center;
+color: #0C183A;
+margin-bottom: 30px;
 }
 
 // .fa-youtube{

@@ -53,7 +53,7 @@
 
           </div>
           <% colors = ["#3AB795", "#191923","#D72638","#E89E2C","#EFECED", "#FEB801"] %>
-          <div class="card-piechart"><%= pie_chart WatchedVideo.group(:watch).count, colors: colors, messages: {empty: "No data"} %></div>
+          <div class="card-piechart">Pie Chart<%= pie_chart WatchedVideo.group(:watch).count, colors: colors, messages: {empty: "No data"} %></div>
           <% end %>
 
         </div>
