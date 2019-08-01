@@ -33,7 +33,8 @@
 <div class="col-md-6 middle-charts data-card">
   <div class="cards-chart">
  <p class="title-stats-span text-center"><span>Pie Chart</span></p>
- <%= pie_chart Video.group(:title).count.first(5), colors: colors, messages: {empty: "No data"} %>
+
+ <%= pie_chart Video.group(:length).count.first(5), colors: colors, messages: {empty: "No data"} %>
  </div>
 </div>
 
