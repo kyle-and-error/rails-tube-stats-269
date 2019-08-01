@@ -2,6 +2,8 @@ require 'google/apis/youtube_v3'
 require 'google/api_client/client_secrets'
 class PagesController < ApplicationController
   DOMAIN = ENV["DOMAIN"]
+  HTTP = "http"
+  HTTP = "https" if DOMAIN.include?('tube')
   skip_before_action :authenticate_user!, only: [:home, :privacy_policy]
   before_action :authorize_url
 
@@ -31,7 +33,7 @@ class PagesController < ApplicationController
     auth_client = client_secrets.to_authorization
     auth_client.update!(
       scope: ['https://www.googleapis.com/auth/youtube', 'https://www.googleapis.com/auth/youtube.readonly', 'https://www.googleapis.com/auth/userinfo.email'],
-      redirect_uri: "https://#{DOMAIN}/youtube_accounts/new",
+      redirect_uri: "#{HTTP}://#{DOMAIN}/youtube_accounts/new",
       additional_parameters: {
         "access_type" => "offline",         # offline access
         "include_granted_scopes" => "true"  # incremental auth

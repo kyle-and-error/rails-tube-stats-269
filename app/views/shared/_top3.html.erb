@@ -1,5 +1,6 @@
 <ul>
-  <% @watches.first(5) do |watch| %>
+  <% @watches.first(5).each do |watch| %>
+
   <div>
     <% bar_function = ((watch.total_watch_time / @absolute_total) * 100).to_i %>
     <li class="top3-bar">
