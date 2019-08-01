@@ -3,10 +3,12 @@ color: #0C183A;
 font-size: 30px;
 }
 
-.title-stats-span span {
-  font-size: 20px;
+.charts-set {
+  // margin-bottom: 18px;
+  .cards-chart:last-child {
+    margin-bottom: 0 !important;
+  }
 }
-
 .title-stats {
 top: -60px;
 color: white;
@@ -63,11 +65,9 @@ font-weight: bold;
 }
 
 .container-time {
- display: flex;
- padding: 50px 0;
+  display: flex;
+  padding: 50px 0;
 }
-
-
 
 .top-left-container{
  display:flex;
@@ -82,19 +82,21 @@ font-weight: bold;
 
 .data-card {
  margin-bottom: 30px;
+  .data-top3 {
+    padding-right: 50px;
+    padding-left: 50px;
+  }
 }
 
 .cards-chart {
-
- padding: 38px 0;
-    /* margin: 0px; */
-    margin-bottom: 30px;
-    -webkit-box-pack: center;
-    justify-content: center;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    background: white;
-    height: 100%;
+  padding: 38px 0;
+  margin-bottom: 30px;
+  -webkit-box-pack: center;
+  justify-content: center;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background: white;
+  height: 100%;
 
   .chart-label {
     font-size: 30px;

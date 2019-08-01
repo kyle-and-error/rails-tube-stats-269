@@ -5,7 +5,7 @@
 }
 
 
-.name h1 {
+.name h2 {
 color: #BDBDBD;
 font-size: 14px;
 display: inline;
@@ -31,6 +31,9 @@ display: inline;
   background-color: #F3F1F1;
   position: relative;
   height: 100%;
+  h1 {
+    color: white !important;
+  }
 }
 
 .user-card {
@@ -82,22 +85,10 @@ text-transform: uppercase;
   padding: 5px 10px;
 }
 .tease h1 {
-top: -70px;
-position: relative;
-font-size: 40px;
-color: white;
-}
-
-.card-topthree {
-height: 400px;
-    background: white;
-    padding: 30px;
-    border-radius: 4px;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1)
-
-h2 {
-  color: #E89E2C;
-}
+  top: -70px;
+  position: relative;
+  font-size: 40px;
+  color: white;
 }
 
 .card-piechart{
@@ -115,7 +106,7 @@ color: #0C183A;
 margin-bottom: 30px;
 }
 
-.dates h1 {
+.dates h2 {
 color: #E89E2C;
 font-size: 18px;
 display: inline;

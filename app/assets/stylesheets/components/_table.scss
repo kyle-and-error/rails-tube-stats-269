@@ -1,28 +1,55 @@
 .bar-item{
-  margin: 8px;
+  padding: 18px 0;
+  border-bottom: 1px solid #F5F5F5;
+}
+.other-top3 {
+  h4 {
+    font-weight: bolder;
+    font-size: 15px;
+  }
 }
 .top3-bar{
   display: flex;
+  img {
+    width: 65px;
+    height: 65%;
+    display: block;
+    border-radius: 50%;
+    margin-right: 35px;
+  }
+  h4 {
+    font-size: 18px;
+  }
+  h4, h6{
+    color: inherit;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+
+  .top3-info {
+    width: 100%;
+  }
 }
-.img-bar{
-  width: 80px;
-  display: block;
-  border-radius: 50%;
-  margin: 5px;
+.top3-title {
+    display: flex;
+    justify-content: space-between;
+    p {
+      text-align: right !important;
+      color: #969696 !important;
+    }
+  }
+.card-topthree {
+  background: white;
+  padding: 30px 90px;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
 }
+
 .bar-container{
   border-radius: 10px;
 }
 .hiddenbar-container{
-  width: 500px;
+  width: 100%;
 }
-h4, h6{
-  color: black;
-  font-weight: bold;
-  margin: 20px;
-  display: inline-block;
-}
-hr{
-  width: 500px;
-}
-

@@ -11,3 +11,14 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  position: relative;
+  height: 100%;
+  background: white;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 14px;
+  color:#0C183A;
+  margin: 0;
+  padding: 0;
+}
