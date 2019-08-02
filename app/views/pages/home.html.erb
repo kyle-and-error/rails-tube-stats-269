@@ -6,7 +6,7 @@
   <div class="banner-content text-center">
 
     <h1>Tube Stats</h1>
-    <p>Measure and track your Youtube content with more transparancy</p>
+    <p>Measure and track your Youtube behaviour with more transparancy</p>
 
 
     <% if !(user_signed_in?) %>
@@ -18,9 +18,6 @@
    <%else%>
     <div class="home-buttons">
       <%= link_to "My Dashboard", user_dashboard_path(current_user), class: "bnt bnt-home bnt-three" %>
-
-
-
     </div>
     <% end %>
 
@@ -47,8 +44,6 @@
 
 
 
-
-
 <div class="container" id="scroll">
   <div class= "row">
     <div class="col-6" >
@@ -67,7 +62,7 @@
 <div class="container">
   <div class= "row">
     <div class="col-6">
-    <h1>Channel suggestions</h1>
+    <h1>Time spent on Youtube</h1>
       <p>A Trackingtool for your time spent on Youtube, will provide new content creators based on your behaviour.</p>
     </div>
     <div class="col-6" >
@@ -89,8 +84,8 @@
         </div>
       </div>
       <div class="col-6">
-        <h1>Video suggestions</h1>
-        <p>Using the latest tecnologies to provide you with the contant you want- giving new inputs for your watching pleasure</p>
+        <h1>Data transparency</h1>
+        <p>It is our responsibility to be transparent about the data we collect</p>
       </div>
     </div>
   </div>

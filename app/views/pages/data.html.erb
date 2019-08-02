@@ -7,6 +7,8 @@
 <% colors = ["#6FCAB1","#E1616E","#F0C178", "#3C4661", "#EFECED", "#84ba5c", "#3C4661",]%>
 
 
+
+
 <div class="wrapper dashboard-frame row pt-5 data-frame">
 
     <h1 class="col-md-12 title-stats">Your Statistics</h1>
@@ -14,13 +16,13 @@
     <div class="col-md-5 data-card">
       <div class="charts-set">
         <div class="cards-chart">
-          <p class="title-stats-span text-center"><span>Line Chart</span></p>
-          <%= line_chart @first_five.map {|watch|
+          <p class="title-y-tube-text-center"><span>Line chart</span></p>
+         <%= line_chart @first_five.map {|watch|
             {name: watch.creator.title, data: watch.watched_videos.group_by_day(:datetime_watched).count}
           }%>
         </div>
         <div class="cards-chart">
-          <p class="title-stats-span text-center"><span>Most watched <strong>in minutes</strong></span></p>
+          <p class="title-y-tube-text-center"><span>Most watched <strong>in minutes</strong></span></p>
           <% test = [] %>
           <% @first_five.each {|watch| test << [watch.creator.title, Watch.readable_watch_time(watch.total_watch_time)]} %>
           <%= pie_chart test, colors: colors, messages: {empty: "No data"} %>
@@ -30,14 +32,15 @@
 
     <div class="col-md-7 middle-charts data-card">
       <div class="cards-chart data-top3">
-       <p class="title-stats-span text-center"><span>Your Top 5</span></p>
+       <p class="title-y-tube-text-center"><span>Your Top 5</span></p>
        <%= render 'shared/top3'%>
      </div>
    </div>
 
    <div class="col-md-12 data-card">
     <div class="cards-chart">
-     <div class="chart-label"><span>Time spent divided <strong>by category</strong></span></div>
+      <p class="title-y-tube-text-center"><span>Time spent divided by category</span></p>
+
      <%= render 'shared/sankey' %>
    </div>
  </div>
