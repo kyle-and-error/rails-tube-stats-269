@@ -15,13 +15,13 @@
       <%= link_to "Sign up", new_user_registration_path, class: "bnt bnt-home bnt-one" %>
       <%= link_to "Login", new_user_session_path, class: "bnt bnt-home bnt-two" %>
     </div>
-   <%else%>
+    <%else%>
     <div class="home-buttons">
       <%= link_to "My Dashboard", user_dashboard_path(current_user), class: "bnt bnt-home bnt-three" %>
     </div>
     <% end %>
 
- </div>
+  </div>
 
 </div>
 
@@ -41,11 +41,9 @@
 
 </div> -->
 
-
-
-
 <div class="container" id="scroll">
   <div class= "row">
+
     <div class="col-6" >
       <div class="frame">
         <%= image_tag "image 1.png"%>
@@ -55,14 +53,9 @@
       <h1>Data presentation</h1>
       <p>Measure and track your watched content on Youtube with more transparancy. Explore your Youtube behaviour in various ways.</p>
     </div>
-  </div>
-</div>
 
-
-<div class="container">
-  <div class= "row">
     <div class="col-6">
-    <h1>Time spent on Youtube</h1>
+      <h1>Time spent on Youtube</h1>
       <p>A Trackingtool for your time spent on Youtube, will provide new content creators based on your behaviour.</p>
     </div>
     <div class="col-6" >
@@ -71,21 +64,17 @@
         <%= image_tag "image 2.png" %>
       </div>
     </div>
-  </div>
 
-
-
-  <div class="container">
-    <div class= "row">
-      <div class="col-6" >
-
-        <div class="frame">
-          <%= image_tag "image 3.png" %>
-        </div>
-      </div>
-      <div class="col-6">
-        <h1>Data transparency</h1>
-        <p>It is our responsibility to be transparent about the data we collect</p>
+    <div class="col-6" >
+      <div class="frame">
+        <%= image_tag "image 3.png" %>
       </div>
     </div>
+    <div class="col-6">
+      <h1>Data transparency</h1>
+      <p>It is our responsibility to be transparent about the data we collect</p>
+    </div>
+
+
   </div>
+</div>
