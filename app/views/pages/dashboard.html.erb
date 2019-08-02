@@ -1,12 +1,10 @@
 <div class="banner-particles" style="height: 100%; position: absolute; width: 100vw;">
-<!--   <canvas class="background background-2" style="position: absolute; top: 0; left: 0;"></canvas> -->
-  <canvas class="background background-2" style="position: absolute; top: 0; left: 0;z-index: -1;"></canvas>
-
+  <canvas class="background background-2" style="position: absolute; top: 0; left: 0;"></canvas>
+  <!-- <canvas class="background background-2" style="position: absolute; top: 0; left: 0;z-index: -1;"></canvas> -->
 </div>
 <% colors = ["#6FCAB1","#E1616E","#F0C178", "#3C4661", "#EFECED", "#84ba5c", "#3C4661",]%>
 <div class="wrapper dashboard-frame dashboard-frame-margin row">
   <div class="col-md-3 side-left">
-
     <div class="user-card side-left">
       <%= image_tag current_user.avatar, class: "avatar-large m-3" %>
       <div class="name">
@@ -16,61 +14,44 @@
         <h2><%= Date.today.strftime("%A, %b %d") %></h2>
       </div>
 
-
-
       <div class= "pages-icons">
         <% unless current_user.youtube_accounts.empty? %>
-
-        <%= link_to user_youtube_account_data_path(current_user, current_user.youtube_accounts.first) do %>
-        <i class="fas fa-chart-pie"></i>
-        <% end %>
+          <%= link_to user_youtube_account_data_path(current_user, current_user.youtube_accounts.first) do %>
+            <i class="fas fa-chart-pie"></i>
+          <% end %>
         <!-- <a href="user_data_path(current_user)"> -->
           <%= link_to user_youtube_account_data_path(current_user, current_user.youtube_accounts.first) do %>
             <i class="fas fa-plus-circle"></i>
-            <% end %>
           <% end %>
-        </div>
-
-
+        <% end %>
       </div>
     </div>
-    <div class="col-md-9 side-right">
-      <div class="tease">
-        <div class= "tease-info">
-          <h1> Welcome, <strong><%=current_user.full_name %></strong></h1>
-        </div>
+  </div>
+  <div class="col-md-9 side-right">
+    <div class="tease">
+      <div class= "tease-info">
+        <h1> Welcome, <strong><%=current_user.full_name %></strong></h1>
       </div>
-      <div>
-        <% if current_user.youtube_accounts.count == 0 %>
+    </div>
+    <div>
+      <% if current_user.youtube_accounts.count == 0 %>
         <div>
           <a href=<%= @authorization_url %>>Please add a Youtube Account</a>
         </div>
-        <% else %>
+      <% else %>
         <div class="card-topthree">
-
           <p class="title-weekly text-center">
             <span>Weekly Report</span>
           </p>
           <%= render 'shared/top3' %>
-
-          </div>
-         <% colors = ["#6FCAB1","#E1616E","#F0C178", "#3C4661", "#EFECED", "#84ba5c", "#3C4661",]%>
-          <div class="card-piechart">Pie Chart
-            <% test = [] %>
-            <% @first_five.each {|watch| test << [watch.creator.title, Watch.readable_watch_time(watch.total_watch_time)]} %>
-            <%= pie_chart test, colors: colors, messages: {empty: "No data"} %>
-          <% end %>
-
         </div>
-        <% colors = ["#6FCAB1","#E1616E","#F0C178", "#3C4661", "#EFECED", "#84ba5c", "#3C4661",]%>
 
-
-        <div class="card-piechart">
-          <p class="title-y-tube-text-center title-y-tube-text-center-one"><span>Pie Chart</span></p>
-          <%= pie_chart WatchedVideo.group(:watch).count, colors: colors, messages: {empty: "No data"} %></div>
-        <% end %>
-
-      </div>
+        <div class="card-piechart"><p class="title-y-tube-text-center title-y-tube-text-center-one"><span>Time spent on your Top 5 Channels</span></p>
+          <% test = [] %>
+          <% @first_five.each {|watch| test << [watch.creator.title, Watch.readable_watch_time(watch.total_watch_time)]} %>
+          <%= pie_chart test, colors: colors, messages: {empty: "No data"} %>
+        </div>
+      <% end %>
     </div>
   </div>
-
+</div>
