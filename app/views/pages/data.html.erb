@@ -15,7 +15,7 @@
       <div class="charts-set">
         <div class="cards-chart">
           <p class="title-stats-span text-center"><span>Line Chart</span></p>
-          <%= line_chart Watch.where(watcher: @youtube_account).to_a.map {|watch|
+          <%= line_chart @first_five.map {|watch|
             {name: watch.creator.title, data: watch.watched_videos.group_by_day(:datetime_watched).count}
           }%>
         </div>
