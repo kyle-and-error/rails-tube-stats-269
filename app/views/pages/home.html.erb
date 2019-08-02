@@ -1,5 +1,5 @@
 <div style="height: 100vh; position: absolute; width: 100vw; top: 0;">
-  <canvas class="background" style="position: absolute; height: 100vh !important; top: 0; left: 0; display: block; z-index: -1"></canvas>
+  <canvas class="background" style="position: absolute; height: 100vh !important; top: 0; left: 0; display: block;z-index: -1"></canvas>
 </div>
 
 <div class="banner">
@@ -17,10 +17,7 @@
     </div>
    <%else%>
     <div class="home-buttons">
-      <%= link_to "SHOW MORE", user_dashboard_path(current_user), class: "bnt bnt-home bnt-three" %>
-
-
-
+      <%= link_to "My Dashboard", user_dashboard_path(current_user), class: "bnt bnt-home bnt-three" %>
     </div>
     <% end %>
 

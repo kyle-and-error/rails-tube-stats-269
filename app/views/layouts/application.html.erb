@@ -43,6 +43,12 @@
   <%= render 'shared/navbar'%>
   <%= render 'shared/flashes' %>
   <%= yield %>
+  <div class="footer">
+
+  <div class="footer-copyright">
+    <div class="footer-copyright"><p id="footer-text">  This site is a work in progress! We would appreciate it if you didn't mind the mess and forgave us for any missing features that will surely be added soon. This footer is made with<i class="fas fa-heart"></i> at Le Wagon.</p>
+  </div>
+</div>
   <%= javascript_include_tag 'application' %>
   <%= javascript_pack_tag 'application' %>
 
@@ -84,7 +90,7 @@
     });
   </script>
 
-
+</div>
 </body>
 </html>
 

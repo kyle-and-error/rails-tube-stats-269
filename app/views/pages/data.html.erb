@@ -1,6 +1,6 @@
 
 <div class="banner-particles" style="height: 100%; position: absolute; width: 100vw;">
-  <canvas class="background background-2" style="position: absolute; top: 0; left: 0;"></canvas>
+  <canvas class="background background-2" style="position: absolute; top: 0; left: 0;z-index: -1;"></canvas>
 
 </div>
 
@@ -17,13 +17,15 @@
       <div class="charts-set">
         <div class="cards-chart">
           <p class="title-y-tube-text-center"><span>Line chart</span></p>
-          <%= line_chart WatchedVideo.group_by_day(:datetime_watched).count %>
+         <%= line_chart @first_five.map {|watch|
+            {name: watch.creator.title, data: watch.watched_videos.group_by_day(:datetime_watched).count}
+          }%>
         </div>
         <div class="cards-chart">
           <p class="title-y-tube-text-center"><span>Most watched <strong>in minutes</strong></span></p>
           <% test = [] %>
-  <% @first_five.each {|watch| test << [watch.creator.title, Watch.readable_watch_time(watch.total_watch_time)]} %>
- <%= pie_chart test, colors: colors, messages: {empty: "No data"} %>
+          <% @first_five.each {|watch| test << [watch.creator.title, Watch.readable_watch_time(watch.total_watch_time)]} %>
+          <%= pie_chart test, colors: colors, messages: {empty: "No data"} %>
         </div>
       </div>
     </div>
