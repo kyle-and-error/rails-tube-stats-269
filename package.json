@@ -10,7 +10,7 @@
     "particles.js": "^2.0.0",
    "particlesjs": "^2.2.3",
 
-    "swiper": "^4.5.0"
+    "swiper": "^6.5.1"
 
   },
   "devDependencies": {
